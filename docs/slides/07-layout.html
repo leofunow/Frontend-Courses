@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ru" data-color-mode="light" data-light-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Слайды: 7. Flexbox и Grid</title>
+<link rel="stylesheet" href="../assets/vendor/reveal/reset.css">
+<link rel="stylesheet" href="../assets/vendor/reveal/reveal.css">
+<link rel="stylesheet" href="../assets/vendor/primer-primitives.css">
+<link rel="stylesheet" href="../assets/vendor/github-markdown-light.css">
+<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../assets/slides.css">
+</head>
+<body class="slides-page">
+<div class="reveal"><div class="slides">
+<section class="title-slide"><div class="slide-body"><p class="kicker">Модуль 1. HTML и CSS. Урок 7</p><h1>Flexbox и Grid</h1><p class="sub">Раскладка элементов на странице</p><p class="course"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-mortar-board octicon" aria-hidden="true" data-component="Octicon"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"></path></svg>Фронтенд с нуля</p></div><aside class="notes"><p><b>Титульный слайд</b> — 1 мин</p><p><strong>На слайде:</strong> название урока.</p>
+<p><strong>Рассказать:</strong> до сегодня всё стояло столбиком. Сегодня научимся ставить элементы куда нужно.</p>
+</aside></section>
+<section class="statement "><div class="slide-body"><p>Две раскладки на все случаи: Flexbox — одна линия, Grid — сетка</p>
+</div><aside class="notes"><p><b>Две раскладки на все случаи</b> — 1 мин</p><p><strong>На слайде:</strong> тезис.</p>
+<p><strong>Рассказать:</strong> старые способы — float, таблицы — забываем. Flexbox и Grid покрывают всё.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="поток-документа">Поток документа</h2>
+<figure class="shot"><a href="../lessons/07-layout/img/layout-flow.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/07-layout/img/layout-flow.webp" alt="Блочные — друг под другом, строчные — в строку" loading="lazy"></a><figcaption>Блочные — друг под другом, строчные — в строку</figcaption></figure></div><aside class="notes"><p><b>Поток документа</b> — 4 мин</p><p><strong>На слайде:</strong> блочные и строчные элементы.</p>
+<p><strong>Рассказать:</strong> почему заголовок всегда с новой строки, а ссылка — нет.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="display">display</h2>
+<table>
+<thead>
+<tr>
+<th>Значение</th>
+<th>Что делает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>block</code></td>
+<td>новая строка, вся ширина</td>
+</tr>
+<tr>
+<td><code>inline</code></td>
+<td>в строку с текстом</td>
+</tr>
+<tr>
+<td><code>none</code></td>
+<td>исчезает</td>
+</tr>
+<tr>
+<td><code>flex</code></td>
+<td>дети в ряд</td>
+</tr>
+<tr>
+<td><code>grid</code></td>
+<td>дети в сетку</td>
+</tr>
+</tbody>
+</table>
+</div><aside class="notes"><p><b>display</b> — 3 мин</p><p><strong>На слайде:</strong> таблица значений display.</p>
+<p><strong>Показать вживую:</strong> в DevTools поменять <code>display</code> у абзаца на <code>inline</code> и <code>none</code>.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="flexbox-шапка">Flexbox: шапка</h2>
+<figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">.header</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#005CC5">  display</span><span style="color:#24292E">: </span><span style="color:#005CC5">flex</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  justify-content</span><span style="color:#24292E">: </span><span style="color:#005CC5">space-between</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  align-items</span><span style="color:#24292E">: </span><span style="color:#005CC5">center</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre></figure>
+<p><code>display: flex</code> — родителю, двигаются его дети</p>
+</div><aside class="notes"><p><b>Flexbox: шапка</b> — 6 мин</p><p><strong>На слайде:</strong> три строки CSS для шапки.</p>
+<p><strong>Показать вживую:</strong> песочница «Шапка на Flexbox»: убрать display flex, убрать justify-content, поменять space-between на center.</p>
+<p><strong>Спросить:</strong> «Кому пишем display: flex — header или ссылкам?» Ответ: header — родителю.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="две-оси">Две оси</h2>
+<figure class="shot"><a href="../lessons/07-layout/img/layout-axes.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/07-layout/img/layout-axes.webp" alt="" loading="lazy"></a></figure></div><aside class="notes"><p><b>Две оси</b> — 4 мин</p><p><strong>На слайде:</strong> главная и поперечная оси.</p>
+<p><strong>Рассказать:</strong> justify — вдоль, align — поперёк. После flex-direction column роли меняются.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="justify-content">justify-content</h2>
+<figure class="shot"><a href="../lessons/07-layout/img/layout-justify-wide.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/07-layout/img/layout-justify-wide.webp" alt="" loading="lazy"></a></figure></div><aside class="notes"><p><b>justify-content</b> — 5 мин</p><p><strong>На слайде:</strong> шесть значений.</p>
+<p><strong>Рассказать:</strong> запоминать все не нужно: чаще всего хватает space-between и center.</p>
+<p><strong>Спросить:</strong> ученик называет, какое значение нужно для шапки и для кнопок «Назад / Далее» по краям.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="align-items">align-items</h2>
+<figure class="shot"><a href="../lessons/07-layout/img/layout-align.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/07-layout/img/layout-align.webp" alt="" loading="lazy"></a></figure></div><aside class="notes"><p><b>align-items</b> — 4 мин</p><p><strong>На слайде:</strong> четыре значения на элементах разной высоты.</p>
+<p><strong>Рассказать:</strong> stretch — по умолчанию, поэтому колонки одинаковой высоты «сами».</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="точно-по-центру">Точно по центру</h2>
+<figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">.screen</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#005CC5">  display</span><span style="color:#24292E">: </span><span style="color:#005CC5">flex</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  justify-content</span><span style="color:#24292E">: </span><span style="color:#005CC5">center</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  align-items</span><span style="color:#24292E">: </span><span style="color:#005CC5">center</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre></figure>
+</div><aside class="notes"><p><b>Точно по центру</b> — 4 мин</p><p><strong>На слайде:</strong> центрирование в три строки.</p>
+<p><strong>Показать вживую:</strong> песочница «Точно по центру». Поменять высоту — блок остаётся в центре.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="промежутки-и-размеры">Промежутки и размеры</h2>
+<table>
+<thead>
+<tr>
+<th>Свойство</th>
+<th>Что делает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gap: 16px</code></td>
+<td>промежутки между элементами</td>
+</tr>
+<tr>
+<td><code>flex-wrap: wrap</code></td>
+<td>перенос на новую строку</td>
+</tr>
+<tr>
+<td><code>flex: 1</code></td>
+<td>занять свободное место</td>
+</tr>
+<tr>
+<td><code>margin-left: auto</code></td>
+<td>отодвинуть вправо</td>
+</tr>
+</tbody>
+</table>
+</div><aside class="notes"><p><b>Промежутки и размеры</b> — 7 мин</p><p><strong>На слайде:</strong> gap, wrap, flex: 1, margin-left: auto.</p>
+<p><strong>Показать вживую:</strong> песочница «Поиск на всю ширину». Затем в шапке ученика отодвинуть кнопку вправо через margin-left: auto.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="grid-колонки">Grid: колонки</h2>
+<figure class="shot"><a href="../lessons/07-layout/img/layout-grid.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/07-layout/img/layout-grid.webp" alt="" loading="lazy"></a></figure></div><aside class="notes"><p><b>Grid: колонки</b> — 7 мин</p><p><strong>На слайде:</strong> сетка из трёх колонок по 1fr.</p>
+<p><strong>Показать вживую:</strong> песочница «Каталог на Grid»: 3 → 2 колонки, 1fr → 200px.</p>
+<p><strong>Спросить:</strong> «Колонок три, карточек семь. Где окажется седьмая?» Ответ: одна в третьей строке, в первой колонке.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="адаптивная-сетка">Адаптивная сетка</h2>
+<figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">.catalog</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#005CC5">  display</span><span style="color:#24292E">: </span><span style="color:#005CC5">grid</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  grid-template-columns</span><span style="color:#24292E">: </span><span style="color:#005CC5">repeat</span><span style="color:#24292E">(</span><span style="color:#005CC5">auto-fill</span><span style="color:#24292E">, </span><span style="color:#005CC5">minmax</span><span style="color:#24292E">(</span><span style="color:#005CC5">220</span><span style="color:#D73A49">px</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#D73A49">fr</span><span style="color:#24292E">));</span></span>
+<span class="line"><span style="color:#005CC5">  gap</span><span style="color:#24292E">: </span><span style="color:#005CC5">24</span><span style="color:#D73A49">px</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre></figure>
+<p>Колонок столько, сколько влезет</p>
+</div><aside class="notes"><p><b>Адаптивная сетка</b> — 5 мин</p><p><strong>На слайде:</strong> auto-fill и minmax.</p>
+<p><strong>Показать вживую:</strong> в песочнице заменить колонки на auto-fill и сузить окно браузера — колонки перестраиваются.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="макет-страницы">Макет страницы</h2>
+<figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">.page</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#005CC5">  display</span><span style="color:#24292E">: </span><span style="color:#005CC5">grid</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  grid-template-columns</span><span style="color:#24292E">: </span><span style="color:#005CC5">240</span><span style="color:#D73A49">px</span><span style="color:#005CC5"> 1</span><span style="color:#D73A49">fr</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  grid-template-areas</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#032F62">    "header header"</span></span>
+<span class="line"><span style="color:#032F62">    "aside  main"</span></span>
+<span class="line"><span style="color:#032F62">    "footer footer"</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre></figure>
+</div><aside class="notes"><p><b>Макет страницы</b> — 7 мин</p><p><strong>На слайде:</strong> grid-template-areas.</p>
+<p><strong>Показать вживую:</strong> песочница «Макет из областей»: поменять aside и main местами в схеме.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="flexbox-или-grid">Flexbox или Grid</h2>
+<table>
+<thead>
+<tr>
+<th>Задача</th>
+<th>Раскладка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Шапка, меню, кнопка с иконкой</td>
+<td>Flexbox</td>
+</tr>
+<tr>
+<td>Каталог, галерея</td>
+<td>Grid</td>
+</tr>
+<tr>
+<td>Макет страницы</td>
+<td>Grid</td>
+</tr>
+<tr>
+<td>По центру</td>
+<td>любая</td>
+</tr>
+</tbody>
+</table>
+</div><aside class="notes"><p><b>Flexbox или Grid</b> — 4 мин</p><p><strong>На слайде:</strong> таблица задач.</p>
+<p><strong>Рассказать:</strong> одна линия — Flexbox, строки и колонки — Grid. Их можно вкладывать друг в друга.</p>
+<p><strong>Спросить:</strong> ученик по трём картинкам любых сайтов называет, где Flexbox, где Grid.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="частые-ошибки">Частые ошибки</h2>
+<ul>
+<li><code>display: flex</code> не у того элемента</li>
+<li>Путают justify и align</li>
+<li>Промежутки через margin вместо gap</li>
+</ul>
+</div><aside class="notes"><p><b>Частые ошибки</b> — 2 мин</p><p><strong>На слайде:</strong> три ошибки.</p>
+<p><strong>Показать вживую:</strong> значок flex или grid в DevTools → Elements: сетка подсвечивается на странице.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="домашнее-задание">Домашнее задание</h2>
+<ol>
+<li>Шапка сайта</li>
+<li>Каталог на Grid</li>
+<li>Макет страницы</li>
+<li>Со звёздочкой: Flexbox Froggy и Grid Garden</li>
+</ol>
+</div><aside class="notes"><p><b>Домашнее задание</b> — 3 мин</p><p><strong>На слайде:</strong> четыре задания.</p>
+<p><strong>Рассказать:</strong> проверки на странице меряют расположение элементов, а не только свойства. Можно решить разными способами.</p>
+</aside></section>
+</div></div>
+<a class="back" href="../lessons/07-layout.html" title="Вернуться к тексту урока (Esc)"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-arrow-left octicon" aria-hidden="true" data-component="Octicon"><path d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06Z"></path></svg>Текст урока <kbd>Esc</kbd></a>
+<script src="../assets/vendor/reveal/reveal.js"></script>
+<script src="../assets/vendor/reveal/plugin/notes.js"></script>
+<script src="../assets/slides.js"></script>
+</body>
+</html>

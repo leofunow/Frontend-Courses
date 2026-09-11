@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>object-fit</title>
+<link rel="stylesheet" href="../../07-layout/examples/demo.css">
+<style>
+  .wrap { display: grid; grid-template-columns: repeat(3, 220px); gap: 20px; }
+  img { display: block; width: 220px; height: 150px; border-radius: 8px; border: 1.5px dashed #afb8c1; background: #f6f8fa; }
+</style></head>
+<body>
+  <div class="wrap">
+    <div><p class="label">object-fit: fill</p><img src="cup.svg" alt="" style="object-fit: fill"></div>
+    <div><p class="label">object-fit: contain</p><img src="cup.svg" alt="" style="object-fit: contain"></div>
+    <div><p class="label">object-fit: cover</p><img src="cup.svg" alt="" style="object-fit: cover"></div>
+  </div>
+</body></html>

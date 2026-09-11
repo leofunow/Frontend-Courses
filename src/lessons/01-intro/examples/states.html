@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Состояния экрана</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px; font: 15px/1.4 -apple-system, "Segoe UI", sans-serif; color: #1f2328; background: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(4, 230px); gap: 20px; }
+  .label { margin: 0 0 8px; font-weight: 600; }
+  .phone { height: 300px; padding: 14px; border: 1px solid #d1d9e0; border-radius: 16px; background: #f6f8fa; display: flex; flex-direction: column; gap: 8px; }
+  .bar { font-weight: 600; padding-bottom: 8px; border-bottom: 1px solid #d1d9e0; }
+  .row { display: flex; justify-content: space-between; padding: 10px; background: #fff; border: 1px solid #d1d9e0; border-radius: 8px; }
+  .row span:last-child { color: #59636e; }
+  .sk { height: 42px; border-radius: 8px; background: linear-gradient(90deg, #eaeef2, #f6f8fa, #eaeef2); }
+  .center { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center; color: #59636e; }
+  .btn { padding: 6px 14px; border-radius: 6px; font-weight: 600; background: #1f883d; color: #fff; }
+  .err { color: #d1242f; font-weight: 600; }
+  .btn.ghost { background: #fff; color: #1f2328; border: 1px solid #d1d9e0; }
+</style></head>
+<body>
+  <div class="grid">
+    <div><p class="label">1. Загрузка</p><div class="phone"><div class="bar">Мои заказы</div><div class="sk"></div><div class="sk"></div><div class="sk"></div></div></div>
+    <div><p class="label">2. Пусто</p><div class="phone"><div class="bar">Мои заказы</div><div class="center">Заказов пока нет<span class="btn">Перейти в меню</span></div></div></div>
+    <div><p class="label">3. Ошибка</p><div class="phone"><div class="bar">Мои заказы</div><div class="center"><span class="err">Нет связи с сервером</span>Проверьте интернет<span class="btn ghost">Повторить</span></div></div></div>
+    <div><p class="label">4. Данные</p><div class="phone"><div class="bar">Мои заказы</div><div class="row"><span>Капучино</span><span>220 ₽</span></div><div class="row"><span>Раф</span><span>260 ₽</span></div><div class="row"><span>Какао</span><span>200 ₽</span></div></div></div>
+  </div>
+</body></html>

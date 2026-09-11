@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ru" data-color-mode="light" data-light-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Слайды: 4. HTML — основа страницы</title>
+<link rel="stylesheet" href="../assets/vendor/reveal/reset.css">
+<link rel="stylesheet" href="../assets/vendor/reveal/reveal.css">
+<link rel="stylesheet" href="../assets/vendor/primer-primitives.css">
+<link rel="stylesheet" href="../assets/vendor/github-markdown-light.css">
+<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../assets/slides.css">
+</head>
+<body class="slides-page">
+<div class="reveal"><div class="slides">
+<section class="title-slide"><div class="slide-body"><p class="kicker">Модуль 1. HTML и CSS. Урок 4</p><h1>HTML — основа страницы</h1><p class="sub">Документ, теги, семантика</p><p class="course"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-mortar-board octicon" aria-hidden="true" data-component="Octicon"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"></path></svg>Фронтенд с нуля</p></div><aside class="notes"><p><b>Титульный слайд</b> — 1 мин</p><p><strong>На слайде:</strong> название урока.</p>
+<p><strong>Рассказать:</strong> сегодня первая настоящая страница. К концу занятия будет рецепт с картинкой и списками.</p>
+</aside></section>
+<section class="statement "><div class="slide-body"><p>HTML говорит браузеру, что есть на странице. Как это выглядит — задача CSS</p>
+</div><aside class="notes"><p><b>HTML говорит, что есть на странице</b> — 2 мин</p><p><strong>На слайде:</strong> тезис.</p>
+<p><strong>Рассказать:</strong> HTML — смысл и порядок, CSS — вид, JS — поведение. Вспомнить кнопку из урока 1.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="разметка">Разметка</h2>
+<div class="cols"><div class="col"><figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">h1</span><span style="color:#24292E">>Кофейня «Зерно»&#x3C;/</span><span style="color:#22863A">h1</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">p</span><span style="color:#24292E">>Варим кофе с 8 утра.&#x3C;/</span><span style="color:#22863A">p</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">ul</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">li</span><span style="color:#24292E">>Эспрессо&#x3C;/</span><span style="color:#22863A">li</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">li</span><span style="color:#24292E">>Капучино&#x3C;/</span><span style="color:#22863A">li</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;/</span><span style="color:#22863A">ul</span><span style="color:#24292E">></span></span></code></pre></figure>
+</div><div class="col"><ul>
+<li><code>h1</code> — главный заголовок</li>
+<li><code>p</code> — абзац</li>
+<li><code>ul</code> + <code>li</code> — список</li>
+</ul>
+</div></div></div><aside class="notes"><p><b>Разметка</b> — 4 мин</p><p><strong>На слайде:</strong> код с h1, p, ul и расшифровка тегов.</p>
+<p><strong>Показать вживую:</strong> песочница «Текст и разметка» в тексте урока: убрать теги у списка и посмотреть, что станет.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="анатомия-тега">Анатомия тега</h2>
+<figure class="diagram"><div class="dg dg-flow-wrap"><div class="dg-flow"><div class="dg-node k-accent"><div class="dg-title"><span class="dg-name"><code>&lt;a href=&quot;about.html&quot;&gt;</code></span></div><div class="dg-text">открывающий тег с атрибутом href</div></div><div class="dg-node k-muted"><div class="dg-title"><span class="dg-name">О нас</span></div><div class="dg-text">содержимое: что видит пользователь</div></div><div class="dg-node k-accent"><div class="dg-title"><span class="dg-name"><code>&lt;/a&gt;</code></span></div><div class="dg-text">закрывающий тег: косая черта перед именем</div></div></div></div><figcaption class="dg-caption">Ссылка на страницу «О нас» — один элемент a</figcaption></figure><p>Одиночные теги без содержимого: <code>img</code>, <code>br</code>, <code>meta</code>, <code>link</code>, <code>input</code></p>
+</div><aside class="notes"><p><b>Анатомия тега</b> — 5 мин</p><p><strong>На слайде:</strong> открывающий тег с атрибутом, содержимое, закрывающий тег.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>Атрибут всегда в открывающем теге: <code>имя=&quot;значение&quot;</code>.</li>
+<li>У одиночных тегов нет пары.</li>
+</ul>
+<p><strong>Спросить:</strong> «Что в <code>&lt;img src=&quot;a.png&quot; alt=&quot;Кот&quot;&gt;</code> тег, а что атрибуты?»</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="вложенность-как-коробки">Вложенность как коробки</h2>
+<div class="cols"><div class="col"><p><strong>Правильно</strong></p>
+<figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">p</span><span style="color:#24292E">>Кофе &#x3C;</span><span style="color:#22863A">strong</span><span style="color:#24292E">>очень&#x3C;/</span><span style="color:#22863A">strong</span><span style="color:#24292E">> горячий&#x3C;/</span><span style="color:#22863A">p</span><span style="color:#24292E">></span></span></code></pre></figure>
+</div><div class="col"><p><strong>Неправильно</strong></p>
+<figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">p</span><span style="color:#24292E">>Кофе &#x3C;</span><span style="color:#22863A">strong</span><span style="color:#24292E">>очень&#x3C;/</span><span style="color:#22863A">p</span><span style="color:#24292E">> горячий&#x3C;/</span><span style="color:#22863A">strong</span><span style="color:#24292E">></span></span></code></pre></figure>
+</div></div></div><aside class="notes"><p><b>Вложенность как коробки</b> — 3 мин</p><p><strong>На слайде:</strong> правильная и неправильная вложенность.</p>
+<p><strong>Рассказать:</strong> последнее открытое закрываем первым. Браузер «чинит» ошибки молча и не так, как вы ожидаете.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="каркас-страницы">Каркас страницы</h2>
+<figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;!</span><span style="color:#22863A">doctype</span><span style="color:#6F42C1"> html</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">html</span><span style="color:#6F42C1"> lang</span><span style="color:#24292E">=</span><span style="color:#032F62">"ru"</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">head</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">    &#x3C;</span><span style="color:#22863A">meta</span><span style="color:#6F42C1"> charset</span><span style="color:#24292E">=</span><span style="color:#032F62">"utf-8"</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">    &#x3C;</span><span style="color:#22863A">title</span><span style="color:#24292E">>Кофейня «Зерно»&#x3C;/</span><span style="color:#22863A">title</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;/</span><span style="color:#22863A">head</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">body</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">    &#x3C;</span><span style="color:#22863A">h1</span><span style="color:#24292E">>Кофейня «Зерно»&#x3C;/</span><span style="color:#22863A">h1</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;/</span><span style="color:#22863A">body</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;/</span><span style="color:#22863A">html</span><span style="color:#24292E">></span></span></code></pre></figure>
+</div><aside class="notes"><p><b>Каркас страницы</b> — 6 мин</p><p><strong>На слайде:</strong> минимальный каркас.</p>
+<p><strong>Показать вживую:</strong> ученик создаёт <code>index.html</code>, пишет <code>!</code> + Tab, меняет <code>lang=&quot;en&quot;</code> на <code>ru</code>, пишет свой <code>title</code>, открывает через Live Server — текст <code>title</code> на вкладке.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="документ-это-дерево">Документ — это дерево</h2>
+<figure class="diagram"><div class="dg dg-tree-wrap"><div class="dg-tree"><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">html/</span><span class="dg-tree-note"><code>lang=&quot;ru&quot;</code></span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">head/</span><span class="dg-tree-note">служебное</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">meta</span><span class="dg-tree-note">charset</span></span></li><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">meta</span><span class="dg-tree-note">viewport</span></span></li><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">title</span><span class="dg-tree-note">текст вкладки</span></span></li></ul></li><li><span class="dg-tree-row mark"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">body/</span><span class="dg-tree-note">видимое</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">h1</span></span></li><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">p</span></span></li></ul></li></ul></li></ul></div></div><figcaption class="dg-caption">Документ — это дерево. Такое же дерево вы увидите во вкладке Elements в DevTools</figcaption></figure></div><aside class="notes"><p><b>Документ — это дерево</b> — 4 мин</p><p><strong>На слайде:</strong> дерево html → head/body.</p>
+<p><strong>Показать вживую:</strong> DevTools → Elements на странице ученика: то же дерево, узлы раскрываются стрелками.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="заголовки-и-текст">Заголовки и текст</h2>
+<table>
+<thead>
+<tr>
+<th>Тег</th>
+<th>Смысл</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>h1</code></td>
+<td>Главный заголовок, один на страницу</td>
+</tr>
+<tr>
+<td><code>h2</code>–<code>h6</code></td>
+<td>Разделы и подразделы</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td>Абзац</td>
+</tr>
+<tr>
+<td><code>strong</code> / <code>em</code></td>
+<td>Важное / ударение</td>
+</tr>
+</tbody>
+</table>
+<p>Уровень заголовка — по смыслу, не по размеру</p>
+</div><aside class="notes"><p><b>Заголовки и текст</b> — 5 мин</p><p><strong>На слайде:</strong> таблица тегов текста.</p>
+<p><strong>Рассказать:</strong> h1 один — как название книги. h2 — главы. Размер не важен, поменяем в CSS.</p>
+<p><strong>Показать вживую:</strong> ученик добавляет h2 «Ингредиенты» и «Приготовление» и пару абзацев с strong и em.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="списки">Списки</h2>
+<div class="cols"><div class="col"><figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">ul</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">li</span><span style="color:#24292E">>Молоко&#x3C;/</span><span style="color:#22863A">li</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">li</span><span style="color:#24292E">>Яйца&#x3C;/</span><span style="color:#22863A">li</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;/</span><span style="color:#22863A">ul</span><span style="color:#24292E">></span></span></code></pre></figure>
+</div><div class="col"><figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">ol</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">li</span><span style="color:#24292E">>Смешайте&#x3C;/</span><span style="color:#22863A">li</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">li</span><span style="color:#24292E">>Жарьте&#x3C;/</span><span style="color:#22863A">li</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;/</span><span style="color:#22863A">ol</span><span style="color:#24292E">></span></span></code></pre></figure>
+</div></div><p><code>ul</code> — порядок не важен, <code>ol</code> — важен</p>
+</div><aside class="notes"><p><b>Списки</b> — 5 мин</p><p><strong>На слайде:</strong> ul и ol рядом.</p>
+<p><strong>Показать вживую:</strong> ученик пишет <code>ul&gt;li*4</code> и <code>ol&gt;li*4</code> через Emmet и заполняет.</p>
+<p><strong>Спросить:</strong> «Меню кофейни — какой список? А инструкция по сборке шкафа?»</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="ссылки">Ссылки</h2>
+<figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">a</span><span style="color:#6F42C1"> href</span><span style="color:#24292E">=</span><span style="color:#032F62">"https://developer.mozilla.org"</span><span style="color:#24292E">>MDN&#x3C;/</span><span style="color:#22863A">a</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">a</span><span style="color:#6F42C1"> href</span><span style="color:#24292E">=</span><span style="color:#032F62">"about.html"</span><span style="color:#24292E">>О нас&#x3C;/</span><span style="color:#22863A">a</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">a</span><span style="color:#6F42C1"> href</span><span style="color:#24292E">=</span><span style="color:#032F62">"#contacts"</span><span style="color:#24292E">>Контакты&#x3C;/</span><span style="color:#22863A">a</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">a</span><span style="color:#6F42C1"> href</span><span style="color:#24292E">=</span><span style="color:#032F62">"mailto:hello@zerno.ru"</span><span style="color:#24292E">>Написать&#x3C;/</span><span style="color:#22863A">a</span><span style="color:#24292E">></span></span></code></pre></figure>
+<p>Новая вкладка: <code>target=&quot;_blank&quot; rel=&quot;noopener&quot;</code></p>
+</div><aside class="notes"><p><b>Ссылки</b> — 6 мин</p><p><strong>На слайде:</strong> виды ссылок и <code>target=&quot;_blank&quot;</code>.</p>
+<p><strong>Показать вживую:</strong> ученик добавляет ссылку на источник рецепта в новой вкладке и якорную ссылку <code>#</code> на раздел с <code>id</code>.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="пути-к-файлам">Пути к файлам</h2>
+<figure class="diagram"><div class="dg dg-tree-wrap"><div class="dg-tree"><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">zerno/</span></span><ul><li><span class="dg-tree-row mark"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">index.html</span><span class="dg-tree-note">пишем ссылки отсюда</span></span></li><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">about.html</span><span class="dg-tree-note"><code>href=&quot;about.html&quot;</code></span></span></li><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">img/</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">logo.png</span><span class="dg-tree-note"><code>src=&quot;img/logo.png&quot;</code></span></span></li></ul></li><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">menu/</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">coffee.html</span><span class="dg-tree-note"><code>href=&quot;menu/coffee.html&quot;</code></span></span></li></ul></li></ul></li></ul></div></div><figcaption class="dg-caption">Папка сайта. Выделен файл, из которого ставим ссылки</figcaption></figure><p>Из <code>menu/coffee.html</code> к логотипу: <code>../img/logo.png</code></p>
+</div><aside class="notes"><p><b>Пути к файлам</b> — 7 мин</p><p><strong>На слайде:</strong> дерево сайта с путями.</p>
+<p><strong>Рассказать:</strong> пути как в Терминале из урока 2. Абсолютный путь с вашего Mac не работает у других.</p>
+<p><strong>Спросить:</strong> «Из <code>menu/coffee.html</code> как сослаться на <code>about.html</code>?» Ответ: <code>../about.html</code>.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="картинки">Картинки</h2>
+<figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">img</span><span style="color:#6F42C1"> src</span><span style="color:#24292E">=</span><span style="color:#032F62">"img/pancakes.jpg"</span><span style="color:#6F42C1"> alt</span><span style="color:#24292E">=</span><span style="color:#032F62">"Стопка блинов со сметаной"</span><span style="color:#24292E">></span></span></code></pre></figure>
+<ul>
+<li><code>alt</code> — что на картинке, для тех, кто её не видит</li>
+<li>Имена файлов — строчными латинскими: на сервере <code>Logo.PNG</code> ≠ <code>logo.png</code></li>
+</ul>
+</div><aside class="notes"><p><b>Картинки</b> — 6 мин</p><p><strong>На слайде:</strong> тег img, правила alt и имён файлов.</p>
+<p><strong>Показать вживую:</strong> ученик вставляет <code>img/pancakes.svg</code> из домашки, пишет alt. Затем удаляет alt — Biome подчеркнул.</p>
+<p><strong>Рассказать:</strong> про регистр букв в именах: на Mac работает, на сервере — нет.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="семантическая-разметка">Семантическая разметка</h2>
+<figure class="shot"><a href="../lessons/04-html-basics/img/semantic-regions.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/04-html-basics/img/semantic-regions.webp" alt="" loading="lazy"></a></figure></div><aside class="notes"><p><b>Семантическая разметка</b> — 7 мин</p><p><strong>На слайде:</strong> страница кофейни с подписанными тегами.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>Выглядят как обычные блоки, но несут смысл.</li>
+<li>Программа экранного доступа умеет «перепрыгнуть к основному содержимому» — только если есть <code>main</code>.</li>
+</ul>
+</aside></section>
+<section><div class="slide-body"><h2 id="какой-тег-выбрать">Какой тег выбрать</h2>
+<table>
+<thead>
+<tr>
+<th>Кусок страницы</th>
+<th>Тег</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Шапка</td>
+<td><code>header</code></td>
+</tr>
+<tr>
+<td>Меню</td>
+<td><code>nav</code></td>
+</tr>
+<tr>
+<td>Основное</td>
+<td><code>main</code></td>
+</tr>
+<tr>
+<td>Статья, карточка</td>
+<td><code>article</code></td>
+</tr>
+<tr>
+<td>Боковая колонка</td>
+<td><code>aside</code></td>
+</tr>
+<tr>
+<td>Подвал</td>
+<td><code>footer</code></td>
+</tr>
+<tr>
+<td>Просто обёртка</td>
+<td><code>div</code></td>
+</tr>
+</tbody>
+</table>
+</div><aside class="notes"><p><b>Какой тег выбрать</b> — 5 мин</p><p><strong>На слайде:</strong> таблица «кусок страницы → тег».</p>
+<p><strong>Показать вживую:</strong> открыть любой крупный сайт, DevTools → Elements, найти header, nav, main, footer.</p>
+<p><strong>Спросить:</strong> «Карточка товара в каталоге — какой тег?» Ответ: article.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="как-проверить-разметку">Как проверить разметку</h2>
+<ul>
+<li>Biome подчеркнёт <code>alt</code> и <code>lang</code></li>
+<li>DevTools → Elements: дерево, которое построил браузер</li>
+<li>Плашка проверок в домашке</li>
+</ul>
+</div><aside class="notes"><p><b>Как проверить разметку</b> — 3 мин</p><p><strong>На слайде:</strong> Biome, Elements, плашка.</p>
+<p><strong>Рассказать:</strong> плашка проверок — только часть оценки. Остальное смотрит ментор: смысл тегов и аккуратность.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="домашнее-задание">Домашнее задание</h2>
+<ol>
+<li>Страница-рецепт</li>
+<li>Сайт из трёх страниц с меню</li>
+<li>Из div-супа в семантику</li>
+<li>Со звёздочкой: страница о себе</li>
+</ol>
+</div><aside class="notes"><p><b>Домашнее задание</b> — 3 мин</p><p><strong>На слайде:</strong> четыре задания.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>Рецепт уже начат на занятии — довести до зелёной плашки.</li>
+<li>В задании 2 меню одинаковое на трёх страницах: скопировать шапку и проверить все ссылки.</li>
+</ul>
+</aside></section>
+</div></div>
+<a class="back" href="../lessons/04-html-basics.html" title="Вернуться к тексту урока (Esc)"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-arrow-left octicon" aria-hidden="true" data-component="Octicon"><path d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06Z"></path></svg>Текст урока <kbd>Esc</kbd></a>
+<script src="../assets/vendor/reveal/reveal.js"></script>
+<script src="../assets/vendor/reveal/plugin/notes.js"></script>
+<script src="../assets/slides.js"></script>
+</body>
+</html>

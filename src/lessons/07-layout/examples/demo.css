@@ -1,0 +1,8 @@
+/* Общие стили наглядных примеров урока */
+* { box-sizing: border-box; }
+body { margin: 0; padding: 20px; font: 15px/1.4 -apple-system, "Segoe UI", sans-serif; color: #1f2328; background: #fff; }
+.label { margin: 0 0 6px; font: 600 13px/1.4 ui-monospace, Menlo, monospace; color: #59636e; }
+.box { padding: 10px 14px; border-radius: 6px; background: #ddf4ff; border: 1.5px solid #0969da; font-weight: 600; }
+.box.b2 { background: #dafbe1; border-color: #1a7f37; }
+.box.b3 { background: #fbefff; border-color: #8250df; }
+.row { display: flex; margin-bottom: 16px; padding: 8px; min-height: 64px; border: 1.5px dashed #afb8c1; border-radius: 8px; background: #f6f8fa; }

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Три экрана</title>
+<style>
+  body { margin: 0; padding: 24px; background: #eef2f7; font: 600 14px -apple-system, sans-serif; color: #59636e; }
+  .shelf { display: flex; align-items: flex-end; gap: 28px; }
+  .device { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .frame { overflow: hidden; background: #fff; border: 8px solid #1f2328; box-shadow: 0 8px 24px rgb(31 35 40 / 20%); }
+  .phone .frame { border-radius: 22px; }
+  .tablet .frame { border-radius: 16px; }
+  .laptop .frame { border-radius: 10px 10px 0 0; border-bottom-width: 14px; }
+  iframe { display: block; border: 0; transform-origin: 0 0; }
+</style></head>
+<body>
+  <div class="shelf">
+    <div class="device phone"><div class="frame" style="width:188px;height:334px"><iframe src="site.html" style="width:375px;height:667px;transform:scale(.5)"></iframe></div><span>Телефон, 375px: одна колонка</span></div>
+    <div class="device tablet"><div class="frame" style="width:307px;height:410px"><iframe src="site.html" style="width:768px;height:1024px;transform:scale(.4)"></iframe></div><span>Планшет, 768px: две колонки</span></div>
+    <div class="device laptop"><div class="frame" style="width:512px;height:320px"><iframe src="site.html" style="width:1280px;height:800px;transform:scale(.4)"></iframe></div><span>Ноутбук, 1280px: три колонки</span></div>
+  </div>
+</body></html>

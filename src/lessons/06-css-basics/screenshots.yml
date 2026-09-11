@@ -1,0 +1,12 @@
+# Эталоны заданий — рендер решений ментора
+- file: task-card.webp
+  url: ../../../../mentor/06-css-basics/task-2/index.html
+  viewport: [520, 400]
+  hide: ["[data-runner]"]
+  clip: {selector: ".card", pad: 24}
+
+- file: task-vcard.png
+  url: ../../../../mentor/06-css-basics/task-4/index.html
+  out: ../../../../homework/06-css-basics/task-4/reference.png
+  viewport: [700, 400]
+  clip: {selector: ".vcard", pad: 32}

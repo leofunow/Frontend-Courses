@@ -1,0 +1,23 @@
+# Картинки урока. Обновить: npm run screenshots -- intro-
+# DevTools — из документации Chrome (CC BY 4.0)
+- file: intro-elements.webp
+  url: https://developer.chrome.com/docs/devtools/overview?hl=ru
+  viewport: [1280, 900]
+  clip: {selector: "img[src*='elements-panel']", pad: 0}
+
+- file: intro-network.webp
+  url: https://developer.chrome.com/docs/devtools/overview?hl=ru
+  viewport: [1280, 900]
+  clip: {selector: "img[src*='network-panel']", pad: 0}
+
+# Разбор адреса
+- file: intro-url.webp
+  url: examples/url.html
+  viewport: [1100, 240]
+  clip: {selector: ".url", pad: 4}
+
+# Четыре состояния одного экрана
+- file: intro-states.webp
+  url: examples/states.html
+  viewport: [1100, 420]
+  clip: {selector: ".grid", pad: 4}

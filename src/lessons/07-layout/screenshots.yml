@@ -1,0 +1,37 @@
+# Наглядные примеры урока: страницы в examples/. Обновить: npm run screenshots -- layout-
+- file: layout-flow.webp
+  url: examples/flow.html
+  viewport: [760, 300]
+  clip: {selector: "body", pad: 0}
+
+- file: layout-axes.webp
+  url: examples/axes.html
+  viewport: [720, 260]
+  clip: {selector: ".wrap", pad: 0}
+
+- file: layout-justify.webp
+  url: examples/justify.html
+  viewport: [720, 700]
+  clip: {selector: "body", pad: 0}
+
+- file: layout-align.webp
+  url: examples/align.html
+  viewport: [900, 260]
+  clip: {selector: "body", pad: 0}
+
+- file: layout-grid.webp
+  url: examples/grid.html
+  viewport: [720, 400]
+  clip: {selector: "body", pad: 0}
+
+# Эталон задания 1 — рендер решения ментора
+- file: task-header.webp
+  url: ../../../../mentor/07-layout/task-1/index.html
+  viewport: [900, 200]
+  hide: ["[data-runner]"]
+  clip: {selector: ".header", pad: 0}
+
+- file: layout-justify-wide.webp
+  url: examples/justify-wide.html
+  viewport: [1100, 400]
+  clip: {selector: "body", pad: 0}

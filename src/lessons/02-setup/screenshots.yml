@@ -1,0 +1,31 @@
+# Скриншоты сайтов установки для macOS. Обновить: npm run screenshots -- download
+- file: chrome-download.webp
+  url: https://www.google.com/chrome/
+  marks:
+    - {text: "Download Chrome", exact: true, closest: "a, button", label: 1}
+  clip: {text: "Download Chrome", exact: true, closest: "a, button", pad: [110, 34]}
+
+- file: vscode-download.webp
+  url: https://code.visualstudio.com/download
+  marks:
+    - {selector: "#download-alt-main-osx", label: 1}
+  clip: {selector: "#download-alt-main-osx", pad: [130, 90]}
+
+- file: node-download-lts.webp
+  url: https://nodejs.org/en/download
+  hide: ["[class*=alertBox]"]
+  marks:
+    - {text: "LTS", exact: true, closest: button, label: 1, side: bottom}
+  clip: {x: 90, y: 110, width: 900, height: 160}
+
+- file: node-download-pkg.webp
+  url: https://nodejs.org/en/download
+  marks:
+    - {text: "macOS Installer (.pkg)", closest: a, label: 2}
+  clip: {x: 60, y: 640, width: 900, height: 130}
+
+- file: git-download.webp
+  url: https://git-scm.com/downloads/mac
+  marks:
+    - {text: "xcode-select --install", label: 1}
+  clip: {text: "xcode-select --install", pad: [330, 75]}

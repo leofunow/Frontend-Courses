@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Брейкпоинты</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 20px; font: 15px/1.4 -apple-system, "Segoe UI", sans-serif; color: #1f2328; background: #fff; }
+  .scale { display: grid; grid-template-columns: 30fr 38fr 42fr; width: 860px; }
+  .zone { padding: 14px; border: 1.5px solid; border-right: 0; }
+  .zone:last-child { border-right: 1.5px solid; border-radius: 0 10px 10px 0; }
+  .zone:first-child { border-radius: 10px 0 0 10px; }
+  .z1 { background: #ddf4ff; border-color: #0969da; }
+  .z2 { background: #dafbe1; border-color: #1a7f37; }
+  .z3 { background: #fbefff; border-color: #8250df; }
+  .name { font-weight: 600; }
+  .rule { margin: 4px 0 12px; font: 13px ui-monospace, Menlo, monospace; color: #59636e; }
+  .cols { display: flex; gap: 6px; height: 56px; }
+  .cols i { flex: 1; border-radius: 4px; background: rgb(255 255 255 / 80%); border: 1px solid rgb(31 35 40 / 20%); }
+  .ticks { display: grid; grid-template-columns: 30fr 38fr 42fr; width: 860px; margin-top: 6px; font: 600 13px ui-monospace, Menlo, monospace; color: #59636e; }
+  .ticks span:not(:first-child) { transform: translateX(-50%); }
+</style></head>
+<body>
+  <div class="wrap">
+    <div class="scale">
+      <div class="zone z1"><div class="name">Телефон</div><div class="rule">базовые стили</div><div class="cols"><i></i></div></div>
+      <div class="zone z2"><div class="name">Планшет</div><div class="rule">@media (min-width: 640px)</div><div class="cols"><i></i><i></i></div></div>
+      <div class="zone z3"><div class="name">Ноутбук</div><div class="rule">@media (min-width: 1024px)</div><div class="cols"><i></i><i></i><i></i></div></div>
+    </div>
+    <div class="ticks"><span>0</span><span>640px</span><span>1024px</span></div>
+  </div>
+</body></html>

@@ -1,0 +1,62 @@
+# Телефон без meta viewport и с ним
+- file: resp-no-viewport.webp
+  url: examples/site-no-viewport.html
+  viewport: [375, 667]
+  mobile: true
+
+- file: resp-with-viewport.webp
+  url: examples/site.html
+  viewport: [375, 667]
+  mobile: true
+
+# Три экрана на одной картинке
+- file: resp-devices.webp
+  url: examples/devices.html
+  viewport: [1200, 560]
+  clip: {selector: ".shelf", pad: 20}
+
+# Шкала брейкпоинтов
+- file: resp-breakpoints.webp
+  url: examples/breakpoints.html
+  viewport: [920, 240]
+  clip: {selector: ".wrap", pad: 0}
+
+# object-fit на одной картинке
+- file: resp-fit.webp
+  url: examples/fit.html
+  viewport: [760, 260]
+  clip: {selector: ".wrap", pad: 0}
+
+# Ошибка: блок шириной 600px на телефоне
+- file: resp-fixed.webp
+  url: examples/fixed.html
+  viewport: [375, 480]
+  mobile: true
+
+# Режим устройств DevTools — картинки из документации Chrome (CC BY 4.0)
+- file: devtools-device-toggle.webp
+  url: https://developer.chrome.com/docs/devtools/device-mode?hl=ru
+  viewport: [1280, 900]
+  clip: {selector: "img[src*='device-mode-toggle']", pad: 0}
+
+
+# Эталон задания 2 — шапка на телефоне и на ноутбуке
+- file: task-header-phone.webp
+  url: ../../../../mentor/08-responsive/task-2/index.html
+  viewport: [375, 300]
+  mobile: true
+  hide: ["[data-runner]"]
+  clip: {selector: ".header", pad: 0}
+
+- file: task-header-wide.webp
+  url: ../../../../mentor/08-responsive/task-2/index.html
+  viewport: [900, 300]
+  hide: ["[data-runner]"]
+  clip: {selector: ".header", pad: 0}
+
+# Задание 4 — как заготовка выглядит на телефоне
+- file: task-fix-before.webp
+  url: ../../../../homework/08-responsive/task-4/index.html
+  viewport: [375, 640]
+  mobile: true
+  hide: ["[data-runner]"]

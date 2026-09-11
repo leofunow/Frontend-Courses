@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="ru" data-color-mode="light" data-light-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Слайды: 1. Как устроен веб</title>
+<link rel="stylesheet" href="../assets/vendor/reveal/reset.css">
+<link rel="stylesheet" href="../assets/vendor/reveal/reveal.css">
+<link rel="stylesheet" href="../assets/vendor/primer-primitives.css">
+<link rel="stylesheet" href="../assets/vendor/github-markdown-light.css">
+<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../assets/slides.css">
+</head>
+<body class="slides-page deck-showcase">
+<div class="reveal"><div class="slides">
+<section class="title-slide has-cover"><div class="slide-body"><p class="kicker">Модуль 0. Старт. Урок 1</p><h1>Как устроен веб</h1><p class="sub">Клиент, сервер, фронтенд, бэкенд и архитектуры</p><p class="course"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-mortar-board octicon" aria-hidden="true" data-component="Octicon"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"></path></svg>Фронтенд с нуля</p></div><figure class="cover"><img src="../lessons/01-intro/img/cat-laptop.webp" alt=""><figcaption>Фото: Diannaa, <a href="https://commons.wikimedia.org/wiki/File:Ninja_Diannaa.JPG" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption></figure><aside class="notes"><p><b>Титульный слайд</b> — 2 мин</p><p><strong>На слайде:</strong> название урока и кот за ноутбуком.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>Сегодня без кода — строим карту: из чего состоит любой сайт и где в нём место фронтенда.</li>
+<li>К этой карте будем возвращаться весь курс.</li>
+</ul>
+<p><strong>Спросить:</strong> «Что происходит, когда вы вводите адрес сайта и нажимаете Enter?» Ответ не поправлять, запомнить — вернёмся в конце.</p>
+</aside></section>
+<section class="part " data-background-color="#ddf4ff"><div class="slide-body"><p class="part-n">Часть 1</p><h2 id="как-устроен-веб">Как устроен веб</h2>
+<p>Путь от адреса в браузере до страницы на экране</p>
+</div><aside class="notes"><p><b>Часть 1. Как устроен веб</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель первой части.</p>
+<p><strong>Рассказать:</strong> в первой части пройдём путь от адреса в браузере до страницы на экране.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="интернет-и-веб">Интернет и веб</h2>
+<figure class="diagram"><div class="dg dg-flow-wrap"><div class="dg-flow"><div class="dg-group k-muted" style="--cols:4"><div class="dg-group-title"><span>Интернет — сеть компьютеров</span></div><div class="dg-group-items"><div class="dg-node k-front"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-browser octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM14.5 6h-13v7.25c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25Zm-6-3.5v2h6V2.75a.25.25 0 0 0-.25-.25ZM5 2.5v2h2v-2Zm-3.25 0a.25.25 0 0 0-.25.25V4.5h2v-2Z"></path></svg><span class="dg-name">Веб</span></div><div class="dg-text">сайты и веб-приложения</div></div><div class="dg-node k-plain"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-mail octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.784.784 2 1.75 2ZM1.5 12.251c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V5.809L8.38 9.397a.75.75 0 0 1-.76 0L1.5 5.809v6.442Zm13-8.181v-.32a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25v.32L8 7.88Z"></path></svg><span class="dg-name">Почта</span></div><div class="dg-text">письма</div></div><div class="dg-node k-plain"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-comment-discussion octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1ZM1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"></path></svg><span class="dg-name">Мессенджеры</span></div><div class="dg-text">чаты и звонки</div></div><div class="dg-node k-plain"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-play octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"></path></svg><span class="dg-name">Игры</span></div><div class="dg-text">онлайн-матчи</div></div></div></div></div></div><figcaption class="dg-caption">Веб — самый большой сервис интернета, но не единственный</figcaption></figure></div><aside class="notes"><p><b>Интернет и веб</b> — 2 мин</p><p><strong>На слайде:</strong> интернет как сеть, внутри — веб, почта, мессенджеры, игры.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>Интернет — сеть компьютеров. Веб — один из сервисов поверх неё.</li>
+<li>Мы работаем с вебом: всё, что сделаем, откроется в браузере.</li>
+</ul>
+</aside></section>
+<section class="photo statement "><div class="slide-body"><p>Веб-приложение устроено как ресторан</p>
+<figure class="shot"><a href="../lessons/01-intro/img/cat-cafe.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/cat-cafe.webp" alt="Фото: Sh.aliaksei, CC BY-SA 4.0(https://commons.wikimedia.org/wiki/File:Catcafevilnius02.jpg)" loading="lazy"></a><figcaption>Фото: Sh.aliaksei, <a href="https://commons.wikimedia.org/wiki/File:Cat_cafe_vilnius_02.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption></figure></div><aside class="notes"><p><b>Веб-приложение устроено как ресторан</b> — 1 мин</p><p><strong>На слайде:</strong> тезис и кот в кафе.</p>
+<p><strong>Рассказать:</strong> любой сайт устроен как ресторан. Сейчас покажу, где зал, где кухня, а где официант.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="три-части-любого-веб-приложения">Три части любого веб-приложения</h2>
+<figure class="diagram"><div class="dg dg-rows-wrap"><div class="dg-rows"><div class="dg-row">
+<div class="dg-row-label"><b>Ресторан</b></div>
+<div class="dg-row-body"><div class="dg-flow"><div class="dg-node k-muted"><div class="dg-title"><span class="dg-name">Зал</span></div><div class="dg-text">гость видит и трогает</div></div><div class="dg-arrow bare"><div class="dg-link both"><span class="dg-line"></span></div></div><div class="dg-node k-muted"><div class="dg-title"><span class="dg-name">Официант</span></div><div class="dg-text">носит заказы по меню</div></div><div class="dg-arrow bare"><div class="dg-link both"><span class="dg-line"></span></div></div><div class="dg-node k-muted"><div class="dg-title"><span class="dg-name">Кухня</span></div><div class="dg-text">готовит, гостю не видна</div></div><div class="dg-arrow bare"><div class="dg-link both"><span class="dg-line"></span></div></div><div class="dg-node k-muted"><div class="dg-title"><span class="dg-name">Склад</span></div><div class="dg-text">хранит продукты</div></div></div></div>
+</div><div class="dg-row">
+<div class="dg-row-label"><b>Веб-приложение</b></div>
+<div class="dg-row-body"><div class="dg-flow"><div class="dg-node k-front"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-browser octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM14.5 6h-13v7.25c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25Zm-6-3.5v2h6V2.75a.25.25 0 0 0-.25-.25ZM5 2.5v2h2v-2Zm-3.25 0a.25.25 0 0 0-.25.25V4.5h2v-2Z"></path></svg><span class="dg-name">Фронтенд</span></div><div class="dg-text">интерфейс в браузере</div></div><div class="dg-arrow bare"><div class="dg-link both"><span class="dg-line"></span></div></div><div class="dg-node k-accent"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-arrow-switch octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M5.22 14.78a.75.75 0 0 0 1.06-1.06L4.56 12h8.69a.75.75 0 0 0 0-1.5H4.56l1.72-1.72a.75.75 0 0 0-1.06-1.06l-3 3a.75.75 0 0 0 0 1.06l3 3Zm5.56-6.5a.75.75 0 1 1-1.06-1.06l1.72-1.72H2.75a.75.75 0 0 1 0-1.5h8.69L9.72 2.28a.75.75 0 0 1 1.06-1.06l3 3a.75.75 0 0 1 0 1.06l-3 3Z"></path></svg><span class="dg-name">API</span></div><div class="dg-text">запросы и ответы</div></div><div class="dg-arrow bare"><div class="dg-link both"><span class="dg-line"></span></div></div><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span class="dg-name">Бэкенд</span></div><div class="dg-text">логика на сервере</div></div><div class="dg-arrow bare"><div class="dg-link both"><span class="dg-line"></span></div></div><div class="dg-node k-db"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-database octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1 3.5c0-.626.292-1.165.7-1.59.406-.422.956-.767 1.579-1.041C4.525.32 6.195 0 8 0c1.805 0 3.475.32 4.722.869.622.274 1.172.62 1.578 1.04.408.426.7.965.7 1.591v9c0 .626-.292 1.165-.7 1.59-.406.422-.956.767-1.579 1.041C11.476 15.68 9.806 16 8 16c-1.805 0-3.475-.32-4.721-.869-.623-.274-1.173-.62-1.579-1.04-.408-.426-.7-.965-.7-1.591Zm1.5 0c0 .133.058.318.282.551.227.237.591.483 1.101.707C4.898 5.205 6.353 5.5 8 5.5c1.646 0 3.101-.295 4.118-.742.508-.224.873-.471 1.1-.708.224-.232.282-.417.282-.55 0-.133-.058-.318-.282-.551-.227-.237-.591-.483-1.101-.707C11.102 1.795 9.647 1.5 8 1.5c-1.646 0-3.101.295-4.118.742-.508.224-.873.471-1.1.708-.224.232-.282.417-.282.55Zm0 4.5c0 .133.058.318.282.551.227.237.591.483 1.101.707C4.898 9.705 6.353 10 8 10c1.646 0 3.101-.295 4.118-.742.508-.224.873-.471 1.1-.708.224-.232.282-.417.282-.55V5.724c-.241.15-.503.286-.778.407C11.475 6.68 9.805 7 8 7c-1.805 0-3.475-.32-4.721-.869a6.15 6.15 0 0 1-.779-.407Zm0 2.225V12.5c0 .133.058.318.282.55.227.237.592.484 1.1.708 1.016.447 2.471.742 4.118.742 1.647 0 3.102-.295 4.117-.742.51-.224.874-.47 1.101-.707.224-.233.282-.418.282-.551v-2.275c-.241.15-.503.285-.778.406-1.247.549-2.917.869-4.722.869-1.805 0-3.475-.32-4.721-.869a6.327 6.327 0 0 1-.779-.406Z"></path></svg><span class="dg-name">База данных</span></div><div class="dg-text">хранит данные</div></div></div></div>
+</div></div></div><figcaption class="dg-caption">Каждой части ресторана соответствует часть веб-приложения</figcaption></figure></div><aside class="notes"><p><b>Три части любого веб-приложения</b> — 3 мин</p><p><strong>На слайде:</strong> два ряда блоков: ресторан и веб-приложение.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>Зал — фронтенд: всё, что гость видит и трогает.</li>
+<li>Официант — API: носит заказы по правилам меню.</li>
+<li>Кухня — бэкенд: готовит, проверяет, считает. Склад — база данных.</li>
+</ul>
+<p><strong>Спросить:</strong> «Где на этой схеме приложение банка у вас в телефоне?» Ответ: это тоже клиент, как сайт. Кухня у них общая.</p>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="кто-что-делает">Кто что делает</h2>
+<ul>
+<li><strong>Фронтенд</strong> зал: всё, что пользователь видит и трогает</li>
+<li><strong>API</strong> официант: правила, по которым просят данные</li>
+<li><strong>Бэкенд</strong> кухня: логика, проверки, расчёты</li>
+<li><strong>База данных</strong> склад: товары, заказы, пользователи</li>
+</ul>
+</div><aside class="notes"><p><b>Кто что делает</b> — 2 мин</p><p><strong>На слайде:</strong> четыре цветные карточки: фронтенд, API, бэкенд, база данных.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>Цвета карточек те же, что на схемах всего курса: синий — фронтенд, зелёный — бэкенд.</li>
+<li>Маленький бэкенд ученик напишет сам в уроке 29.</li>
+</ul>
+</aside></section>
+<section class="photo statement "><div class="slide-body"><p>Пользователь видит только фронтенд. Всё остальное — за экраном</p>
+<figure class="shot"><a href="../lessons/01-intro/img/cat-tv.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/cat-tv.webp" alt="Фото: Karel Frydrýšek, CC BY-SA 4.0(https://commons.wikimedia.org/wiki/File:Catanditsplay(catchingbirdsonTV),Ev%C5%BEenaRo%C5%A1ick%C3%A9hostreet,Ostrava-Svinov,Silesia,CzechRepublic03.jpg)" loading="lazy"></a><figcaption>Фото: Karel Frydrýšek, <a href="https://commons.wikimedia.org/wiki/File:Cat_and_its_play_(catching_birds_on_TV),_Ev%C5%BEena_Ro%C5%A1ick%C3%A9ho_street,_Ostrava-Svinov,_Silesia,_Czech_Republic_03.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption></figure></div><aside class="notes"><p><b>Пользователь видит только фронтенд</b> — 2 мин</p><p><strong>На слайде:</strong> тезис и кот, который охотится на птицу в телевизоре.</p>
+<p><strong>Рассказать:</strong> кот видит только экран — и пользователь тоже. Если фронтенд тормозит или непонятен, пользователю всё равно, насколько хорош бэкенд.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="адрес-сайта">Адрес сайта</h2>
+<figure class="shot"><a href="../lessons/01-intro/img/intro-url.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/intro-url.webp" alt="" loading="lazy"></a></figure><p>Обязательны только протокол и домен</p>
+</div><aside class="notes"><p><b>Адрес сайта</b> — 3 мин</p><p><strong>На слайде:</strong> адрес из пяти цветных частей.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>Протокол, домен, путь, параметры, якорь.</li>
+<li>Якорь браузер обрабатывает сам, на сервер он не уходит.</li>
+</ul>
+<p><strong>Показать вживую:</strong> на hh.ru сделать поиск, показать в адресе <code>?text=</code> и поменять номер страницы прямо в адресе.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="что-происходит-когда-вы-открываете-сайт">Что происходит, когда вы открываете сайт</h2>
+<figure class="diagram slide-steps" data-total="7"><div class="dg dg-sequence-wrap"><div class="dg-seq" style="--n:3"><div class="dg-actor" style="grid-column:1;grid-row:1"><div class="dg-node k-front"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-browser octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM14.5 6h-13v7.25c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25Zm-6-3.5v2h6V2.75a.25.25 0 0 0-.25-.25ZM5 2.5v2h2v-2Zm-3.25 0a.25.25 0 0 0-.25.25V4.5h2v-2Z"></path></svg><span class="dg-name">Браузер</span></div></div></div><div class="dg-actor" style="grid-column:2;grid-row:1"><div class="dg-node k-plain"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-book octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"></path></svg><span class="dg-name">DNS-сервер</span></div><div class="dg-text">«телефонная книга»</div></div></div><div class="dg-actor" style="grid-column:3;grid-row:1"><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span class="dg-name">Сервер shop.ru</span></div><div class="dg-text">185.12.3.4</div></div></div><div class="dg-lifeline" style="grid-column:1;grid-row:2 / span 8"></div><div class="dg-lifeline" style="grid-column:2;grid-row:2 / span 8"></div><div class="dg-lifeline" style="grid-column:3;grid-row:2 / span 8"></div><div class="dg-seq-note k-front" style="grid-column:1;grid-row:2" data-step="1">Ввели <code>https://shop.ru</code></div><div class="dg-msg k-plain" style="grid-column:1 / span 2;grid-row:3;--span:2" data-step="2">
+<div class="dg-link right"><span class="dg-label">Какой IP у shop.ru?</span><span class="dg-line"></span></div></div><div class="dg-msg k-plain dashed" style="grid-column:1 / span 2;grid-row:4;--span:2" data-step="2">
+<div class="dg-link left"><span class="dg-label"><code>185.12.3.4</code></span><span class="dg-line"></span></div></div><div class="dg-msg k-plain" style="grid-column:1 / span 3;grid-row:5;--span:3" data-step="3">
+<div class="dg-link both"><span class="dg-label">Соединение и шифрование (TLS)</span><span class="dg-line"></span></div></div><div class="dg-msg k-front" style="grid-column:1 / span 3;grid-row:6;--span:3" data-step="4">
+<div class="dg-link right"><span class="dg-label">Запрос <code>GET / HTTP/1.1</code></span><span class="dg-line"></span></div></div><div class="dg-msg k-back" style="grid-column:1 / span 3;grid-row:7;--span:3" data-step="5">
+<div class="dg-link left"><span class="dg-label">Ответ <code>200 OK + HTML</code></span><span class="dg-line"></span></div></div><div class="dg-msg k-back" style="grid-column:1 / span 3;grid-row:8;--span:3" data-step="6">
+<div class="dg-link left"><span class="dg-label">Файлы из HTML <code>style.css, app.js, logo.png</code></span><span class="dg-line"></span></div></div><div class="dg-seq-note k-front" style="grid-column:1;grid-row:9" data-step="7">Страница на экране</div></div></div>
+</figure></div><aside class="notes"><p><b>Что происходит, когда вы открываете сайт</b> — 6 мин</p><p><strong>На слайде:</strong> диаграмма: браузер, DNS-сервер, сервер сайта.</p>
+<p><strong>Рассказать</strong> (по шагу на реплику):</p>
+<ol>
+<li>Браузер знает только имя <code>shop.ru</code>.</li>
+<li>Спрашивает у DNS IP-адрес: компьютеры находят друг друга по числам.</li>
+<li>Соединение и шифрование — замок в адресной строке.</li>
+<li>Запрос <code>GET /</code>, ответ <code>200 OK</code> и HTML.</li>
+<li>Отдельные запросы за CSS, JS и картинками, потом отрисовка.</li>
+</ol>
+<p><strong>Спросить:</strong> после схемы — пересказать своими словами.</p>
+</aside></section>
+<section class="numbers "><div class="slide-body"><h2 id="одна-страница-в-цифрах">Одна страница в цифрах</h2>
+<ul>
+<li><strong>7</strong> шагов от Enter до картинки на экране</li>
+<li><strong>50–150</strong> запросов на одну страницу</li>
+<li><strong>&lt; 1 с</strong> — столько обычно занимает всё это</li>
+</ul>
+</div><aside class="notes"><p><b>Одна страница в цифрах</b> — 2 мин</p><p><strong>На слайде:</strong> 7 шагов, 50–150 запросов, меньше секунды.</p>
+<p><strong>Рассказать:</strong> всё это успевает случиться быстрее, чем вы моргнёте. Поэтому скорость — тоже работа фронтенда: каждый лишний файл — лишний запрос.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="запрос-и-ответ-это-просто-текст">Запрос и ответ — это просто текст</h2>
+<div class="cols"><div class="col"><figure class="code" data-lang="http"><figcaption><span>HTTP</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">GET</span><span style="color:#24292E"> /catalog </span><span style="color:#D73A49">HTTP</span><span style="color:#24292E">/</span><span style="color:#005CC5">1.1</span></span>
+<span class="line"><span style="color:#22863A">Host</span><span style="color:#D73A49">:</span><span style="color:#032F62"> shop.ru</span></span></code></pre></figure>
+</div><div class="col"><figure class="code" data-lang="http"><figcaption><span>HTTP</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">HTTP</span><span style="color:#24292E">/</span><span style="color:#005CC5">1.1</span><span style="color:#005CC5"> 200</span><span style="color:#032F62"> OK</span></span>
+<span class="line"><span style="color:#22863A">Content-Type</span><span style="color:#D73A49">:</span><span style="color:#032F62"> text/html</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">&#x3C;!doctype html>…</span></span></code></pre></figure>
+</div></div></div><aside class="notes"><p><b>Запрос и ответ — это просто текст</b> — 3 мин</p><p><strong>На слайде:</strong> текст запроса и ответа рядом.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>Никакой магии: браузер и сервер обмениваются текстом по правилам.</li>
+<li>Первая строка запроса — метод и путь, первая строка ответа — статус.</li>
+</ul>
+</aside></section>
+<section><div class="slide-body"><h2 id="методы-и-статус-коды">Методы и статус-коды</h2>
+<div class="cols"><div class="col"><table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Что делает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td>получить</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td>создать</td>
+</tr>
+<tr>
+<td><code>PUT</code>, <code>PATCH</code></td>
+<td>изменить</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td>удалить</td>
+</tr>
+</tbody>
+</table>
+</div><div class="col"><table>
+<thead>
+<tr>
+<th>Код</th>
+<th>Значит</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>2xx</code></td>
+<td>всё получилось</td>
+</tr>
+<tr>
+<td><code>3xx</code></td>
+<td>ищите в другом месте</td>
+</tr>
+<tr>
+<td><code>4xx</code></td>
+<td>ошибка в запросе</td>
+</tr>
+<tr>
+<td><code>5xx</code></td>
+<td>ошибка на сервере</td>
+</tr>
+</tbody>
+</table>
+</div></div></div><aside class="notes"><p><b>Методы и статус-коды</b> — 3 мин</p><p><strong>На слайде:</strong> две таблицы: методы и группы кодов.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>GET — получить, POST — создать, PUT и PATCH — изменить, DELETE — удалить.</li>
+<li>По первой цифре кода понятно, кто виноват: 4xx — запрос, 5xx — сервер.</li>
+</ul>
+<p><strong>Спросить:</strong> «Вы ввели адрес с опечаткой. Какой код придёт?» Ответ: 404.</p>
+</aside></section>
+<section class="part " data-background-color="#dafbe1"><div class="slide-body"><p class="part-n">Часть 2</p><h2 id="архитектуры">Архитектуры</h2>
+<p>Как части приложения связаны между собой</p>
+</div><aside class="notes"><p><b>Часть 2. Архитектуры</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель второй части.</p>
+<p><strong>Рассказать:</strong> теперь посмотрим, как части приложения связаны между собой.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="клиент-и-сервер">Клиент и сервер</h2>
+<figure class="diagram"><div class="dg dg-flow-wrap"><div class="dg-flow"><div class="dg-group k-front" style="--cols:1"><div class="dg-group-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-browser octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM14.5 6h-13v7.25c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25Zm-6-3.5v2h6V2.75a.25.25 0 0 0-.25-.25ZM5 2.5v2h2v-2Zm-3.25 0a.25.25 0 0 0-.25.25V4.5h2v-2Z"></path></svg><span>Клиенты</span></div><div class="dg-group-items"><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">Сайт в браузере</span></div><div class="dg-text">ноутбук</div></div><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">Мобильное приложение</span></div><div class="dg-text">телефон</div></div><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">Другой сервис</span></div><div class="dg-text">например, банк</div></div></div></div><div class="dg-arrow pair">
+<div class="dg-link right"><span class="dg-label">запросы</span><span class="dg-line"></span></div>
+<div class="dg-link left"><span class="dg-line"></span><span class="dg-label">ответы</span></div></div><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span class="dg-name">Сервер</span></div><div class="dg-text">проверяет права, считает, сохраняет</div><pre class="dg-code">api.shop.ru</pre></div><div class="dg-arrow bare"><div class="dg-link both"><span class="dg-line"></span></div></div><div class="dg-node k-db"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-database octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1 3.5c0-.626.292-1.165.7-1.59.406-.422.956-.767 1.579-1.041C4.525.32 6.195 0 8 0c1.805 0 3.475.32 4.722.869.622.274 1.172.62 1.578 1.04.408.426.7.965.7 1.591v9c0 .626-.292 1.165-.7 1.59-.406.422-.956.767-1.579 1.041C11.476 15.68 9.806 16 8 16c-1.805 0-3.475-.32-4.721-.869-.623-.274-1.173-.62-1.579-1.04-.408-.426-.7-.965-.7-1.591Zm1.5 0c0 .133.058.318.282.551.227.237.591.483 1.101.707C4.898 5.205 6.353 5.5 8 5.5c1.646 0 3.101-.295 4.118-.742.508-.224.873-.471 1.1-.708.224-.232.282-.417.282-.55 0-.133-.058-.318-.282-.551-.227-.237-.591-.483-1.101-.707C11.102 1.795 9.647 1.5 8 1.5c-1.646 0-3.101.295-4.118.742-.508.224-.873.471-1.1.708-.224.232-.282.417-.282.55Zm0 4.5c0 .133.058.318.282.551.227.237.591.483 1.101.707C4.898 9.705 6.353 10 8 10c1.646 0 3.101-.295 4.118-.742.508-.224.873-.471 1.1-.708.224-.232.282-.417.282-.55V5.724c-.241.15-.503.286-.778.407C11.475 6.68 9.805 7 8 7c-1.805 0-3.475-.32-4.721-.869a6.15 6.15 0 0 1-.779-.407Zm0 2.225V12.5c0 .133.058.318.282.55.227.237.592.484 1.1.708 1.016.447 2.471.742 4.118.742 1.647 0 3.102-.295 4.117-.742.51-.224.874-.47 1.101-.707.224-.233.282-.418.282-.551v-2.275c-.241.15-.503.285-.778.406-1.247.549-2.917.869-4.722.869-1.805 0-3.475-.32-4.721-.869a6.327 6.327 0 0 1-.779-.406Z"></path></svg><span class="dg-name">База данных</span></div><div class="dg-text">товары, заказы, пользователи</div></div></div></div><figcaption class="dg-caption">Один сервер обслуживает сайт, мобильное приложение и другие сервисы</figcaption></figure></div><aside class="notes"><p><b>Клиент и сервер</b> — 3 мин</p><p><strong>На слайде:</strong> три клиента → сервер → база данных.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>Клиентов много, сервер один: сайт и приложение банка ходят в один бэкенд.</li>
+<li>Данные живут на сервере, поэтому почта одинаковая на телефоне и ноутбуке.</li>
+</ul>
+</aside></section>
+<section class="photo statement "><div class="slide-body"><p>Клиенту нельзя доверять. Всё, что в браузере, пользователь может изменить</p>
+<figure class="shot"><a href="../lessons/01-intro/img/cat-surprised.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/cat-surprised.webp" alt="Фото: Tdcccl, CC BY-SA 4.0(https://commons.wikimedia.org/wiki/File:COOKIE(2020;cropped2024).png)" loading="lazy"></a><figcaption>Фото: Tdcccl, <a href="https://commons.wikimedia.org/wiki/File:C_O_O_K_I_E_(2020;_cropped_2024).png" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption></figure></div><aside class="notes"><p><b>Клиенту нельзя доверять</b> — 3 мин</p><p><strong>На слайде:</strong> тезис и очень удивлённая кошка.</p>
+<p><strong>Рассказать:</strong> код фронтенда скачивается к пользователю — тот может изменить что угодно. Скрытая кнопка защищает только от случайного клика.</p>
+<p><strong>Показать вживую:</strong> на любом сайте в DevTools убрать у кнопки атрибут <code>disabled</code>. Вывод: права и цены проверяет только сервер.</p>
+</aside></section>
+<section class="photo "><div class="slide-body"><h2 id="api-дверца-на-кухню">API — дверца на кухню</h2>
+<p>Фронтенд не лезет в базу сам. Он стучится в API по правилам:</p>
+<ul>
+<li>какой адрес</li>
+<li>какой метод</li>
+<li>что отправить и что придёт в ответ</li>
+</ul>
+<figure class="shot"><a href="../lessons/01-intro/img/cat-door.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/cat-door.webp" alt="Фото: Lisa Risager, CC BY-SA 2.0(https://commons.wikimedia.org/wiki/File:BacktoSeoul!(5166579678)(2010;cropped2025).jpg)" loading="lazy"></a><figcaption>Фото: Lisa Risager, <a href="https://commons.wikimedia.org/wiki/File:Back_to_Seoul!_(5166579678)_(2010;_cropped_2025).jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a></figcaption></figure></div><aside class="notes"><p><b>API — дверца на кухню</b> — 2 мин</p><p><strong>На слайде:</strong> кот проходит через дверцу в стене, три правила API.</p>
+<p><strong>Рассказать:</strong> фронтенд не лезет в базу сам. Есть только дверца — API. Пройти можно по правилам: адрес, метод, формат.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="api-договор-между-фронтом-и-бэком">API — договор между фронтом и бэком</h2>
+<figure class="diagram"><div class="dg dg-flow-wrap"><div class="dg-flow"><div class="dg-node k-front"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-browser octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM14.5 6h-13v7.25c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25Zm-6-3.5v2h6V2.75a.25.25 0 0 0-.25-.25ZM5 2.5v2h2v-2Zm-3.25 0a.25.25 0 0 0-.25.25V4.5h2v-2Z"></path></svg><span class="dg-name">Фронтенд</span></div><div class="dg-text">показывает список задач</div></div><div class="dg-arrow pair">
+<div class="dg-link right"><span class="dg-label">Запрос: <code>GET /tasks</code></span><span class="dg-line"></span></div>
+<div class="dg-link left"><span class="dg-line"></span><span class="dg-label">Ответ: <code>200</code> и JSON</span></div></div><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span class="dg-name">Бэкенд</span></div><div class="dg-text">достаёт задачи из базы</div></div></div></div><figcaption class="dg-caption">Фронтенд просит список задач, бэкенд отвечает данными в JSON</figcaption></figure><figure class="code" data-lang="json"><figcaption><span>JSON</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">[{ </span><span style="color:#005CC5">"id"</span><span style="color:#24292E">: </span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">"title"</span><span style="color:#24292E">: </span><span style="color:#032F62">"Купить молоко"</span><span style="color:#24292E">, </span><span style="color:#005CC5">"done"</span><span style="color:#24292E">: </span><span style="color:#005CC5">false</span><span style="color:#24292E"> }]</span></span></code></pre></figure>
+</div><aside class="notes"><p><b>API — договор между фронтом и бэком</b> — 3 мин</p><p><strong>На слайде:</strong> фронтенд ⇄ бэкенд, запрос <code>GET /tasks</code> и ответ в JSON.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>Фронт и бэк часто пишут разные люди. Чтобы работать параллельно, заранее договариваются — это API.</li>
+<li>Фронтенд сам решает, как показать данные: списком, таблицей, карточками.</li>
+</ul>
+</aside></section>
+<section><div class="slide-body"><h2 id="mpa-spa-ssr">MPA, SPA, SSR</h2>
+<figure class="diagram"><div class="dg dg-rows-wrap"><div class="dg-rows"><div class="dg-row">
+<div class="dg-row-label"><b>MPA</b><span>многостраничное</span></div>
+<div class="dg-row-body"><div class="dg-flow"><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">Клик по ссылке</span></div></div><div class="dg-arrow bare"><div class="dg-link right"><span class="dg-line"></span></div></div><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span class="dg-name">Сервер собирает</span></div><div class="dg-text">новую HTML-страницу</div></div><div class="dg-arrow bare"><div class="dg-link right"><span class="dg-line"></span></div></div><div class="dg-node k-front"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-browser octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM14.5 6h-13v7.25c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25Zm-6-3.5v2h6V2.75a.25.25 0 0 0-.25-.25ZM5 2.5v2h2v-2Zm-3.25 0a.25.25 0 0 0-.25.25V4.5h2v-2Z"></path></svg><span class="dg-name">Страница</span></div><div class="dg-text">загружается целиком</div></div></div><div class="dg-note">Примеры: Википедия, блоги, сайты компаний</div></div>
+</div><div class="dg-row">
+<div class="dg-row-label"><b>SPA</b><span>одностраничное</span></div>
+<div class="dg-row-body"><div class="dg-flow"><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">Первый вход</span></div><div class="dg-text">пустой HTML + JS</div></div><div class="dg-arrow bare"><div class="dg-link right"><span class="dg-line"></span></div></div><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span class="dg-name">Дальше сервер</span></div><div class="dg-text">отдаёт только JSON</div></div><div class="dg-arrow bare"><div class="dg-link right"><span class="dg-line"></span></div></div><div class="dg-node k-front"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-browser octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM14.5 6h-13v7.25c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25Zm-6-3.5v2h6V2.75a.25.25 0 0 0-.25-.25ZM5 2.5v2h2v-2Zm-3.25 0a.25.25 0 0 0-.25.25V4.5h2v-2Z"></path></svg><span class="dg-name">JS перерисовывает</span></div><div class="dg-text">нужную часть экрана</div></div></div><div class="dg-note">Примеры: Gmail, Figma, личные кабинеты. Так работает React</div></div>
+</div><div class="dg-row">
+<div class="dg-row-label"><b>SSR</b><span>рендер на сервере</span></div>
+<div class="dg-row-body"><div class="dg-flow"><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">Запрос страницы</span></div></div><div class="dg-arrow bare"><div class="dg-link right"><span class="dg-line"></span></div></div><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span class="dg-name">Сервер запускает React</span></div><div class="dg-text">и отдаёт готовый HTML</div></div><div class="dg-arrow bare"><div class="dg-link right"><span class="dg-line"></span></div></div><div class="dg-node k-front"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-browser octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM14.5 6h-13v7.25c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25Zm-6-3.5v2h6V2.75a.25.25 0 0 0-.25-.25ZM5 2.5v2h2v-2Zm-3.25 0a.25.25 0 0 0-.25.25V4.5h2v-2Z"></path></svg><span class="dg-name">JS «оживляет» страницу</span></div><div class="dg-text">дальше как SPA</div></div></div><div class="dg-note">Примеры: интернет-магазины и медиа на Next.js, где важны скорость и поиск</div></div>
+</div></div></div><figcaption class="dg-caption">Три способа доставить страницу пользователю</figcaption></figure></div><aside class="notes"><p><b>MPA, SPA, SSR</b> — 4 мин</p><p><strong>На слайде:</strong> три ряда: кто собирает страницу в каждом подходе.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>MPA — каждая ссылка загружает новую страницу: Википедия.</li>
+<li>SPA — загрузилось один раз, дальше JS меняет экран и берёт только JSON: Gmail. Так будем делать мы.</li>
+<li>SSR — сервер отдаёт готовый HTML, потом страница работает как SPA.</li>
+</ul>
+<p><strong>Спросить:</strong> назвать по одному знакомому сайту на каждый тип.</p>
+</aside></section>
+<section class="photos "><div class="slide-body"><h2 id="монолит-и-микросервисы">Монолит и микросервисы</h2>
+<div class="cols"><div class="col"><figure class="shot"><a href="../lessons/01-intro/img/cat-big.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/cat-big.webp" alt="Монолит — один большой сервис. Фото: allen watkin, CC BY-SA 2.0(https://commons.wikimedia.org/wiki/File:FatCat(2556593236).jpg)" loading="lazy"></a><figcaption><strong>Монолит</strong> — один большой сервис. Фото: allen watkin, <a href="https://commons.wikimedia.org/wiki/File:Fat_Cat_(2556593236).jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a></figcaption></figure></div><div class="col"><figure class="shot"><a href="../lessons/01-intro/img/cat-kittens.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/cat-kittens.webp" alt="Микросервисы — много маленьких, у каждого своя миска. Фото: Coffins, CC0(https://commons.wikimedia.org/wiki/File:KatzenBauernhof2.jpg)" loading="lazy"></a><figcaption><strong>Микросервисы</strong> — много маленьких, у каждого своя миска. Фото: Coffins, <a href="https://commons.wikimedia.org/wiki/File:Katzen_Bauernhof2.jpg" target="_blank" rel="noopener">CC0</a></figcaption></figure></div></div></div><aside class="notes"><p><b>Монолит и микросервисы</b> — 2 мин</p><p><strong>На слайде:</strong> один большой пушистый кот и стайка котят у своих мисок.</p>
+<p><strong>Рассказать:</strong> монолит — один большой сервис. Микросервисы — много маленьких, у каждого своя «миска» — своя база данных.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="монолит-и-микросервисы-на-схеме">Монолит и микросервисы на схеме</h2>
+<figure class="diagram"><div class="dg dg-rows-wrap"><div class="dg-rows"><div class="dg-row">
+<div class="dg-row-label"><b>Монолит</b><span>одно приложение</span></div>
+<div class="dg-row-body"><div class="dg-flow"><div class="dg-group k-back" style="--cols:2"><div class="dg-group-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span>Бэкенд</span></div><div class="dg-group-items"><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">Пользователи</span></div></div><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">Заказы</span></div></div><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">Оплата</span></div></div><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">Доставка</span></div></div></div></div><div class="dg-arrow bare"><div class="dg-link both"><span class="dg-line"></span></div></div><div class="dg-node k-db"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-database octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1 3.5c0-.626.292-1.165.7-1.59.406-.422.956-.767 1.579-1.041C4.525.32 6.195 0 8 0c1.805 0 3.475.32 4.722.869.622.274 1.172.62 1.578 1.04.408.426.7.965.7 1.591v9c0 .626-.292 1.165-.7 1.59-.406.422-.956.767-1.579 1.041C11.476 15.68 9.806 16 8 16c-1.805 0-3.475-.32-4.721-.869-.623-.274-1.173-.62-1.579-1.04-.408-.426-.7-.965-.7-1.591Zm1.5 0c0 .133.058.318.282.551.227.237.591.483 1.101.707C4.898 5.205 6.353 5.5 8 5.5c1.646 0 3.101-.295 4.118-.742.508-.224.873-.471 1.1-.708.224-.232.282-.417.282-.55 0-.133-.058-.318-.282-.551-.227-.237-.591-.483-1.101-.707C11.102 1.795 9.647 1.5 8 1.5c-1.646 0-3.101.295-4.118.742-.508.224-.873.471-1.1.708-.224.232-.282.417-.282.55Zm0 4.5c0 .133.058.318.282.551.227.237.591.483 1.101.707C4.898 9.705 6.353 10 8 10c1.646 0 3.101-.295 4.118-.742.508-.224.873-.471 1.1-.708.224-.232.282-.417.282-.55V5.724c-.241.15-.503.286-.778.407C11.475 6.68 9.805 7 8 7c-1.805 0-3.475-.32-4.721-.869a6.15 6.15 0 0 1-.779-.407Zm0 2.225V12.5c0 .133.058.318.282.55.227.237.592.484 1.1.708 1.016.447 2.471.742 4.118.742 1.647 0 3.102-.295 4.117-.742.51-.224.874-.47 1.101-.707.224-.233.282-.418.282-.551v-2.275c-.241.15-.503.285-.778.406-1.247.549-2.917.869-4.722.869-1.805 0-3.475-.32-4.721-.869a6.327 6.327 0 0 1-.779-.406Z"></path></svg><span class="dg-name">Одна база данных</span></div></div></div><div class="dg-note">Проще начать. Когда проект растёт, его тяжело менять.</div></div>
+</div><div class="dg-row">
+<div class="dg-row-label"><b>Микросервисы</b><span>много сервисов</span></div>
+<div class="dg-row-body"><div class="dg-flow"><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span class="dg-name">Пользователи</span></div><div class="dg-text">своя база</div></div><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span class="dg-name">Заказы</span></div><div class="dg-text">своя база</div></div><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span class="dg-name">Оплата</span></div><div class="dg-text">своя база</div></div><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span class="dg-name">Доставка</span></div><div class="dg-text">своя база</div></div></div><div class="dg-note">Команды работают и выкладывают сервисы независимо. Сложнее в поддержке.</div></div>
+</div></div></div><figcaption class="dg-caption">Один большой сервис или много маленьких</figcaption></figure><p>Для фронтенда разницы нет: бэкенд — это набор адресов API</p>
+</div><aside class="notes"><p><b>Монолит и микросервисы на схеме</b> — 2 мин</p><p><strong>На слайде:</strong> один бэкенд с общей базой против четырёх сервисов.</p>
+<p><strong>Рассказать:</strong> для фронтенда разницы почти нет: бэкенд — это набор адресов API.</p>
+</aside></section>
+<section class="part " data-background-color="#fbefff"><div class="slide-body"><p class="part-n">Часть 3</p><h2 id="фронтенд-и-команда">Фронтенд и команда</h2>
+<p>Что делает фронтенд-разработчик и с кем работает</p>
+</div><aside class="notes"><p><b>Часть 3. Фронтенд и команда</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель третьей части.</p>
+<p><strong>Рассказать:</strong> что именно делает фронтенд-разработчик и с кем он работает.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="html-css-javascript">HTML, CSS, JavaScript</h2>
+<div class="cols"><div class="col"><p><strong>HTML</strong> — структура</p>
+<figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">button</span><span style="color:#24292E">>Купить&#x3C;/</span><span style="color:#22863A">button</span><span style="color:#24292E">></span></span></code></pre></figure>
+</div><div class="col"><p><strong>CSS</strong> — внешний вид</p>
+<figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#22863A">button</span><span style="color:#24292E"> { </span><span style="color:#005CC5">background</span><span style="color:#24292E">: </span><span style="color:#005CC5">purple</span><span style="color:#24292E">; }</span></span></code></pre></figure>
+</div><div class="col"><p><strong>JS</strong> — поведение</p>
+<figure class="code" data-lang="js"><figcaption><span>JavaScript</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">button.</span><span style="color:#6F42C1">onclick</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> () </span><span style="color:#D73A49">=></span><span style="color:#6F42C1"> alert</span><span style="color:#24292E">(</span><span style="color:#032F62">'Готово'</span><span style="color:#24292E">);</span></span></code></pre></figure>
+</div></div></div><aside class="notes"><p><b>HTML, CSS, JavaScript</b> — 5 мин</p><p><strong>На слайде:</strong> три колонки: структура, вид, поведение.</p>
+<p><strong>Показать вживую:</strong> песочница «Три языка одной кнопки» в тексте урока. Ученик сам меняет цвет, удаляет CSS, потом JS.</p>
+<p><strong>Спросить:</strong> «Какой язык отвечает за то, что произошло после клика?»</p>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="что-делает-фронтенд-разработчик">Что делает фронтенд-разработчик</h2>
+<ul>
+<li><strong>Вёрстка</strong> страница как в макете, на любом экране</li>
+<li><strong>Поведение</strong> кнопки, формы, фильтры, окна</li>
+<li><strong>Данные</strong> запросить у API и показать</li>
+<li><strong>Доступность и скорость</strong> удобно всем, быстро везде</li>
+</ul>
+</div><aside class="notes"><p><b>Что делает фронтенд-разработчик</b> — 3 мин</p><p><strong>На слайде:</strong> четыре карточки: вёрстка, поведение, данные, доступность и скорость.</p>
+<p><strong>Рассказать:</strong> красиво делает дизайнер. Фронтенд делает так, чтобы это работало у людей: на любом экране, с медленным интернетом, с клавиатуры.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="четыре-состояния-одного-экрана">Четыре состояния одного экрана</h2>
+<figure class="shot"><a href="../lessons/01-intro/img/intro-states.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/intro-states.webp" alt="" loading="lazy"></a></figure><p>Макет обычно показывает только последнее</p>
+</div><aside class="notes"><p><b>Четыре состояния одного экрана</b> — 3 мин</p><p><strong>На слайде:</strong> экран «Мои заказы» в состояниях загрузка, пусто, ошибка, данные.</p>
+<p><strong>Рассказать:</strong> в макете обычно только последнее. Остальные три придумывает и делает фронтенд.</p>
+<p><strong>Спросить:</strong> «Что увидит пользователь, если об ошибке никто не подумал?» Ответ: белый экран или вечную загрузку.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="кто-есть-кто-в-команде">Кто есть кто в команде</h2>
+<table>
+<thead>
+<tr>
+<th>Роль</th>
+<th>Результат работы</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Фронтенд</td>
+<td>Работающие экраны</td>
+</tr>
+<tr>
+<td>Бэкенд</td>
+<td>API и база данных</td>
+</tr>
+<tr>
+<td>Дизайнер</td>
+<td>Макеты в Figma</td>
+</tr>
+<tr>
+<td>Аналитик</td>
+<td>Требования</td>
+</tr>
+<tr>
+<td>QA</td>
+<td>Отчёты о багах</td>
+</tr>
+<tr>
+<td>DevOps</td>
+<td>Стабильные серверы и выкладка</td>
+</tr>
+<tr>
+<td>Менеджер</td>
+<td>Приоритеты</td>
+</tr>
+</tbody>
+</table>
+</div><aside class="notes"><p><b>Кто есть кто в команде</b> — 3 мин</p><p><strong>На слайде:</strong> таблица «роль → результат работы».</p>
+<p><strong>Рассказать:</strong> путь фичи: менеджер → аналитик → дизайнер → фронт и бэк → QA → DevOps.</p>
+<p><strong>Спросить:</strong> «Кто первым узнает, что кнопка «Купить» не работает на iPhone?» В хорошей команде — QA, в плохой — пользователь.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="браузеры">Браузеры</h2>
+<table>
+<thead>
+<tr>
+<th>Движок</th>
+<th>Браузеры</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chromium</td>
+<td>Chrome, Edge, Opera, Яндекс Браузер</td>
+</tr>
+<tr>
+<td>WebKit</td>
+<td>Safari — и все браузеры на iPhone</td>
+</tr>
+<tr>
+<td>Gecko</td>
+<td>Firefox</td>
+</tr>
+</tbody>
+</table>
+<p>Разрабатываем в Chrome, проверяем ещё и в Safari</p>
+</div><aside class="notes"><p><b>Браузеры</b> — 2 мин</p><p><strong>На слайде:</strong> три движка и браузеры на них.</p>
+<p><strong>Рассказать:</strong> на iPhone все браузеры — это Safari внутри. Разрабатываем в Chrome, готовое проверяем в Safari.</p>
+</aside></section>
+<section class="photo "><div class="slide-body"><h2 id="devtools-заглянуть-внутрь">DevTools — заглянуть внутрь</h2>
+<ul>
+<li><kbd>⌥</kbd>+<kbd>⌘</kbd>+<kbd>I</kbd> или правый клик → «Просмотреть код»</li>
+<li><strong>Elements</strong> — HTML и стили, можно менять</li>
+<li><strong>Network</strong> — все запросы страницы</li>
+<li><strong>Fetch/XHR</strong> — только запросы к API</li>
+</ul>
+<figure class="shot"><a href="../lessons/01-intro/img/cat-box.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/cat-box.webp" alt="Фото: Kenny Louie, CC BY 2.0(https://commons.wikimedia.org/wiki/File:Iminabox!(3939780053).jpg)" loading="lazy"></a><figcaption>Фото: Kenny Louie, <a href="https://commons.wikimedia.org/wiki/File:Im_in_a_box!_(3939780053).jpg" target="_blank" rel="noopener">CC BY 2.0</a></figcaption></figure></div><aside class="notes"><p><b>DevTools — заглянуть внутрь</b> — 2 мин</p><p><strong>На слайде:</strong> кот выглядывает из коробки, как открыть DevTools и главные вкладки.</p>
+<p><strong>Рассказать:</strong> DevTools — как заглянуть в коробку: видно, из чего сделан любой сайт.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="elements-и-network">Elements и Network</h2>
+<div class="cols"><div class="col"><figure class="shot"><a href="../lessons/01-intro/img/intro-elements.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/intro-elements.webp" alt="Elements: код и стили" loading="lazy"></a><figcaption>Elements: код и стили</figcaption></figure></div><div class="col"><figure class="shot"><a href="../lessons/01-intro/img/intro-network.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/intro-network.webp" alt="Network: запросы" loading="lazy"></a><figcaption>Network: запросы</figcaption></figure></div></div></div><aside class="notes"><p><b>Elements и Network</b> — 6 мин</p><p><strong>На слайде:</strong> скриншоты двух вкладок.</p>
+<p><strong>Показать вживую:</strong></p>
+<ol>
+<li>Новостной сайт → Elements → изменить заголовок → ⌘R: всё вернулось. Почему?</li>
+<li>hh.ru → Network → поиск вакансий → фильтр Fetch/XHR → запрос со списком → Preview: JSON.</li>
+</ol>
+<p><strong>Рассказать:</strong> это мостик к заданиям, ученик повторит это сам.</p>
+</aside></section>
+<section class="part " data-background-color="#fff8c5"><div class="slide-body"><p class="part-n">Часть 4</p><h2 id="курс">Курс</h2>
+<p>Что вы соберёте и как будем учиться</p>
+</div><aside class="notes"><p><b>Часть 4. Курс</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель четвёртой части.</p>
+<p><strong>Рассказать:</strong> что соберём за курс и как будем учиться.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="карта-курса">Карта курса</h2>
+<figure class="diagram"><div class="dg dg-rows-wrap"><div class="dg-rows"><div class="dg-row">
+<div class="dg-row-label"><b>Приложение</b></div>
+<div class="dg-row-body"><div class="dg-flow"><div class="dg-group k-front" style="--cols:1"><div class="dg-group-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-browser octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25ZM14.5 6h-13v7.25c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25Zm-6-3.5v2h6V2.75a.25.25 0 0 0-.25-.25ZM5 2.5v2h2v-2Zm-3.25 0a.25.25 0 0 0-.25.25V4.5h2v-2Z"></path></svg><span>Браузер — фронтенд</span></div><div class="dg-group-items"><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">SWR</span><span class="dg-badge" title="Урок">30</span></div><div class="dg-text">данные с сервера</div></div><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">React + Router + Zustand</span><span class="dg-badge" title="Урок">21–26</span></div></div><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">TypeScript</span><span class="dg-badge" title="Урок">19–20</span></div></div><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">JavaScript</span><span class="dg-badge" title="Урок">10–18</span></div></div><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">HTML + CSS</span><span class="dg-badge" title="Урок">4–8</span></div></div></div></div><div class="dg-arrow pair">
+<div class="dg-link right"><span class="dg-label">запрос</span><span class="dg-line"></span></div>
+<div class="dg-link left"><span class="dg-line"></span><span class="dg-label">JSON</span></div></div><div class="dg-group k-back" style="--cols:1"><div class="dg-group-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span>Сервер — бэкенд</span></div><div class="dg-group-items"><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">Express</span><span class="dg-badge" title="Урок">29</span></div><div class="dg-text">адреса API: <code>/tasks</code></div></div><div class="dg-node k-plain"><div class="dg-title"><span class="dg-name">Node.js</span><span class="dg-badge" title="Урок">28</span></div><div class="dg-text">JavaScript вне браузера</div></div><div class="dg-node k-db"><div class="dg-title"><span class="dg-name">data.json</span><span class="dg-badge" title="Урок">29</span></div><div class="dg-text">вместо базы данных</div></div></div></div></div></div>
+</div><div class="dg-row">
+<div class="dg-row-label"><b>Вокруг</b></div>
+<div class="dg-row-body"><div class="dg-flow"><div class="dg-node k-accent"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-git-branch octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M9.5 3.25a2.25 2.25 0 1 1 3 2.122V6A2.5 2.5 0 0 1 10 8.5H6a1 1 0 0 0-1 1v1.128a2.251 2.251 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.5 0v1.836A2.493 2.493 0 0 1 6 7h4a1 1 0 0 0 1-1v-.628A2.25 2.25 0 0 1 9.5 3.25Zm-6 0a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Zm8.25-.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5ZM4.25 12a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Z"></path></svg><span class="dg-name">Git и GitHub</span><span class="dg-badge" title="Урок">9, 15</span></div></div><div class="dg-node k-accent"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-package octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></svg><span class="dg-name">npm и Vite</span><span class="dg-badge" title="Урок">16</span></div></div><div class="dg-node k-accent"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-beaker octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"></path></svg><span class="dg-name">Тесты</span><span class="dg-badge" title="Урок">31</span></div></div><div class="dg-node k-accent"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-rocket octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg><span class="dg-name">Деплой</span><span class="dg-badge" title="Урок">33</span></div></div></div></div>
+</div></div></div><figcaption class="dg-caption">Архитектура финального проекта «Канбан-доска». Цифры — номера уроков. HTTP и JSON — уроки 17–18</figcaption></figure></div><aside class="notes"><p><b>Карта курса</b> — 3 мин</p><p><strong>На слайде:</strong> архитектура финального проекта с номерами уроков.</p>
+<p><strong>Рассказать:</strong> идём снизу вверх по фронтенду, потом делаем свой сервер. Git, npm, тесты и деплой проходят через весь курс.</p>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="четыре-проекта-в-портфолио">Четыре проекта в портфолио</h2>
+<ul>
+<li><strong>Лендинг</strong> HTML и CSS, после урока 9</li>
+<li><strong>Приложение на API</strong> JavaScript, после урока 18</li>
+<li><strong>Личный бюджет</strong> React, после урока 26</li>
+<li><strong>Канбан-доска</strong> свой сервер, тесты, деплой — в конце</li>
+</ul>
+</div><aside class="notes"><p><b>Четыре проекта в портфолио</b> — 2 мин</p><p><strong>На слайде:</strong> четыре карточки проектов.</p>
+<p><strong>Рассказать:</strong> каждый проект — отдельная работа на GitHub, которую можно показать работодателю.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="кем-вы-станете-после-курса">Кем вы станете после курса</h2>
+<table>
+<thead>
+<tr>
+<th>Уровень</th>
+<th>Опыт</th>
+<th>Как работает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Junior</strong></td>
+<td>до 1–2 лет</td>
+<td>понятные задачи, учится на ревью</td>
+</tr>
+<tr>
+<td><strong>Middle</strong></td>
+<td>2–4 года</td>
+<td>фича целиком сам</td>
+</tr>
+<tr>
+<td><strong>Senior</strong></td>
+<td>от 4–5 лет</td>
+<td>устройство системы и качество</td>
+</tr>
+</tbody>
+</table>
+<p>После курса — junior</p>
+</div><aside class="notes"><p><b>Кем вы станете после курса</b> — 2 мин</p><p><strong>На слайде:</strong> junior, middle, senior.</p>
+<p><strong>Рассказать:</strong> после курса — junior: делаете задачи сами, со старшим коллегой рядом. Уровень определяют задачи, а не годы.</p>
+</aside></section>
+<section class="photo "><div class="slide-body"><h2 id="как-учиться">Как учиться</h2>
+<ol>
+<li>Текст урока — с открытым редактором</li>
+<li>Занятие с ментором</li>
+<li>Квиз</li>
+<li>Задания</li>
+<li>Ревью</li>
+</ol>
+<figure class="shot"><a href="../lessons/01-intro/img/cat-book.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/cat-book.webp" alt="Фото: BibBornem, CC0(https://commons.wikimedia.org/wiki/File:Catreadingbook498102.jpg)" loading="lazy"></a><figcaption>Фото: BibBornem, <a href="https://commons.wikimedia.org/wiki/File:Cat_reading_book_498102.jpg" target="_blank" rel="noopener">CC0</a></figcaption></figure></div><aside class="notes"><p><b>Как учиться</b> — 2 мин</p><p><strong>На слайде:</strong> цикл из пяти шагов и кот с книгой.</p>
+<p><strong>Рассказать:</strong> текст урока читать с открытым редактором и повторять примеры руками. До урока 9 сдаём ответы отчётом со страницы урока, потом — через GitHub.</p>
+</aside></section>
+<section class="photo statement "><div class="slide-body"><p>Застряли больше чем на 30 минут — пишите ментору</p>
+<p>Что делаю, что ожидаю, что получаю, что пробовал</p>
+<figure class="shot"><a href="../lessons/01-intro/img/cat-yarn.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/cat-yarn.webp" alt="Фото: kitty.green66, CC BY-SA 2.0(https://commons.wikimedia.org/wiki/File:Littlecate(4985415966).jpg)" loading="lazy"></a><figcaption>Фото: kitty.green66, <a href="https://commons.wikimedia.org/wiki/File:Little_cate_(4985415966).jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a></figcaption></figure></div><aside class="notes"><p><b>Застряли больше чем на 30 минут</b> — 2 мин</p><p><strong>На слайде:</strong> котёнок запутался в пряже, формула вопроса.</p>
+<p><strong>Рассказать:</strong> запутаться нормально. Ненормально сидеть в клубке три часа. Писать ментору: что делаю, что ожидаю, что получаю, что пробовал.</p>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="ai-репетитор-а-не-решатель">AI — репетитор, а не решатель</h2>
+<ul>
+<li><strong>Можно</strong> объяснить непонятное, дать подсказку, найти ошибку</li>
+<li><strong>Нельзя</strong> сгенерировать решение задания целиком</li>
+<li><strong>Правило</strong> каждую строку сданного кода вы умеете объяснить</li>
+</ul>
+</div><aside class="notes"><p><b>AI — репетитор, а не решатель</b> — 2 мин</p><p><strong>На слайде:</strong> три карточки: можно, нельзя, правило.</p>
+<p><strong>Рассказать:</strong> сгенерированное решение — зачёт без навыка, на собеседовании вскроется. Каждую строку сданного кода ученик объясняет ментору.</p>
+</aside></section>
+<section class="photo "><div class="slide-body"><h2 id="домашнее-задание">Домашнее задание</h2>
+<ol>
+<li>Изменить чужой сайт через Elements</li>
+<li>Разобрать адреса</li>
+<li>Разобрать запросы трёх сайтов</li>
+<li>Вакансии: какой стек нужен</li>
+<li>Архитектура сервиса в Excalidraw</li>
+<li>Со звёздочкой: JSON реального сайта</li>
+</ol>
+<figure class="shot"><a href="../lessons/01-intro/img/cat-keyboard.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/cat-keyboard.webp" alt="Фото: Panini!, CC0(https://commons.wikimedia.org/wiki/File:CatSleepingonKeyboard.jpg)" loading="lazy"></a><figcaption>Фото: Panini!, <a href="https://commons.wikimedia.org/wiki/File:Cat_Sleeping_on_Keyboard.jpg" target="_blank" rel="noopener">CC0</a></figcaption></figure></div><aside class="notes"><p><b>Домашнее задание</b> — 3 мин</p><p><strong>На слайде:</strong> шесть заданий и кот, уснувший на клавиатуре.</p>
+<p><strong>Показать вживую:</strong> задания в тексте урока: поля для ответов и кнопку «Сформировать отчёт».</p>
+<p><strong>Спросить:</strong> вернуться к вопросу из начала: «Что происходит, когда вы открываете сайт?» Теперь ответ должен быть по шагам.</p>
+</aside></section>
+</div></div>
+<a class="back" href="../lessons/01-intro.html" title="Вернуться к тексту урока (Esc)"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-arrow-left octicon" aria-hidden="true" data-component="Octicon"><path d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06Z"></path></svg>Текст урока <kbd>Esc</kbd></a>
+<script src="../assets/vendor/reveal/reveal.js"></script>
+<script src="../assets/vendor/reveal/plugin/notes.js"></script>
+<script src="../assets/slides.js"></script>
+</body>
+</html>

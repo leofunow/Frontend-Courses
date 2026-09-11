@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Из чего состоит URL</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px; font: 15px/1.4 -apple-system, "Segoe UI", sans-serif; color: #1f2328; background: #fff; }
+  .url { display: flex; font: 600 28px/1 ui-monospace, Menlo, monospace; }
+  .part { display: flex; flex-direction: column; }
+  .code { padding: 12px 4px 10px; border-bottom: 4px solid; }
+  .label, .hint { font-family: -apple-system, "Segoe UI", sans-serif; }
+  .label { padding: 10px 8px 0 4px; font-size: 15px; font-weight: 600; }
+  .hint { padding: 2px 12px 0 4px; font-size: 14px; font-weight: 400; line-height: 1.35; color: #59636e; max-width: 20ch; }
+  .p1 .code { color: #8250df; border-color: #8250df; } .p1 .label { color: #8250df; }
+  .p2 .code { color: #0969da; border-color: #0969da; } .p2 .label { color: #0969da; }
+  .p3 .code { color: #1a7f37; border-color: #1a7f37; } .p3 .label { color: #1a7f37; }
+  .p4 .code { color: #9a6700; border-color: #d4a72c; } .p4 .label { color: #9a6700; }
+  .p5 .code { color: #bc4c00; border-color: #bc4c00; } .p5 .label { color: #bc4c00; }
+</style></head>
+<body>
+  <div class="url">
+    <div class="part p1"><span class="code">https://</span><span class="label">Протокол</span><span class="hint">как общаться, S — шифрование</span></div>
+    <div class="part p2"><span class="code">shop.ru</span><span class="label">Домен</span><span class="hint">имя сервера</span></div>
+    <div class="part p3"><span class="code">/catalog/coffee</span><span class="label">Путь</span><span class="hint">какая страница на сервере</span></div>
+    <div class="part p4"><span class="code">?sort=price</span><span class="label">Параметры</span><span class="hint">настройки: сортировка, поиск, фильтры</span></div>
+    <div class="part p5"><span class="code">#reviews</span><span class="label">Якорь</span><span class="hint">место на странице, на сервер не уходит</span></div>
+  </div>
+</body></html>

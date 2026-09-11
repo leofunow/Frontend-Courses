@@ -1,0 +1,101 @@
+# Интерфейс VS Code: снимаем vscode.dev — веб-версию того же редактора.
+# Обновить: npm run screenshots -- vscode-
+- file: vscode-welcome.webp
+  url: https://vscode.dev/
+  marks:
+    - {text: "Open Folder", exact: true, closest: "a, .monaco-button", label: 1, side: right}
+  clip: {x: 0, y: 26, width: 1280, height: 520}
+
+- file: vscode-ui.webp
+  url: https://vscode.dev/
+  steps:
+    - press: Meta+KeyN
+    - wait: 800
+    - click: {text: "Plain Text", exact: true}
+    - wait: 600
+    - type: "html"
+    - wait: 600
+    - press: Enter
+    - wait: 600
+    - type: "!"
+    - wait: 900
+    - press: Tab
+    - wait: 800
+  marks:
+    - {selector: ".activitybar", label: 1, side: inset}
+    - {selector: ".sidebar", label: 2, side: inset}
+    - {selector: ".editor-group-container", label: 3, side: inset}
+    - {selector: ".statusbar", label: 4, side: top}
+  clip: {x: 0, y: 26, width: 1280, height: 774}
+
+- file: vscode-emmet.webp
+  url: https://vscode.dev/
+  steps:
+    - press: Meta+KeyN
+    - wait: 800
+    - click: {text: "Plain Text", exact: true}
+    - wait: 600
+    - type: "html"
+    - wait: 600
+    - press: Enter
+    - wait: 600
+    - type: "!"
+    - wait: 1200
+  marks:
+    - {selector: ".suggest-widget", label: 1, side: right}
+  clip: {selector: ".suggest-widget", pad: [90, 60]}
+
+- file: vscode-palette.webp
+  url: https://vscode.dev/
+  hide: [".part.banner"]
+  steps:
+    - press: Meta+KeyN
+    - wait: 800
+    - click: {text: "Plain Text", exact: true}
+    - wait: 600
+    - type: "html"
+    - wait: 600
+    - press: Enter
+    - wait: 600
+    - press: Meta+Shift+KeyP
+    - wait: 700
+    - type: "format document"
+    - wait: 900
+  marks:
+    - {selector: ".quick-input-widget", label: 1, side: left}
+  clip: {selector: ".quick-input-widget", pad: [60, 30]}
+
+- file: vscode-extensions.webp
+  url: https://vscode.dev/
+  steps:
+    - press: Meta+Shift+KeyX
+    - wait: 900
+    - type: "live server"
+    - wait: 2500
+  marks:
+    - {selector: ".activitybar .action-item.checked", label: 1, side: right}
+    - {selector: ".extensions-viewlet .suggest-input-container", label: 2, side: right}
+    - {text: "Install", exact: true, label: 3, side: right}
+  clip: {x: 0, y: 26, width: 760, height: 420}
+
+- file: vscode-settings.webp
+  url: https://vscode.dev/
+  steps:
+    - press: Meta+Comma
+    - wait: 1500
+    - type: "format on save"
+    - wait: 1500
+  marks:
+    - {text: "Format On Save", exact: true, closest: ".setting-item-contents", label: 1, side: left}
+  clip: {text: "Format On Save", exact: true, closest: ".setting-item-contents", pad: [60, 110]}
+
+- file: vscode-biome.webp
+  url: https://vscode.dev/
+  steps:
+    - press: Meta+Shift+KeyX
+    - wait: 900
+    - type: "biome"
+    - wait: 2500
+  marks:
+    - {selector: ".extension-list-item", label: 1, side: right}
+  clip: {x: 0, y: 26, width: 620, height: 300}

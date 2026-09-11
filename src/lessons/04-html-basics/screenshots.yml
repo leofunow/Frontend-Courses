@@ -1,0 +1,12 @@
+# Обновить: npm run screenshots -- semantic
+- file: semantic-regions.webp
+  url: examples/semantic.html
+  viewport: [1000, 600]
+  clip: {selector: "body", pad: 0}
+
+# Эталон задания 1 — рендер решения ментора
+- file: task-recipe.webp
+  url: ../../../../mentor/04-html-basics/task-1/index.html
+  viewport: [760, 1200]
+  hide: ["[data-runner]"]
+  clip: {selector: "body", pad: 8}

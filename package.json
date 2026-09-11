@@ -1,0 +1,27 @@
+{
+  "name": "frontend-course",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node build/serve.mjs",
+    "build": "node build/build.mjs",
+    "lint:content": "node build/lint-content.mjs",
+    "check:links": "node build/check-links.mjs",
+    "check:layout": "node build/check-layout.mjs",
+    "check": "node build/build.mjs && node build/lint-content.mjs && node build/check-links.mjs && node build/check-layout.mjs && node build/check-homework.mjs && node build/test-ui.mjs",
+    "test:ui": "node build/test-ui.mjs",
+    "check:homework": "node build/check-homework.mjs",
+    "screenshots": "node build/screenshots.mjs"
+  },
+  "devDependencies": {
+    "@primer/octicons": "^19.36.0",
+    "@primer/primitives": "^11.10.0",
+    "github-markdown-css": "^5.9.0",
+    "js-yaml": "^5.4.1",
+    "markdown-it": "^15.0.2",
+    "markdown-it-anchor": "^10.0.0",
+    "puppeteer-core": "^25.10.0",
+    "reveal.js": "^6.0.2",
+    "shiki": "^4.4.3"
+  }
+}

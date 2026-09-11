@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Оси</title><link rel="stylesheet" href="demo.css">
+<style>
+  .wrap { display: grid; grid-template-columns: 150px 1fr; grid-template-rows: auto 1fr; gap: 10px 14px; padding: 8px; }
+  .x { grid-column: 2; display: grid; gap: 4px; font: 600 13px ui-monospace, monospace; color: #cf222e; }
+  .x i { position: relative; display: block; height: 2px; background: #cf222e; }
+  .x i::after { content: ""; position: absolute; right: -2px; top: -5px; border: 6px solid transparent; border-left: 10px solid #cf222e; }
+  .y { grid-column: 1; display: grid; grid-template-columns: 1fr 2px; gap: 10px; font: 600 13px ui-monospace, monospace; color: #8250df; text-align: right; }
+  .y span { align-self: center; }
+  .y i { position: relative; display: block; background: #8250df; }
+  .y i::after { content: ""; position: absolute; bottom: -2px; left: -5px; border: 6px solid transparent; border-top: 10px solid #8250df; }
+  .row { grid-column: 2; justify-content: flex-start; align-items: center; gap: 12px; min-height: 150px; margin: 0; }
+</style></head>
+<body>
+  <div class="wrap">
+    <div class="x"><span>главная ось → justify-content</span><i></i></div>
+    <div class="y"><span>поперечная ось ↓ align-items</span><i></i></div>
+    <div class="row"><div class="box">1</div><div class="box b2">2</div><div class="box b3">3</div></div>
+  </div>
+</body></html>

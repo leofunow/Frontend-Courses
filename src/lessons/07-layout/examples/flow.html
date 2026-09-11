@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Поток</title><link rel="stylesheet" href="demo.css">
+<style>
+  .blk { position: relative; padding: 22px 12px 10px; margin-bottom: 10px; border: 2px dashed #0969da; border-radius: 6px; background: #ddf4ff; }
+  .blk::before { content: "block — на всю ширину"; position: absolute; top: 3px; left: 8px; font: 600 11px ui-monospace, monospace; color: #0969da; }
+  .inl { padding: 2px 4px; border: 2px dashed #1a7f37; border-radius: 4px; background: #dafbe1; }
+  p.blk { margin: 0 0 10px; }
+</style></head>
+<body>
+  <h2 class="blk" style="margin:0 0 10px">&lt;h2&gt; Заголовок</h2>
+  <p class="blk">&lt;p&gt; Абзац, внутри строчные элементы: <a class="inl" href="#">&lt;a&gt; ссылка</a> и <strong class="inl">&lt;strong&gt; важное</strong> — они живут внутри строки текста.</p>
+  <div class="blk">&lt;div&gt; Ещё один блок — снова с новой строки</div>
+</body></html>

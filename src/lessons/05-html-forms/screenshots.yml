@@ -1,0 +1,15 @@
+# Эталон задания 1 — рендер решения ментора
+- file: task-booking.webp
+  url: ../../../../mentor/05-html-forms/task-1/index.html
+  viewport: [520, 1200]
+  hide: ["[data-runner]"]
+  clip: {selector: "body", pad: 8}
+
+# Фокус после двух нажатий Tab: поле «Телефон»
+- file: focus-ring.webp
+  url: examples/focus.html
+  viewport: [420, 260]
+  steps:
+    - press: Tab
+    - press: Tab
+  clip: {selector: "form", pad: 16}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Кофейня «Зерно»</title>
+    <style>
+      body { margin: 0; font: 16px/1.5 -apple-system, sans-serif; color: #1f2328; background: #fff; }
+      header, footer { display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: #f6f8fa; }
+      header strong { font-size: 20px; }
+      nav a { margin-left: 20px; color: #0969da; text-decoration: none; }
+      main { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; padding: 24px 32px; }
+      article, aside { padding: 16px 20px; border: 1px solid #d1d9e0; border-radius: 8px; }
+      h1 { margin: 0 0 8px; font-size: 26px; }
+      h2 { margin: 0 0 8px; font-size: 18px; }
+      p { margin: 0 0 8px; }
+      footer { font-size: 14px; color: #59636e; }
+      /* режим «рентген»: рамка и подпись у каждого семантического тега */
+      .xray header, .xray nav, .xray main, .xray article, .xray aside, .xray footer { position: relative; outline: 2px dashed #cf222e; outline-offset: -2px; padding-top: 34px; }
+      .xray nav { padding: 30px 12px 8px; }
+      .xray main { margin: 12px 0; }
+      .xray header::before, .xray nav::before, .xray main::before, .xray article::before, .xray aside::before, .xray footer::before {
+        position: absolute; top: 6px; left: 8px; padding: 0 6px; font: 600 12px/18px ui-monospace, Menlo, monospace; color: #fff; background: #cf222e; border-radius: 4px;
+      }
+      .xray header::before { content: '<header>'; }
+      .xray nav::before { content: '<nav>'; }
+      .xray main::before { content: '<main>'; }
+      .xray article::before { content: '<article>'; }
+      .xray aside::before { content: '<aside>'; }
+      .xray footer::before { content: '<footer>'; }
+    </style>
+  </head>
+  <body class="xray">
+    <header>
+      <strong>Зерно</strong>
+      <nav><a href="#">Меню</a><a href="#">О нас</a><a href="#">Контакты</a></nav>
+    </header>
+    <main>
+      <article>
+        <h1>Кофе, который хочется повторить</h1>
+        <p>Обжариваем зерно сами каждую неделю. Варим эспрессо, фильтр и какао на овсяном молоке.</p>
+        <p>Работаем каждый день с 8:00 до 22:00.</p>
+      </article>
+      <aside>
+        <h2>Акция недели</h2>
+        <p>Второй капучино — в подарок до 11 утра.</p>
+      </aside>
+    </main>
+    <footer>
+      <span>© Кофейня «Зерно», 2026</span>
+      <span>Москва, ул. Пушкина, 1</span>
+    </footer>
+  </body>
+</html>

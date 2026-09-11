@@ -1,0 +1,192 @@
+# Программа курса. Источник правды для сайдбара, главной, карты и нумерации.
+# id — постоянное имя урока. Папка урока: src/lessons/NN-id, где NN — номер по порядку (считается сам).
+# Урок готов, если в папке есть lesson.md. В текстах номер урока пишется как {{n:id}} — сборка подставит число.
+
+title: Фронтенд с нуля
+tagline: '{{count}} от «что такое сервер» до своего фулстек-приложения. Под macOS.'
+
+modules:
+  - id: m0
+    title: Старт
+    color: "#663399"
+    lessons:
+      - id: intro
+        title: Как устроен веб
+        subtitle: Клиент, сервер, фронтенд, бэкенд и архитектуры
+        topics: [клиент и сервер, путь запроса, роли в команде, MPA/SPA/SSR, API, карта курса]
+      - id: setup
+        title: Рабочее место на Mac
+        subtitle: Терминал, установка программ, пути и папки
+        topics: [Терминал, файлы и пути, Finder, установка Chrome, VS Code, Node.js и Git с сайтов, проверка установки]
+      - id: vscode
+        title: Редактор VS Code
+        subtitle: Интерфейс, горячие клавиши, расширения
+        topics: [интерфейс, открыть папку, быстрый поиск файлов, горячие клавиши, Emmet, расширения, настройки, встроенный терминал, Live Server]
+
+  - id: m1
+    title: HTML и CSS
+    color: "#D4462A"
+    lessons:
+      - id: html-basics
+        title: HTML — основа страницы
+        subtitle: Документ, теги, семантика
+        topics: [структура документа, заголовки и текст, ссылки и пути, картинки, списки, семантические теги]
+      - id: html-forms
+        title: Формы, таблицы и доступность
+        subtitle: Как пользователь вводит данные
+        topics: [form, input и label, типы полей, валидация HTML, таблицы, основы a11y]
+      - id: css-basics
+        title: CSS — основы
+        subtitle: Селекторы, каскад, box model
+        topics: [подключение CSS, селекторы, каскад и специфичность, цвета и единицы, типографика, box model, DevTools Styles]
+      - id: layout
+        title: Flexbox и Grid
+        subtitle: Раскладка элементов на странице
+        topics: [display и поток, flexbox, grid, gap, типовые раскладки]
+      - id: responsive
+        title: Адаптивная вёрстка
+        subtitle: Одна страница для телефона и ноутбука
+        topics: [mobile-first, media queries, относительные единицы, CSS-переменные, адаптивные картинки]
+      - id: git-basics
+        title: Git и GitHub
+        subtitle: История изменений и публикация сайта
+        topics: [зачем Git, init/add/commit, .gitignore, вход в GitHub, push, GitHub Pages, расширение Git Graph для VS Code, сдача домашки через PR]
+    project:
+      id: p1
+      title: Адаптивный лендинг
+      summary: Лендинг кофейни или студии, опубликованный на GitHub Pages
+
+  - id: m2
+    title: JavaScript
+    color: "#B38F00"
+    lessons:
+      - id: js-basics
+        title: Первые шаги в JavaScript
+        subtitle: Переменные, типы, операторы
+        topics: [где работает JS, console, node, let и const, типы данных, операторы, шаблонные строки]
+      - id: js-flow
+        title: Условия, циклы, функции
+        subtitle: Как программа принимает решения
+        topics: [if и тернарный оператор, сравнения, циклы, функции, стрелочные функции, область видимости]
+      - id: js-data
+        title: Массивы и объекты
+        subtitle: Как хранить и обрабатывать данные
+        topics: [массивы, объекты, map/filter/find/reduce, деструктуризация, spread, ссылки и копии]
+      - id: dom
+        title: DOM и события
+        subtitle: JavaScript управляет страницей
+        topics: [DOM-дерево, querySelector, изменение элементов, создание элементов, события, делегирование]
+      - id: forms-storage
+        title: Формы, localStorage, отладка
+        subtitle: Приложение, которое помнит данные
+        topics: [submit и preventDefault, валидация, localStorage, JSON.stringify/parse, брейкпоинты, чтение ошибок]
+      - id: git-team
+        title: Git в команде
+        subtitle: Ветки, pull request, конфликты
+        topics: [ветки, ветки на графе в Git Graph, pull request, code review, merge-конфликты, хорошие коммиты]
+      - id: tooling
+        title: Модули, npm и Vite
+        subtitle: Инструменты современного фронтенда
+        topics: [import/export, npm и package.json, node_modules, Vite, Biome в проекте, npm-скрипты]
+      - id: http
+        title: JSON, HTTP и REST
+        subtitle: Как фронтенд разговаривает с сервером
+        topics: [JSON, HTTP-запрос и ответ, методы, статус-коды, заголовки, REST, вкладка Network]
+      - id: async
+        title: Асинхронность и fetch
+        subtitle: Промисы, async/await, запросы к API
+        topics: [event loop, промисы, async/await, fetch, обработка ошибок, CORS]
+    project:
+      id: p2
+      title: Приложение на публичном API
+      summary: Поиск фильмов или погода с избранным в localStorage, на чистом JS и Vite
+
+  - id: m3
+    title: TypeScript
+    color: "#3178C6"
+    lessons:
+      - id: ts-basics
+        title: TypeScript — основы
+        subtitle: Типы ловят ошибки до запуска
+        topics: [зачем TS, аннотации, type и interface, union, narrowing, типы функций]
+      - id: ts-practice
+        title: TypeScript на практике
+        subtitle: Generics, типы API, tsconfig
+        topics: [generics, типизация ответа API, tsconfig, strict, перевод проекта на TS]
+
+  - id: m4
+    title: React
+    color: "#087EA4"
+    lessons:
+      - id: react-intro
+        title: Знакомство с React
+        subtitle: Компоненты, JSX, props
+        topics: [зачем React, Vite + React + TS, JSX, компоненты, props, Thinking in React]
+      - id: react-state
+        title: Состояние и списки
+        subtitle: Интерфейс, который меняется
+        topics: [useState, события, условный рендер, списки и key, иммутабельность]
+      - id: react-forms
+        title: Формы и CSS Modules
+        subtitle: Управляемые поля и стили компонентов
+        topics: [controlled inputs, подъём состояния, композиция, CSS Modules]
+      - id: react-effects
+        title: Эффекты и свои хуки
+        subtitle: useEffect и когда он не нужен
+        topics: [рендер и эффекты, useEffect, зависимости, You might not need an effect, свои хуки]
+      - id: react-router
+        title: React Router
+        subtitle: Несколько страниц в одном приложении
+        topics: [SPA-роутинг, маршруты, Link и NavLink, параметры URL, вложенные маршруты, 404]
+      - id: react-global-state
+        title: Глобальное состояние
+        subtitle: Context и Zustand
+        topics: [prop drilling, Context, Zustand, persist в localStorage]
+      # добавлен по просьбе автора курса; урок ещё не написан
+      - id: ui-library
+        title: Библиотеки компонентов
+        subtitle: Готовые кнопки, формы и таблицы на примере Ant Design
+        topics: [зачем библиотека компонентов, Ant Design, установка и тема, Button Form Table Modal, иконки, свои стили поверх antd, когда библиотека не нужна]
+    project:
+      id: p3
+      title: SPA «Личный бюджет»
+      summary: Многостраничное React-приложение с роутингом, Zustand и сохранением данных
+
+  - id: m5
+    title: Данные и сервер
+    color: "#1E8757"
+    lessons:
+      - id: node
+        title: Node.js
+        subtitle: JavaScript вне браузера
+        topics: [что такое Node, модули, fs и path, process и env, npm-скрипты]
+      - id: express
+        title: Express — тестовый сервер
+        subtitle: Своё REST API за один урок
+        topics: [маршруты, JSON-файл вместо базы, CRUD, middleware, CORS, REST Client]
+      - id: swr
+        title: SWR — данные в React
+        subtitle: Загрузка, кеш, мутации
+        topics: [fetcher, useSWR, loading и error, mutate, оптимистичные обновления, свои хуки]
+      - id: testing
+        title: Тесты
+        subtitle: Vitest и Testing Library
+        topics: [зачем тесты, Vitest, unit-тесты, Testing Library, тест компонента с запросом]
+      # добавлен по просьбе автора курса; урок ещё не написан
+      - id: storybook
+        title: Storybook и скриншот-тесты
+        subtitle: Витрина компонентов и проверка, что вёрстка не поехала
+        topics: [Storybook, stories и состояния компонента, аддоны, скриншот-тестирование, visual regression в CI, обновление эталонов]
+
+  - id: m6
+    title: Финал
+    color: "#52607A"
+    lessons:
+      - id: deploy-career
+        title: Деплой и что дальше
+        subtitle: Публикация, аудит, AI, портфолио
+        topics: [Vercel и Render, переменные окружения, Lighthouse и a11y, AI-ассистенты, портфолио и собеседование]
+    project:
+      id: p4
+      title: Фулстек «Канбан-доска»
+      summary: Express API, React + TS + SWR, тесты и деплой. Главный проект портфолио
