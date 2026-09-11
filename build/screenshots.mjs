@@ -44,14 +44,16 @@ const executablePath = [process.env.CHROME_PATH, '/Applications/Google Chrome.ap
 if (!executablePath) { console.error('Не найден Chrome или Edge (CHROME_PATH)'); process.exit(2); }
 
 const jobs = [];
-for (const dir of fs.readdirSync(LESSONS).sort()) {
-  const f = path.join(LESSONS, dir, 'screenshots.yml');
+// папки со screenshots.yml: каждый урок и страницы проектов (src/projects)
+const dirs = fs.readdirSync(LESSONS).sort().map((d) => path.join(LESSONS, d)).concat(path.join(ROOT, 'src', 'projects'));
+for (const base of dirs) {
+  const f = path.join(base, 'screenshots.yml');
   if (!fs.existsSync(f)) continue;
   for (const shot of yaml.load(fs.readFileSync(f, 'utf8')) || []) {
     // url без http — путь к локальной странице относительно папки урока (примеры, эталоны заданий)
-    const url = /^https?:/.test(shot.url) ? shot.url : pathToFileURL(path.resolve(LESSONS, dir, shot.url)).href;
+    const url = /^https?:/.test(shot.url) ? shot.url : pathToFileURL(path.resolve(base, shot.url)).href;
     // out — куда сохранить, относительно папки урока (например, эталон прямо в папку задания); по умолчанию img/<file>
-    const out = shot.out ? path.resolve(LESSONS, dir, shot.out) : path.join(LESSONS, dir, 'img', shot.file);
+    const out = shot.out ? path.resolve(base, shot.out) : path.join(base, 'img', shot.file);
     if (!filter || shot.file.includes(filter)) jobs.push({ ...shot, url, out });
   }
 }

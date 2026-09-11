@@ -22,18 +22,18 @@
 <p><strong>Спросить:</strong> «С чего вы чаще открываете сайты — с телефона или с ноутбука?» Большинство отвечает «с телефона». Отсюда и урок.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="один-сайт-три-ширины">Один сайт, три ширины</h2>
-<figure class="shot"><a href="../lessons/08-responsive/img/resp-devices.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/08-responsive/img/resp-devices.webp" alt="" loading="lazy"></a></figure></div><aside class="notes"><p><b>Один сайт, три ширины</b> — 4 мин</p><p><strong>На слайде:</strong> одна страница на телефоне, планшете и ноутбуке.</p>
+<figure class="shot"><img src="../lessons/08-responsive/img/resp-devices.webp" alt="" loading="lazy"></figure></div><aside class="notes"><p><b>Один сайт, три ширины</b> — 4 мин</p><p><strong>На слайде:</strong> одна страница на телефоне, планшете и ноутбуке.</p>
 <p><strong>Рассказать:</strong> HTML один и тот же. Меняется только CSS в зависимости от ширины экрана.</p>
 <p><strong>Показать вживую:</strong> открыть сайт курса и сузить окно браузера: боковое меню пропадает, контент перестраивается.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="meta-viewport">meta viewport</h2>
 <figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">meta</span><span style="color:#6F42C1"> name</span><span style="color:#24292E">=</span><span style="color:#032F62">"viewport"</span><span style="color:#6F42C1"> content</span><span style="color:#24292E">=</span><span style="color:#032F62">"width=device-width, initial-scale=1"</span><span style="color:#24292E">></span></span></code></pre></figure>
-<div class="cols"><div class="col"><figure class="shot"><a href="../lessons/08-responsive/img/resp-no-viewport.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/08-responsive/img/resp-no-viewport.webp" alt="Без неё" loading="lazy"></a><figcaption>Без неё</figcaption></figure></div><div class="col"><figure class="shot"><a href="../lessons/08-responsive/img/resp-with-viewport.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/08-responsive/img/resp-with-viewport.webp" alt="С ней" loading="lazy"></a><figcaption>С ней</figcaption></figure></div></div></div><aside class="notes"><p><b>meta viewport</b> — 5 мин</p><p><strong>На слайде:</strong> строка viewport и два скриншота.</p>
+<div class="cols"><div class="col"><figure class="shot"><img src="../lessons/08-responsive/img/resp-no-viewport.webp" alt="Без неё" loading="lazy"><figcaption>Без неё</figcaption></figure></div><div class="col"><figure class="shot"><img src="../lessons/08-responsive/img/resp-with-viewport.webp" alt="С ней" loading="lazy"><figcaption>С ней</figcaption></figure></div></div></div><aside class="notes"><p><b>meta viewport</b> — 5 мин</p><p><strong>На слайде:</strong> строка viewport и два скриншота.</p>
 <p><strong>Рассказать:</strong> телефон по умолчанию притворяется экраном 980px. Строка viewport это отменяет. Emmet по <code>!</code> вставляет её сам.</p>
 <p><strong>Спросить:</strong> «Есть ли viewport в ваших страницах из прошлых уроков?» Ученик открывает любую и проверяет.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="режим-устройств">Режим устройств</h2>
-<figure class="shot"><a href="../lessons/08-responsive/img/devtools-device-toggle.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/08-responsive/img/devtools-device-toggle.webp" alt="⇧⌘M в DevTools" loading="lazy"></a><figcaption>⇧⌘M в DevTools</figcaption></figure></div><aside class="notes"><p><b>Режим устройств</b> — 7 мин</p><p><strong>На слайде:</strong> кнопка режима устройств в DevTools.</p>
+<figure class="shot"><img src="../lessons/08-responsive/img/devtools-device-toggle.webp" alt="⇧⌘M в DevTools" loading="lazy"><figcaption>⇧⌘M в DevTools</figcaption></figure></div><aside class="notes"><p><b>Режим устройств</b> — 7 мин</p><p><strong>На слайде:</strong> кнопка режима устройств в DevTools.</p>
 <p><strong>Показать вживую:</strong></p>
 <ul>
 <li>⇧⌘M на странице ученика, выбрать iPhone SE, потом Responsive.</li>
@@ -80,7 +80,7 @@
 <p><strong>Спросить:</strong> «При ширине 639px сработает <code>min-width: 640px</code>?» Ответ: нет.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="сначала-телефон">Сначала телефон</h2>
-<figure class="shot"><a href="../lessons/08-responsive/img/resp-breakpoints.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/08-responsive/img/resp-breakpoints.webp" alt="" loading="lazy"></a></figure><p>Базовые стили — телефон, <code>min-width</code> добавляет колонки</p>
+<figure class="shot"><img src="../lessons/08-responsive/img/resp-breakpoints.webp" alt="" loading="lazy"></figure><p>Базовые стили — телефон, <code>min-width</code> добавляет колонки</p>
 </div><aside class="notes"><p><b>Сначала телефон</b> — 6 мин</p><p><strong>На слайде:</strong> шкала брейкпоинтов 0 → 640 → 1024.</p>
 <p><strong>Рассказать:</strong></p>
 <ul>
@@ -144,7 +144,7 @@
 <p><strong>Показать вживую:</strong> картинка в задании 4 до и после <code>max-width: 100%</code> в DevTools.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="object-fit">object-fit</h2>
-<figure class="shot"><a href="../lessons/08-responsive/img/resp-fit.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/08-responsive/img/resp-fit.webp" alt="" loading="lazy"></a></figure><p>Превью и обложки — <code>cover</code></p>
+<figure class="shot"><img src="../lessons/08-responsive/img/resp-fit.webp" alt="" loading="lazy"></figure><p>Превью и обложки — <code>cover</code></p>
 </div><aside class="notes"><p><b>object-fit</b> — 3 мин</p><p><strong>На слайде:</strong> fill, contain, cover.</p>
 <p><strong>Рассказать:</strong> object-fit нужен, только когда у картинки заданы и ширина, и высота.</p>
 <p><strong>Спросить:</strong> «Что взять для аватарок в комментариях?» Ответ: cover.</p>
@@ -177,7 +177,7 @@
 <li>Меню только по <code>:hover</code></li>
 <li>Кнопки меньше 44px</li>
 </ul>
-</div><div class="col"><figure class="shot"><a href="../lessons/08-responsive/img/resp-fixed.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/08-responsive/img/resp-fixed.webp" alt="" loading="lazy"></a></figure></div></div></div><aside class="notes"><p><b>Частые ошибки</b> — 4 мин</p><p><strong>На слайде:</strong> четыре ошибки и промо-блок, вылезший за экран.</p>
+</div><div class="col"><figure class="shot"><img src="../lessons/08-responsive/img/resp-fixed.webp" alt="" loading="lazy"></figure></div></div></div><aside class="notes"><p><b>Частые ошибки</b> — 4 мин</p><p><strong>На слайде:</strong> четыре ошибки и промо-блок, вылезший за экран.</p>
 <p><strong>Рассказать:</strong> про палец — кнопки не меньше 44 на 44px. Про <code>:hover</code> — на телефоне его нет.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="воркшоп-адаптируем-свою-страницу">Воркшоп: адаптируем свою страницу</h2>

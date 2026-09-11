@@ -1,0 +1,28 @@
+# Картинки урока. Обновить: npm run screenshots -- gh-
+# Интерфейс VS Code (git-vscode-*.webp, git-graph.webp) снят вручную: code serve-web + Git Graph,
+# учебный репозиторий ~/tmp/code-courses/kofeynya, автор коммитов «Мария».
+# GitHub — картинки из документации GitHub (CC BY 4.0)
+- file: gh-new-repo.webp
+  url: https://docs.github.com/ru/repositories/creating-and-managing-repositories/creating-a-new-repository
+  viewport: [1280, 900]
+  clip: {selector: "img[src*='create-repository-name']", pad: 0}
+
+- file: gh-settings-tab.webp
+  url: https://docs.github.com/ru/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+  viewport: [1280, 900]
+  clip: {selector: "img[src*='repo-actions-settings']", pad: 0}
+
+- file: gh-pages-source.webp
+  url: https://docs.github.com/ru/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+  viewport: [1280, 900]
+  clip: {selector: "img[src*='publishing-source-drop-down']", pad: 0}
+
+- file: gh-compare-pr.webp
+  url: https://docs.github.com/ru/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
+  viewport: [1280, 900]
+  clip: {selector: "img[src*='pull-request-compare-pull-request']", pad: 0}
+
+- file: gh-use-template.webp
+  url: https://docs.github.com/ru/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
+  viewport: [1280, 900]
+  clip: {selector: "img[src*='use-this-template-button']", pad: 0}

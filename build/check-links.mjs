@@ -18,7 +18,7 @@ const idsOf = (file) => {
 const problems = [];
 const externals = new Map();
 // Сайты, которые отвечают роботам 403, хотя в браузере открываются. Их проверяем глазами
-const BOT_BLOCKED = ['metanit.com'];
+const BOT_BLOCKED = ['metanit.com', 'www.pexels.com', 'unsplash.com'];
 for (const file of walk(DOCS)) {
   const rel = path.relative(DOCS, file);
   const html = fs.readFileSync(file, 'utf8').replace(/<textarea[\s\S]*?<\/textarea>/g, '').replace(/<pre[\s\S]*?<\/pre>/g, '');
@@ -41,7 +41,7 @@ if (external) {
   await Promise.all(list.map(async ([url, from]) => {
     try {
       const res = await fetch(url, { method: 'GET', redirect: 'follow', signal: AbortSignal.timeout(15000), headers: { 'user-agent': 'Mozilla/5.0 link-check' } });
-      if (res.status === 403 && BOT_BLOCKED.includes(new URL(url).hostname)) return;
+      if ((res.status === 401 || res.status === 403) && BOT_BLOCKED.includes(new URL(url).hostname)) return;
       if (res.status >= 400) problems.push(`${from}: ${url} → ${res.status}`);
     } catch (e) { problems.push(`${from}: ${url} → ${e.cause?.code || e.message}`); }
   }));

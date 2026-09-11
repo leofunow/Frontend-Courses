@@ -296,7 +296,8 @@
   function buildReport(box) {
     var slug = box.dataset.report, n = box.dataset.lessonN, title = box.dataset.lessonTitle;
     // имена внутри архива — латиницей: встроенный unzip в macOS и старые архиваторы Windows не понимают UTF-8 в именах
-    var folder = 'lesson-' + (n.length < 2 ? '0' + n : n) + '-report';
+    var folder = box.dataset.reportFile || 'lesson-' + (n.length < 2 ? '0' + n : n) + '-report';
+    var heading = box.dataset.reportHeading || 'урок ' + n + ' «' + title + '»';
     var name = ($('.report-name', box).value || '').trim();
     var tasks = $$('.task[data-task]');
     return db.list(slug + '/').then(function (items) {
@@ -306,7 +307,7 @@
         var tn = t.dataset.task, fname = 'task-' + tn + '.md';
         var checks = $$('.task-list-item-checkbox', t);
         var done = checks.filter(function (c) { return c.checked; }).length;
-        var md = ['# Задание ' + tn + '. ' + t.dataset.title, '', '*Урок ' + n + ' «' + title + '», ' + t.dataset.level + (t.dataset.time ? ', ' + t.dataset.time : '') + '*', '', '## Условие', '', taskText($('.Box-body', t)), ''];
+        var md = ['# Задание ' + tn + '. ' + t.dataset.title, '', '*' + heading.charAt(0).toUpperCase() + heading.slice(1) + ', ' + t.dataset.level + (t.dataset.time ? ', ' + t.dataset.time : '') + '*', '', '## Условие', '', taskText($('.Box-body', t)), ''];
         if (checks.length) {
           md.push('## Чек-лист — ' + done + ' из ' + checks.length, '');
           checks.forEach(function (c) { md.push('- [' + (c.checked ? 'x' : ' ') + '] ' + inline(c.closest('li')).replace(/^Отметить пункт\s*/, '')); });
@@ -347,7 +348,7 @@
         var right = answered.filter(function (q) { return !$('.opt.wrong', q); }).length;
         quizLine = answered.length ? 'Квиз: ' + right + ' из ' + qs.length + ' с первой попытки' + (answered.length < qs.length ? ' (отвечено ' + answered.length + ')' : '') : 'Квиз: не пройден';
       }
-      var readme = ['# Отчёт: урок ' + n + ' «' + title + '»', '', (name ? 'Ученик: ' + name + '  \n' : '') + 'Сформирован: ' + stamp() + '  ', quizLine, '', '| № | Задание | Чек-лист |', '|---|---|---|'].concat(summary, ['', 'Заполнено полей: ' + filled + ' из ' + total + '.', '']).join('\n');
+      var readme = ['# Отчёт: ' + heading, '', (name ? 'Ученик: ' + name + '  \n' : '') + 'Сформирован: ' + stamp() + '  ', quizLine, '', '| № | Задание | Чек-лист |', '|---|---|---|'].concat(summary, ['', 'Заполнено полей: ' + filled + ' из ' + total + '.', '']).join('\n');
       files.unshift({ name: folder + '/README.md', data: readme });
       return { files: files, zipName: folder + '.zip', filled: filled, total: total };
     });

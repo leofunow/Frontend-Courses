@@ -162,6 +162,24 @@ await test('Отчёт: ZIP открывается, внутри README, зад�
   expect(summary.startsWith('Готово'), 'сообщение после отчёта: ' + summary);
 });
 
+await test('Проект: поля ответов сохраняются, отчёт — project-p1-report.zip', async (browser) => {
+  const page = await open(browser, 'projects/p1.html');
+  await page.waitForSelector('#ans-1-1');
+  await page.type('#ans-1-1', 'Кофейня «Зерно»');
+  await sleep(700);
+  await page.reload({ waitUntil: 'load' });
+  await page.waitForFunction(() => document.querySelector('#ans-1-1').value !== '');
+  const dir = fs.mkdtempSync(path.join(tmp, 'dl-'));
+  await downloadsTo(page, dir);
+  await page.click('.report-make');
+  const zip = await waitFile(dir, '.zip');
+  expect(path.basename(zip) === 'project-p1-report.zip', 'имя архива: ' + path.basename(zip));
+  const readme = execFileSync('unzip', ['-p', zip, 'project-p1-report/README.md']).toString();
+  const t1 = execFileSync('unzip', ['-p', zip, 'project-p1-report/task-1.md']).toString();
+  expect(readme.includes('# Отчёт: проект «Адаптивный лендинг»'), 'README:\n' + readme);
+  expect(t1.includes('Кофейня «Зерно»') && t1.includes('Проект «Адаптивный лендинг»'), 'task-1.md:\n' + t1);
+});
+
 await test('Отчёт: очистка ответов в два нажатия', async (browser) => {
   const page = await open(browser, LESSON);
   await page.waitForSelector('#ans-1-2');
@@ -225,6 +243,28 @@ await test('Слайды: Esc закрывает обзор, второй Esc в
   expect(!(await page.evaluate(() => Reveal.isOverview())) && page.url().includes('slides/'), 'Esc не закрыл обзор');
   await Promise.all([page.waitForNavigation({ timeout: 5000 }), page.keyboard.press('Escape')]);
   expect(page.url().endsWith(LESSON), 'Esc не открыл текст урока: ' + page.url());
+});
+
+await test('Картинки: на слайдах увеличиваются по щелчку, Esc закрывает, а не уводит со слайда', async (browser) => {
+  const page = await open(browser, SLIDES + '#/3');
+  await sleep(500);
+  await page.evaluate(() => Reveal.slide(3)); await sleep(400); // «Веб-приложение устроено как ресторан» — фото
+  const img = await page.$('.present .shot img');
+  expect(img, 'на слайде нет картинки');
+  expect(await img.evaluate((i) => !i.closest('a')), 'картинка на слайде — ссылка');
+  await img.click(); await sleep(300);
+  expect(await page.$('.slide-zoom img'), 'картинка не увеличилась');
+  await page.keyboard.press('Escape'); await sleep(300);
+  expect(!(await page.$('.slide-zoom')) && page.url().includes('slides/'), 'Esc не закрыл картинку или увёл со слайда');
+  const before = (await browser.pages()).length;
+  // на странице урока — окно поверх страницы, а не новая вкладка
+  const lesson = await open(browser, LESSON);
+  await lesson.click('figure.shot > a');
+  await sleep(400);
+  expect(await lesson.$eval('.img-zoom', (d) => d.open), 'на странице урока картинка не открылась поверх');
+  expect((await browser.pages()).length === before + 1, 'открылась новая вкладка');
+  await lesson.keyboard.press('Escape'); await sleep(200);
+  expect(!(await lesson.$eval('.img-zoom', (d) => d.open)), 'Esc не закрыл картинку на странице урока');
 });
 
 await test('Слайды: сценарий в соседней вкладке листается вместе со слайдами', async (browser) => {

@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ru" data-color-mode="light" data-light-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Слайды: 9. Git и GitHub</title>
+<link rel="stylesheet" href="../assets/vendor/reveal/reset.css">
+<link rel="stylesheet" href="../assets/vendor/reveal/reveal.css">
+<link rel="stylesheet" href="../assets/vendor/primer-primitives.css">
+<link rel="stylesheet" href="../assets/vendor/github-markdown-light.css">
+<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../assets/slides.css">
+</head>
+<body class="slides-page deck-showcase">
+<div class="reveal"><div class="slides">
+<section class="title-slide"><div class="slide-body"><p class="kicker">Модуль 1. HTML и CSS. Урок 9</p><h1>Git и GitHub</h1><p class="sub">История изменений и публикация сайта</p><p class="course"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-mortar-board octicon" aria-hidden="true" data-component="Octicon"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"></path></svg>Фронтенд с нуля</p></div><aside class="notes"><p><b>Титульный слайд</b> — 1 мин</p><p><strong>На слайде:</strong> название урока.</p>
+<p><strong>Рассказать:</strong> сегодня последний урок модуля. После него всё, что вы делаете, будет храниться в истории, а сайты — открываться по ссылке из интернета.</p>
+</aside></section>
+<section class="part " data-background-color="#ddf4ff"><div class="slide-body"><p class="part-n">Часть 1</p><h2 id="зачем-git">Зачем Git</h2>
+<p>История проекта, которую не страшно сломать</p>
+</div><aside class="notes"><p><b>Часть 1. Зачем Git</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель первой части.</p>
+<p><strong>Рассказать:</strong> начнём с того, какую проблему решает Git.</p>
+</aside></section>
+<section class="statement "><div class="slide-body"><p><code>site-final-2-точно-final.html</code> — так больше не надо</p>
+<p>Git помнит каждую версию сам</p>
+</div><aside class="notes"><p><b>site-final-2-точно-final</b> — 2 мин</p><p><strong>На слайде:</strong> тезис про папки с «финальными» версиями.</p>
+<p><strong>Рассказать:</strong> копии файлов быстро превращаются в свалку, и через неделю непонятно, какая версия настоящая.</p>
+<p><strong>Спросить:</strong> «Как вы сейчас сохраняете старые версии документов?» Обычно — копиями файлов. Git делает это за вас и точнее.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="история-цепочка-коммитов">История — цепочка коммитов</h2>
+<figure class="diagram"><div class="dg dg-flow-wrap"><div class="dg-flow"><div class="dg-node k-plain"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-git-commit octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></svg><span class="dg-name">Добавить главную</span></div><pre class="dg-code">90c92c0</pre></div><div class="dg-arrow bare"><div class="dg-link right"><span class="dg-line"></span></div></div><div class="dg-node k-plain"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-git-commit octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></svg><span class="dg-name">Добавить шапку</span></div><pre class="dg-code">659c192</pre></div><div class="dg-arrow bare"><div class="dg-link right"><span class="dg-line"></span></div></div><div class="dg-node k-plain"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-git-commit octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></svg><span class="dg-name">Страница меню</span></div><pre class="dg-code">fc81b2d</pre></div><div class="dg-arrow bare"><div class="dg-link right"><span class="dg-line"></span></div></div><div class="dg-node k-front"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-git-commit octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></svg><span class="dg-name">Подключить стили</span></div><pre class="dg-code">a1cf7a9</pre></div></div></div><figcaption class="dg-caption">История проекта — цепочка коммитов. Каждый можно открыть, сравнить с другим или вернуть</figcaption></figure><p>Каждый коммит можно открыть, сравнить или вернуть</p>
+</div><aside class="notes"><p><b>История — цепочка коммитов</b> — 3 мин</p><p><strong>На слайде:</strong> четыре коммита с хешами.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>Коммит — снимок проекта, который вы сделали сами и подписали.</li>
+<li>Хеш — номер коммита. По нему можно открыть или вернуть любой снимок.</li>
+</ul>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="что-даёт-git">Что даёт Git</h2>
+<ul>
+<li><strong>Вернуться назад</strong> сломали — откатили один коммит</li>
+<li><strong>Видеть изменения</strong> каждая строка: была и стала</li>
+<li><strong>Работать вместе</strong> Git сводит правки двух людей</li>
+<li><strong>Портфолио</strong> история на GitHub показывает, как вы работаете</li>
+</ul>
+</div><aside class="notes"><p><b>Что даёт Git</b> — 3 мин</p><p><strong>На слайде:</strong> четыре карточки.</p>
+<p><strong>Рассказать:</strong> про портфолио: работодатель откроет ваш GitHub и увидит не только результат, но и как вы к нему шли.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="словарь">Словарь</h2>
+<table>
+<thead>
+<tr>
+<th>Слово</th>
+<th>Что это</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Репозиторий</td>
+<td>папка проекта с историей в <code>.git</code></td>
+</tr>
+<tr>
+<td>Коммит</td>
+<td>снимок файлов с сообщением</td>
+</tr>
+<tr>
+<td>Индекс</td>
+<td>что попадёт в следующий коммит</td>
+</tr>
+<tr>
+<td>Ветка</td>
+<td>отдельная линия коммитов</td>
+</tr>
+<tr>
+<td>Удалённый репозиторий</td>
+<td>копия на GitHub</td>
+</tr>
+</tbody>
+</table>
+</div><aside class="notes"><p><b>Словарь</b> — 3 мин</p><p><strong>На слайде:</strong> таблица из пяти слов.</p>
+<p><strong>Рассказать:</strong> эти слова будут на каждом занятии. Главное различие: коммит — у вас на Mac, удалённый репозиторий — на GitHub.</p>
+</aside></section>
+<section class="part " data-background-color="#dafbe1"><div class="slide-body"><p class="part-n">Часть 2</p><h2 id="git-на-вашем-mac">Git на вашем Mac</h2>
+<p>Коммиты, сообщения и история</p>
+</div><aside class="notes"><p><b>Часть 2. Git на вашем Mac</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель второй части.</p>
+<p><strong>Рассказать:</strong> сначала всё без интернета — только ваш Mac.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="настроить-один-раз">Настроить один раз</h2>
+<figure class="code" data-lang="bash"><figcaption><span>Терминал</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">git</span><span style="color:#032F62"> config</span><span style="color:#005CC5"> --global</span><span style="color:#032F62"> user.name</span><span style="color:#032F62"> "Мария Иванова"</span></span>
+<span class="line"><span style="color:#6F42C1">git</span><span style="color:#032F62"> config</span><span style="color:#005CC5"> --global</span><span style="color:#032F62"> user.email</span><span style="color:#032F62"> "mary@example.com"</span></span>
+<span class="line"><span style="color:#6F42C1">git</span><span style="color:#032F62"> config</span><span style="color:#005CC5"> --global</span><span style="color:#032F62"> init.defaultBranch</span><span style="color:#032F62"> main</span></span></code></pre></figure>
+<p>Почта — та же, что на GitHub</p>
+</div><aside class="notes"><p><b>Настроить один раз</b> — 3 мин</p><p><strong>На слайде:</strong> три команды <code>git config</code>.</p>
+<p><strong>Показать вживую:</strong> ученик выполняет команды у себя со своим именем и почтой от GitHub. Проверка — <code>git config --global --list</code>.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="три-места-изменения">Три места изменения</h2>
+<figure class="diagram"><div class="dg dg-flow-wrap"><div class="dg-flow"><div class="dg-node k-plain"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M0 2.75C0 1.784.784 1 1.75 1H5c.55 0 1.07.26 1.4.7l.9 1.2a.25.25 0 0 0 .2.1h6.75c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25Zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25H7.5c-.55 0-1.07-.26-1.4-.7l-.9-1.2a.25.25 0 0 0-.2-.1Z"></path></svg><span class="dg-name">Рабочая папка</span></div><div class="dg-text">вы правите файлы</div></div><div class="dg-arrow"><div class="dg-link right"><span class="dg-label"><code>git add</code></span><span class="dg-line"></span></div></div><div class="dg-node k-accent"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-checklist octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"></path></svg><span class="dg-name">Индекс</span></div><div class="dg-text">что войдёт в коммит</div></div><div class="dg-arrow"><div class="dg-link right"><span class="dg-label"><code>git commit</code></span><span class="dg-line"></span></div></div><div class="dg-node k-front"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-history octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="m.427 1.927 1.215 1.215a8.002 8.002 0 1 1-1.6 5.685.75.75 0 1 1 1.493-.154 6.5 6.5 0 1 0 1.18-4.458l1.358 1.358A.25.25 0 0 1 3.896 6H.25A.25.25 0 0 1 0 5.75V2.104a.25.25 0 0 1 .427-.177ZM7.75 4a.75.75 0 0 1 .75.75v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5A.75.75 0 0 1 7.75 4Z"></path></svg><span class="dg-name">История</span></div><div class="dg-text">коммиты в <code>.git</code></div></div><div class="dg-arrow"><div class="dg-link right"><span class="dg-label"><code>git push</code></span><span class="dg-line"></span></div></div><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-mark-github octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M6.766 11.328c-2.063-.25-3.516-1.734-3.516-3.656 0-.781.281-1.625.75-2.188-.203-.515-.172-1.609.063-2.062.625-.078 1.468.25 1.968.703.594-.187 1.219-.281 1.985-.281.765 0 1.39.094 1.953.265.484-.437 1.344-.765 1.969-.687.218.422.25 1.515.046 2.047.5.593.766 1.39.766 2.203 0 1.922-1.453 3.375-3.547 3.64.531.344.89 1.094.89 1.954v1.625c0 .468.391.734.86.547C13.781 14.359 16 11.53 16 8.03 16 3.61 12.406 0 7.984 0 3.563 0 0 3.61 0 8.031a7.88 7.88 0 0 0 5.172 7.422c.422.156.828-.125.828-.547v-1.25c-.219.094-.5.156-.75.156-1.031 0-1.64-.562-2.078-1.609-.172-.422-.36-.672-.719-.719-.187-.015-.25-.093-.25-.187 0-.188.313-.328.625-.328.453 0 .844.281 1.25.86.313.452.64.655 1.031.655s.641-.14 1-.5c.266-.265.47-.5.657-.656"></path></svg><span class="dg-name">GitHub</span></div><div class="dg-text">копия в интернете</div></div></div></div><figcaption class="dg-caption">Три места, через которые проходит изменение, и команды между ними</figcaption></figure></div><aside class="notes"><p><b>Три места изменения</b> — 5 мин</p><p><strong>На слайде:</strong> папка → индекс → история → GitHub.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li><code>git add</code> — выбрать, что войдёт в коммит. <code>git commit</code> — сохранить. <code>git push</code> — отправить.</li>
+<li>Индекс нужен, чтобы в один коммит попадало одно связанное изменение.</li>
+</ul>
+<p><strong>Спросить:</strong> «Вы поправили шапку и опечатку в подвале. Сколько коммитов?» Ответ: два.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="первый-коммит">Первый коммит</h2>
+<figure class="terminal"><div class="term-window"><div class="term-bar"><span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="term-title">zerno — -zsh</span></div><pre class="term-body"><span class="term-line"><span class="term-who">mary@MacBook-Air</span> <span class="term-dir">zerno</span> <span class="term-pct">%</span> <span class="term-cmd">git init</span><span class="term-mark">1</span></span><span class="term-line"><span class="term-who">mary@MacBook-Air</span> <span class="term-dir">zerno</span> <span class="term-pct">%</span> <span class="term-cmd">git status</span><span class="term-mark">2</span></span><span class="term-line"><span class="term-who">mary@MacBook-Air</span> <span class="term-dir">zerno</span> <span class="term-pct">%</span> <span class="term-cmd">git add .</span><span class="term-mark">3</span></span><span class="term-line"><span class="term-who">mary@MacBook-Air</span> <span class="term-dir">zerno</span> <span class="term-pct">%</span> <span class="term-cmd">git commit -m &quot;Добавить главную страницу&quot;</span><span class="term-mark">4</span></span><span class="term-line">[main (root-commit) 90c92c0] Добавить главную страницу</span></pre></div></figure></div><aside class="notes"><p><b>Первый коммит</b> — 4 мин</p><p><strong>На слайде:</strong> четыре команды с номерами.</p>
+<p><strong>Показать вживую:</strong> в Терминале, в новой папке: <code>git init</code>, <code>git status</code>, <code>git add .</code>, <code>git commit</code>. После каждой команды — снова <code>git status</code>, чтобы видеть, что поменялось.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="сообщение-коммита">Сообщение коммита</h2>
+<table>
+<thead>
+<tr>
+<th>Плохо</th>
+<th>Хорошо</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fix</code></td>
+<td><code>Исправить путь к картинке в шапке</code></td>
+</tr>
+<tr>
+<td><code>изменения</code></td>
+<td><code>Добавить форму записи</code></td>
+</tr>
+<tr>
+<td><code>сделал всё</code></td>
+<td>три коммита: разметка, стили, адаптив</td>
+</tr>
+</tbody>
+</table>
+<p>Глагол, одна задача, коротко</p>
+</div><aside class="notes"><p><b>Сообщение коммита</b> — 2 мин</p><p><strong>На слайде:</strong> плохие и хорошие сообщения.</p>
+<p><strong>Рассказать:</strong> проверка сообщения — продолжить фразу «Этот коммит…»: «…исправит путь к картинке». «Этот коммит fix» не читается.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="gitignore">.gitignore</h2>
+<figure class="code" data-lang="text"><figcaption><span>Текст</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span>node_modules/</span></span>
+<span class="line"><span>.DS_Store</span></span></code></pre></figure>
+<p>То, что скачивается или создаётся само, в историю не кладём</p>
+</div><aside class="notes"><p><b>.gitignore</b> — 2 мин</p><p><strong>На слайде:</strong> две строки.</p>
+<p><strong>Рассказать:</strong> <code>node_modules</code> весит сотни мегабайт и скачивается одной командой. В истории ему не место.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="git-в-vs-code">Git в VS Code</h2>
+<figure class="shot"><img src="../lessons/09-git-basics/img/git-vscode-changes.webp" alt="" loading="lazy"></figure><p>1 — в индекс, 2 — сообщение, 3 — Commit, 4 — история</p>
+</div><aside class="notes"><p><b>Git в VS Code</b> — 4 мин</p><p><strong>На слайде:</strong> панель Source Control с четырьмя метками.</p>
+<p><strong>Рассказать:</strong> буквы U, M, D у файлов, плюс — это <code>git add</code>, кнопка Commit — <code>git commit</code>. Щелчок по файлу — сравнение «было — стало».</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="git-graph">Git Graph</h2>
+<figure class="shot"><img src="../lessons/09-git-basics/img/git-graph.webp" alt="" loading="lazy"></figure><p>Строка — коммит, цветная линия — ветка</p>
+</div><aside class="notes"><p><b>Git Graph</b> — 4 мин</p><p><strong>На слайде:</strong> история в Git Graph с двумя ветками.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>Установка: Extensions → <code>git graph</code> → Install. В шаблоне домашки оно в рекомендованных.</li>
+<li>Строка — коммит, линия — ветка, метки — где стоят ветки <code>main</code>, <code>lesson-09</code> и копия на GitHub <code>origin/main</code>.</li>
+<li>Смотреть перед каждым push и после каждого слияния.</li>
+</ul>
+</aside></section>
+<section class="part " data-background-color="#fbefff"><div class="slide-body"><p class="part-n">Часть 3</p><h2 id="github">GitHub</h2>
+<p>Копия проекта в интернете и сайт бесплатно</p>
+</div><aside class="notes"><p><b>Часть 3. GitHub</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель третьей части.</p>
+<p><strong>Рассказать:</strong> теперь отправим проект в интернет.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="создать-репозиторий">Создать репозиторий</h2>
+<figure class="shot"><img src="../lessons/09-git-basics/img/gh-new-repo.webp" alt="" loading="lazy"></figure><p>Public — портфолио, Private — домашка</p>
+</div><aside class="notes"><p><b>Создать репозиторий</b> — 2 мин</p><p><strong>На слайде:</strong> форма с именем репозитория.</p>
+<p><strong>Рассказать:</strong> Public — для проектов и портфолио, Private — для домашки с решениями. README и .gitignore не ставим: они уже есть в папке.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="отправить-из-vs-code">Отправить из VS Code</h2>
+<div class="cols"><div class="col"><figure class="shot"><img src="../lessons/09-git-basics/img/git-vscode-publish.webp" alt="" loading="lazy"></figure></div><div class="col"><ol>
+<li>Publish Branch</li>
+<li>Войти в GitHub в браузере</li>
+<li>Дальше — Sync Changes</li>
+</ol>
+</div></div></div><aside class="notes"><p><b>Отправить из VS Code</b> — 3 мин</p><p><strong>На слайде:</strong> кнопка Publish Branch и три шага.</p>
+<p><strong>Рассказать:</strong> VS Code сам откроет вход в GitHub. Пароль в Терминал вводить не нужно. Дальше каждый push — кнопка Sync Changes.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="github-pages">GitHub Pages</h2>
+<div class="cols"><div class="col"><ol>
+<li>Settings → Pages</li>
+<li>Branch: <code>main</code>, <code>/ (root)</code></li>
+<li>Save — через минуту сайт готов</li>
+</ol>
+</div><div class="col"><figure class="shot"><img src="../lessons/09-git-basics/img/gh-pages-source.webp" alt="" loading="lazy"></figure></div></div><p><code>https://mary.github.io/zerno/</code></p>
+</div><aside class="notes"><p><b>GitHub Pages</b> — 3 мин</p><p><strong>На слайде:</strong> выбор ветки для публикации и адрес сайта.</p>
+<p><strong>Рассказать:</strong> главной станет <code>index.html</code> из корня. Регистр в именах файлов на сервере важен.</p>
+</aside></section>
+<section class="part " data-background-color="#fff8c5"><div class="slide-body"><p class="part-n">Часть 4</p><h2 id="сдача-домашки">Сдача домашки</h2>
+<p>Ветка, pull request и ревью ментора</p>
+</div><aside class="notes"><p><b>Часть 4. Сдача домашки</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель четвёртой части.</p>
+<p><strong>Рассказать:</strong> с этого урока домашка сдаётся через GitHub.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="как-проходит-pull-request">Как проходит pull request</h2>
+<figure class="diagram slide-steps" data-total="7"><div class="dg dg-sequence-wrap"><div class="dg-seq" style="--n:3"><div class="dg-actor" style="grid-column:1;grid-row:1"><div class="dg-node k-front"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-person octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></svg><span class="dg-name">Вы</span></div></div></div><div class="dg-actor" style="grid-column:2;grid-row:1"><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-mark-github octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M6.766 11.328c-2.063-.25-3.516-1.734-3.516-3.656 0-.781.281-1.625.75-2.188-.203-.515-.172-1.609.063-2.062.625-.078 1.468.25 1.968.703.594-.187 1.219-.281 1.985-.281.765 0 1.39.094 1.953.265.484-.437 1.344-.765 1.969-.687.218.422.25 1.515.046 2.047.5.593.766 1.39.766 2.203 0 1.922-1.453 3.375-3.547 3.64.531.344.89 1.094.89 1.954v1.625c0 .468.391.734.86.547C13.781 14.359 16 11.53 16 8.03 16 3.61 12.406 0 7.984 0 3.563 0 0 3.61 0 8.031a7.88 7.88 0 0 0 5.172 7.422c.422.156.828-.125.828-.547v-1.25c-.219.094-.5.156-.75.156-1.031 0-1.64-.562-2.078-1.609-.172-.422-.36-.672-.719-.719-.187-.015-.25-.093-.25-.187 0-.188.313-.328.625-.328.453 0 .844.281 1.25.86.313.452.64.655 1.031.655s.641-.14 1-.5c.266-.265.47-.5.657-.656"></path></svg><span class="dg-name">GitHub</span></div></div></div><div class="dg-actor" style="grid-column:3;grid-row:1"><div class="dg-node k-plain"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-comment-discussion octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1ZM1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"></path></svg><span class="dg-name">Ментор</span></div></div></div><div class="dg-lifeline" style="grid-column:1;grid-row:2 / span 7"></div><div class="dg-lifeline" style="grid-column:2;grid-row:2 / span 7"></div><div class="dg-lifeline" style="grid-column:3;grid-row:2 / span 7"></div><div class="dg-seq-note k-front" style="grid-column:1;grid-row:2" data-step="1">Ветка <code>lesson-09</code>, коммиты</div><div class="dg-msg k-front" style="grid-column:1 / span 2;grid-row:3;--span:2" data-step="2">
+<div class="dg-link right"><span class="dg-label">Push и pull request</span><span class="dg-line"></span></div></div><div class="dg-msg k-plain" style="grid-column:2 / span 2;grid-row:4;--span:2" data-step="3">
+<div class="dg-link right"><span class="dg-label">Уведомление</span><span class="dg-line"></span></div></div><div class="dg-msg k-plain dashed" style="grid-column:2 / span 2;grid-row:5;--span:2" data-step="4">
+<div class="dg-link left"><span class="dg-label">Комментарии к строкам</span><span class="dg-line"></span></div></div><div class="dg-msg k-front" style="grid-column:1 / span 2;grid-row:6;--span:2" data-step="5">
+<div class="dg-link right"><span class="dg-label">Исправления — новые коммиты в ту же ветку</span><span class="dg-line"></span></div></div><div class="dg-msg k-plain dashed" style="grid-column:2 / span 2;grid-row:7;--span:2" data-step="6">
+<div class="dg-link left"><span class="dg-label">Approve</span><span class="dg-line"></span></div></div><div class="dg-seq-note k-back" style="grid-column:2;grid-row:8" data-step="7">Merge — решение в main</div></div></div>
+</figure></div><aside class="notes"><p><b>Как проходит pull request</b> — 4 мин</p><p><strong>На слайде:</strong> диаграмма: вы, GitHub, ментор. Семь шагов по щелчку.</p>
+<p><strong>Рассказать</strong> (по шагу на щелчок): ветка → push и PR → уведомление → комментарии → исправления в той же ветке → Approve → Merge.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="каждое-задание">Каждое задание</h2>
+<ol>
+<li>Ветка <code>lesson-09</code> — щелчок по <code>main</code> внизу</li>
+<li>Коммиты с решением</li>
+<li>Publish Branch</li>
+<li>Compare &amp; pull request</li>
+</ol>
+<figure class="shot"><img src="../lessons/09-git-basics/img/gh-compare-pr.webp" alt="" loading="lazy"></figure></div><aside class="notes"><p><b>Каждое задание</b> — 3 мин</p><p><strong>На слайде:</strong> четыре шага и жёлтая плашка Compare &amp; pull request.</p>
+<p><strong>Рассказать:</strong> одно задание — одна ветка — один pull request. Ветку создают щелчком по имени ветки в строке состояния VS Code.</p>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="частые-ошибки">Частые ошибки</h2>
+<ul>
+<li><strong>Author identity unknown</strong> не настроен <code>git config</code></li>
+<li><strong>Нет на GitHub</strong> коммит сделан, <code>push</code> — нет</li>
+<li><strong>Rejected</strong> на GitHub новое: сначала <code>pull</code></li>
+<li><strong>Тысячи изменений</strong> <code>git init</code> не в той папке</li>
+</ul>
+</div><aside class="notes"><p><b>Частые ошибки</b> — 2 мин</p><p><strong>На слайде:</strong> четыре карточки с ошибками.</p>
+<p><strong>Рассказать:</strong> почти все проблемы видны в Git Graph: нет метки <code>origin/…</code> — не отправили; ветка не та — коммиты не там.</p>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="воркшоп-публикуем-сайт-кофейни">Воркшоп: публикуем сайт кофейни</h2>
+<ul>
+<li><strong>Коммиты</strong> репозиторий и история в VS Code</li>
+<li><strong>Git Graph</strong> находим, что и когда поменяли</li>
+<li><strong>GitHub</strong> Publish Branch и Pages</li>
+<li><strong>Pull request</strong> ветка, ревью, слияние</li>
+</ul>
+</div><aside class="notes"><p><b>Воркшоп: публикуем сайт кофейни</b> — 20 мин</p><p><strong>На слайде:</strong> четыре шага: коммиты, Git Graph, GitHub, pull request.</p>
+<p><strong>Подготовить заранее:</strong> папка <code>workshop-html</code> с сайтом кофейни из уроков 4–8, ещё без Git. В Chrome вы вошли в свой GitHub. Расширение Git Graph установлено. В Терминале выполнен <code>git config --global --list</code> — там ваше имя.</p>
+<p><strong>Показать вживую:</strong></p>
+<ol>
+<li><strong>Репозиторий.</strong> VS Code → File → Open Folder → <code>workshop-html</code>. Слева Source Control (третья иконка) → <strong>Initialize Repository</strong>.
+<ul>
+<li>У всех файлов буква <strong>U</strong> — Git их видит, но не хранит.</li>
+<li>В проводнике New File → <code>.gitignore</code>, одна строка <code>.DS_Store</code>, <kbd>⌘</kbd>+<kbd>S</kbd>. Если в папке был <code>.DS_Store</code>, он пропал из списка изменений.</li>
+</ul>
+</li>
+<li><strong>Первый коммит.</strong> Наведите на заголовок Changes → <strong>+</strong> (Stage All Changes). Файлы переехали в Staged Changes.
+<ul>
+<li>В поле сообщения: «Добавить сайт кофейни» → <kbd>⌘</kbd>+<kbd>Enter</kbd>. Список изменений опустел.</li>
+</ul>
+</li>
+<li><strong>Второй коммит.</strong> В <code>index.html</code> поменяйте текст <code>h1</code> → <kbd>⌘</kbd>+<kbd>S</kbd>.
+<ul>
+<li>Слева от строки в редакторе появилась синяя полоса — строка изменена. Щёлкните по ней — видно, что было.</li>
+<li>В Source Control у файла <strong>M</strong>. Щелчок по файлу — сравнение слева и справа.</li>
+<li>Сообщение «Изменить заголовок главной» → <kbd>⌘</kbd>+<kbd>Enter</kbd>.</li>
+</ul>
+</li>
+<li><strong>Git Graph.</strong> Кнопка <strong>Git Graph</strong> в строке состояния внизу.
+<ul>
+<li>Два коммита, метка <code>main</code> у верхнего. Щёлкните по нижнему коммиту → внизу список файлов → щелчок по <code>index.html</code> — что было в первом коммите.</li>
+</ul>
+</li>
+<li><strong>На GitHub.</strong> Source Control → <strong>Publish Branch</strong> → <strong>Publish to GitHub public repository</strong>.
+<ul>
+<li>В браузере Authorize → вернитесь в VS Code. Внизу справа уведомление со ссылкой → <strong>Open on GitHub</strong>.</li>
+<li>На GitHub: список файлов, над ним ссылка «2 commits» → щёлкните коммит — изменения на GitHub выглядят так же, как в VS Code.</li>
+<li>В Git Graph у коммита появилась метка <code>origin/main</code>.</li>
+</ul>
+</li>
+<li><strong>GitHub Pages.</strong> В репозитории Settings → слева Pages → Branch: <code>main</code>, <code>/ (root)</code> → Save.
+<ul>
+<li>Вкладка Actions: идёт «pages build and deployment». Через минуту вернитесь в Settings → Pages — сверху адрес. Откройте его, потом с телефона.</li>
+</ul>
+</li>
+<li><strong>Pull request.</strong> В VS Code щёлкните <code>main</code> в строке состояния → Create new branch → <code>lesson-09</code>.
+<ul>
+<li>Поменяйте текст в подвале, закоммитьте «Обновить адрес в подвале» → <strong>Publish Branch</strong>.</li>
+<li>На GitHub жёлтая плашка → <strong>Compare &amp; pull request</strong> → заголовок и пара строк описания → <strong>Create pull request</strong>.</li>
+<li>Вкладка Files changed: наведите на строку → синий <strong>+</strong> → комментарий «Здесь лучше тег address» → Add single comment. Так ментор будет комментировать решения.</li>
+<li><strong>Merge pull request</strong> → Confirm merge. В VS Code щёлкните <code>lesson-09</code> внизу → переключитесь на <code>main</code> → <strong>Sync Changes</strong>. В Git Graph видно, как ветка влилась в <code>main</code>.</li>
+</ul>
+</li>
+<li><strong>Ошибка нарочно.</strong> На GitHub откройте <code>index.html</code> → карандаш → поменяйте слово → Commit changes. В VS Code поменяйте другой файл, закоммитьте и сделайте push через Терминал (<kbd>⌃</kbd>+<kbd><code>&lt;/kbd&gt;, </code>git push`) — «Updates were rejected».
+<ul>
+<li>Прочитайте ошибку вслух: на GitHub есть то, чего нет у нас. <code>git pull</code> → <code>git push</code> — прошло.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Рассказать:</strong> ученик повторит всё это в домашке: первое задание — шаги 1–4, второе — 5–6, третье — шаг 7 на своём репозитории домашних заданий. Свой pull request одобрить нельзя, поэтому Approve ученик увидит в первой проверке.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="домашнее-задание">Домашнее задание</h2>
+<ol>
+<li>Первый репозиторий и история в Git Graph</li>
+<li>Сайт на GitHub Pages</li>
+<li>Репозиторий домашки и первый pull request</li>
+<li>Со звёздочкой: машина времени — Revert</li>
+</ol>
+</div><aside class="notes"><p><b>Домашнее задание</b> — 3 мин</p><p><strong>На слайде:</strong> четыре задания.</p>
+<p><strong>Рассказать:</strong> ссылки на репозиторий, сайт и pull request — в полях под заданиями, в конце урока — отчёт. Первый pull request ментор проверит вместе с учеником на следующем занятии.</p>
+</aside></section>
+</div></div>
+<a class="back" href="../lessons/09-git-basics.html" title="Вернуться к тексту урока (Esc)"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-arrow-left octicon" aria-hidden="true" data-component="Octicon"><path d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06Z"></path></svg>Текст урока <kbd>Esc</kbd></a>
+<script src="../assets/vendor/reveal/reveal.js"></script>
+<script src="../assets/vendor/reveal/plugin/notes.js"></script>
+<script src="../assets/slides.js"></script>
+</body>
+</html>

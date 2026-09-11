@@ -1,0 +1,16 @@
+# Картинки страниц проектов. Обновить: npm run screenshots -- p1-
+- file: p1/p1-wireframe.webp
+  url: examples/p1-wireframe.html
+  viewport: [1200, 900]
+  clip: {selector: ".wrap", pad: 4}
+
+# Lighthouse в DevTools — картинки из документации Chrome (CC BY 4.0)
+- file: p1/lighthouse-devtools.webp
+  url: https://developer.chrome.com/docs/lighthouse/overview?hl=ru
+  viewport: [1280, 900]
+  clip: {selector: "img[src*='lighthouse-devtools']", pad: 0}
+
+- file: p1/lighthouse-report.webp
+  url: https://developer.chrome.com/docs/lighthouse/overview?hl=ru
+  viewport: [1280, 900]
+  clip: {selector: "img[src*='lighthouse-report.png']", pad: 0}

@@ -481,3 +481,9 @@ figure.code figcaption { display: flex; align-items: center; justify-content: sp
 /* длинные адреса и команды в сценарии переносятся, а не распирают колонку */
 .script-view > * { min-width: 0; }
 .script-card .markdown-body code { overflow-wrap: anywhere; }
+
+/* увеличенная картинка урока (course.js): щелчок или Esc — закрыть */
+.img-zoom { max-width: 96vw; max-height: 94vh; padding: 0; border: 1px solid var(--borderColor-default); border-radius: var(--r); background: var(--bgColor-default); box-shadow: var(--shadow-floating-large); cursor: zoom-out; overflow: hidden; }
+.img-zoom::backdrop { background: rgb(31 35 40 / 60%); }
+.img-zoom img { display: block; max-width: 96vw; max-height: 94vh; width: auto; height: auto; }
+figure.shot > a { cursor: zoom-in; }

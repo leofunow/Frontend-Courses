@@ -297,6 +297,24 @@
     paint();
   });
 
+  // ---------- картинки урока: щелчок — увеличить поверх страницы, ⌘+щелчок — как обычная ссылка ----------
+  var zoomDialog = null;
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('figure.shot > a');
+    if (!link || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    e.preventDefault();
+    if (!zoomDialog) {
+      zoomDialog = document.createElement('dialog');
+      zoomDialog.className = 'img-zoom';
+      zoomDialog.innerHTML = '<img alt="">';
+      zoomDialog.addEventListener('click', function () { zoomDialog.close(); });
+      document.body.appendChild(zoomDialog);
+    }
+    var img = $('img', zoomDialog), src = $('img', link);
+    img.src = link.getAttribute('href'); img.alt = src ? src.alt : '';
+    zoomDialog.showModal();
+  });
+
   // ---------- чек-листы ----------
   var page = ($('[data-lesson-page]') || {}).dataset;
   var checksKey = 'checks:' + (page ? page.lessonPage : location.pathname.split('/').pop());

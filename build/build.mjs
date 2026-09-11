@@ -185,7 +185,10 @@ const BLOCKS = {
     const src = (ctx.env.assetBase || '') + file;
     const cap = b.body.trim();
     const alt = esc(cap.replace(/[*_`\[\]]/g, ''));
-    return `<figure class="shot"${opts.width ? ` style="--shot-w:${Number(opts.width)}px"` : ''}><a href="${esc(src)}" target="_blank" title="Открыть в полном размере"><img src="${esc(src)}" alt="${alt}" loading="lazy"></a>${cap ? `<figcaption>${md.renderInline(cap, ctx.env)}</figcaption>` : ''}</figure>`;
+    // в слайдах картинка — просто картинка: щелчок по ней не должен уводить со слайда
+    const img = `<img src="${esc(src)}" alt="${alt}" loading="lazy">`;
+    const body = ctx.id.endsWith('-slides') ? img : `<a href="${esc(src)}" target="_blank" title="Открыть в полном размере">${img}</a>`;
+    return `<figure class="shot"${opts.width ? ` style="--shot-w:${Number(opts.width)}px"` : ''}>${body}${cap ? `<figcaption>${md.renderInline(cap, ctx.env)}</figcaption>` : ''}</figure>`;
   },
 
   // :::terminal title="…" caption="…" — окно Терминала macOS.
@@ -538,7 +541,9 @@ ${slides.join('\n')}
 // Просмотрщик сценария: слева разделы сценария, справа живой слайд, который следует за текущим разделом
 // Отчёт по заданиям: ответы из полей :::answer и отметки чек-листов собираются в ZIP (course.js → report)
 function reportBox(l) {
-  return `<section class="Box report-box" data-report="${l.slug}" data-lesson-n="${l.n}" data-lesson-title="${esc(l.title)}">
+  // file — имя архива без .zip, heading — что в заголовке README; по умолчанию — урок
+  const nn = String(l.n).padStart(2, '0');
+  return `<section class="Box report-box" data-report="${l.slug}" data-lesson-n="${l.n}" data-lesson-title="${esc(l.title)}" data-report-file="${esc(l.file || `lesson-${nn}-report`)}" data-report-heading="${esc(l.heading || `урок ${l.n} «${l.title}»`)}">
 <div class="Box-header">${icon('package', 'mr-2')}Отчёт для ментора</div>
 <div class="Box-body">
 <p>Ответы из полей выше сохраняются в этом браузере сами — можно закрыть страницу и вернуться. Когда закончите, сформируйте отчёт и отправьте архив ментору.</p>
@@ -648,9 +653,35 @@ function buildSimplePage({ file, outRel, current, title }) {
 }
 
 function buildProject(p) {
-  if (p.ready) return buildSimplePage({ file: path.join(SRC, 'projects', `${p.id}.md`), outRel: projectUrl(p), current: p.id, title: p.title });
+  if (p.ready) return buildProjectPage(p);
   const body = `<article class="page"><nav class="crumbs" aria-label="Путь"><a href="../index.html#${p.module.id}">${esc(modTitle(p.module))}</a><span aria-hidden="true">/</span><span>Проект после урока ${p.afterLesson}</span></nav><h1 class="page-title">${esc(p.title)}</h1><p class="lead">${esc(p.summary)}</p><div class="markdown-body"><div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title">${icon('info', 'mr-2')}Описание проекта готовится</p><p>Появится вместе с уроками модуля «${esc(p.module.title)}».</p></div></div></article>`;
   write(path.join(OUT, projectUrl(p)), layout({ title: p.title, rel: '../', current: p.id, body }));
+}
+
+// Страница проекта: src/projects/<id>.md, картинки — src/projects/img/<id>/, поля ответов и отчёт как в уроках
+function buildProjectPage(p) {
+  const dir = path.join(SRC, 'projects');
+  const file = path.join(dir, `${p.id}.md`);
+  const imgDir = path.join(dir, 'img', p.id);
+  if (fs.existsSync(imgDir)) fs.cpSync(imgDir, path.join(OUT, 'projects', 'img', p.id), { recursive: true });
+  const { fm, body: src } = parseFrontmatter(readSrc(file), path.relative(ROOT, file));
+  const ctx = newCtx(path.relative(ROOT, file), p.id, dir, p.id, '');
+  const content = renderPage(src, ctx);
+  const n = syllabus.modules.filter((m) => m.project).indexOf(p.module) + 1;
+  const box = (title, ic, items) => `<section class="Box intro-box"><h2 class="Box-header">${icon(ic, 'mr-2')}${title}</h2><ul class="Box-body">${items.map((g) => `<li>${md.renderInline(g, ctx.env)}</li>`).join('')}</ul></section>`;
+  const intro = fm.goals || fm.summary ? `<div class="intro-boxes">${fm.goals ? box('Что получится', 'goal', fm.goals) : ''}${fm.summary ? box('Коротко', 'zap', fm.summary) : ''}</div>` : '';
+  const meta = fm.duration ? `<div class="page-meta"><span class="meta-item">${icon('clock')}${esc(fm.duration)}</span></div>` : '';
+  const report = ctx.taskN ? reportBox({ slug: p.id, n: `P${n}`, title: p.title, file: `project-${p.id}-report`, heading: `проект «${p.title}»` }) : '';
+  const body = `<article class="page" data-lesson-page="${p.id}">
+<nav class="crumbs" aria-label="Путь"><a href="../index.html#${p.module.id}">${esc(modTitle(p.module))}</a><span aria-hidden="true">/</span><span>Проект после урока ${p.afterLesson}</span></nav>
+<h1 class="page-title">${esc(p.title)}</h1>
+<p class="lead">${esc(p.summary)}</p>
+${meta}
+${intro}
+<div class="markdown-body">${content}${report}</div>
+</article>`;
+  write(path.join(OUT, projectUrl(p)), layout({ title: p.title, rel: '../', current: p.id, body, toc: tocHtml(ctx.env), terms: [...ctx.env.terms] }));
+  searchIndex.push({ t: `Проект: ${p.title}`, u: projectUrl(p), h: ctx.env.headings.map((h) => [h.title, h.slug]), x: plain(content).slice(0, 4000) });
 }
 
 function buildGlossary() {

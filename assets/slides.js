@@ -14,9 +14,34 @@
   // В полноэкранном режиме первый Esc забирает браузер: он выходит из полного экрана
   var back = document.querySelector('.back');
   var onEsc = function () {
+    if (closeZoom()) return;
     if (Reveal.isOverview()) Reveal.toggleOverview(false);
     else if (back) location.href = back.href;
   };
+
+  // Щелчок по картинке — увеличить её на весь экран поверх слайда. Щелчок или Esc — закрыть
+  var zoom = null;
+  function closeZoom() {
+    if (!zoom) return false;
+    zoom.remove(); zoom = null;
+    return true;
+  }
+  if (!preview) {
+    document.addEventListener('click', function (e) {
+      if (zoom) { closeZoom(); e.stopPropagation(); return; }
+      var img = e.target.closest('.reveal .shot img, .title-slide .cover img');
+      if (!img || Reveal.isOverview()) return;
+      zoom = document.createElement('div');
+      zoom.className = 'slide-zoom';
+      zoom.setAttribute('role', 'dialog');
+      zoom.setAttribute('aria-label', 'Картинка крупно. Щелчок или Esc — закрыть');
+      var big = document.createElement('img');
+      big.src = img.currentSrc || img.src; big.alt = img.alt;
+      zoom.appendChild(big);
+      document.body.appendChild(zoom);
+      e.stopPropagation();
+    }, true);
+  }
   Reveal.initialize({
     controls: !preview,
     progress: !preview,
@@ -46,6 +71,7 @@
     if (channel) channel.postMessage(msg);
     try { localStorage.setItem('course-slides', JSON.stringify(msg)); } catch (e) { /* хранилище недоступно */ }
   };
+  Reveal.on('slidechanged', closeZoom);
   Reveal.on('ready', send);
   Reveal.on('slidechanged', send);
 })();
