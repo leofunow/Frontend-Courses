@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Типы полей</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 20px; font: 16px/1.4 -apple-system, "Segoe UI", sans-serif; color: #1f2328; background: #fff; }
+  form { display: grid; grid-template-columns: 190px 280px; gap: 12px 16px; align-items: center; width: 520px; padding: 18px; border: 1px solid #d1d9e0; border-radius: 10px; }
+  label { font: 14px ui-monospace, Menlo, monospace; color: #59636e; }
+  input { font: inherit; }
+  input:not([type=range]):not([type=color]) { padding: 6px 8px; border: 1px solid #afb8c1; border-radius: 6px; }
+</style></head>
+<body>
+<form>
+  <label for="t1">type="text"</label><input id="t1" type="text" value="Мария">
+  <label for="t2">type="email"</label><input id="t2" type="email" value="mary@example.com">
+  <label for="t3">type="password"</label><input id="t3" type="password" value="secret123">
+  <label for="t4">type="tel"</label><input id="t4" type="tel" value="+7 999 000-00-00">
+  <label for="t5">type="number"</label><input id="t5" type="number" value="2" min="1" max="10">
+  <label for="t6">type="search"</label><input id="t6" type="search" value="капучино">
+  <label for="t7">type="range"</label><input id="t7" type="range" min="0" max="100" value="70">
+  <label for="t8">type="color"</label><input id="t8" type="color" value="#bc4c00">
+</form>
+</body></html>

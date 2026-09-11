@@ -10,3 +10,56 @@
   out: ../../../../homework/06-css-basics/task-4/reference.png
   viewport: [700, 400]
   clip: {selector: ".vcard", pad: 32}
+
+# Наглядные примеры: страницы в examples/. Обновить: npm run screenshots -- css-
+- file: css-states.webp
+  url: examples/states.html
+  viewport: [900, 200]
+  clip: {selector: ".wrap", pad: 4}
+
+- file: css-children.webp
+  url: examples/children.html
+  viewport: [900, 320]
+  clip: {selector: ".wrap", pad: 4}
+
+- file: css-pseudo.webp
+  url: examples/pseudo.html
+  viewport: [900, 200]
+  clip: {selector: ".wrap", pad: 14}
+
+- file: css-text.webp
+  url: examples/text.html
+  viewport: [900, 400]
+  clip: {selector: ".wrap", pad: 4}
+
+- file: css-effects.webp
+  url: examples/effects.html
+  viewport: [960, 260]
+  clip: {selector: ".wrap", pad: 16}
+
+- file: css-gradients.webp
+  url: examples/gradients.html
+  viewport: [960, 260]
+  clip: {selector: ".wrap", pad: 4}
+
+- file: css-overflow.webp
+  url: examples/overflow.html
+  viewport: [900, 260]
+  clip: {selector: ".wrap", pad: 4}
+
+- file: css-fonts.webp
+  url: examples/fonts.html
+  viewport: [900, 300]
+  steps: [{wait: 2500}]
+  clip: {selector: ".wrap", pad: 4}
+
+# DevTools — из документации Chrome (CC BY 4.0)
+- file: css-devtools-styles.webp
+  url: https://developer.chrome.com/docs/devtools/css?hl=ru
+  viewport: [1280, 900]
+  clip: {selector: "img[src*='adding-css-declaration']", pad: 0}
+
+- file: css-devtools-hov.webp
+  url: https://developer.chrome.com/docs/devtools/css?hl=ru
+  viewport: [1280, 900]
+  clip: {selector: "img[src*='hover-pseudostate']", pad: 0}

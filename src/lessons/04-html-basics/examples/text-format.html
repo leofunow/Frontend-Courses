@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Форматирование текста</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 20px; font: 17px/1.5 -apple-system, "Segoe UI", sans-serif; color: #1f2328; background: #fff; }
+  .grid { display: grid; grid-template-columns: 320px 1fr; border: 1px solid #d1d9e0; border-radius: 8px; overflow: hidden; width: 700px; }
+  .grid > * { margin: 0; padding: 10px 14px; border-top: 1px solid #eaeef2; }
+  .grid > :nth-child(-n+2) { border-top: 0; }
+  .code { font: 14px/1.6 ui-monospace, Menlo, monospace; color: #59636e; background: #f6f8fa; }
+  .head { font: 600 13px -apple-system, sans-serif; color: #59636e; background: #f6f8fa; }
+</style></head>
+<body>
+<div class="grid">
+  <p class="head">Код</p><p class="head">Как покажет браузер</p>
+  <p class="code">&lt;strong&gt;важно&lt;/strong&gt;</p><p>Оплата <strong>только картой</strong></p>
+  <p class="code">&lt;em&gt;ударение&lt;/em&gt;</p><p>Это <em>наш</em> кофе, а не привозной</p>
+  <p class="code">&lt;mark&gt;выделено&lt;/mark&gt;</p><p>Найдено: <mark>капучино</mark> с корицей</p>
+  <p class="code">&lt;del&gt;было&lt;/del&gt; &lt;ins&gt;стало&lt;/ins&gt;</p><p>Цена: <del>250 ₽</del> <ins>200 ₽</ins></p>
+  <p class="code">&lt;small&gt;мелко&lt;/small&gt;</p><p>Раф — 260 ₽ <small>объём 300 мл</small></p>
+  <p class="code">&lt;sup&gt; и &lt;sub&gt;</p><p>Площадь 40 м<sup>2</sup>, вода H<sub>2</sub>O</p>
+  <p class="code">&lt;code&gt;код&lt;/code&gt;</p><p>Команда <code>git status</code></p>
+  <p class="code">&lt;q&gt;цитата&lt;/q&gt;</p><p>Гость написал: <q>лучший раф в городе</q></p>
+</div>
+</body></html>

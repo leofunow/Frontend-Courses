@@ -1,0 +1,14 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Градиенты и фон</title><link rel="stylesheet" href="demo.css">
+<style>
+  .wrap { grid-template-columns: repeat(3, 250px); }
+  .t { height: 130px; display: grid; place-items: center; padding: 10px; font-weight: 700; color: #fff; border-radius: 14px; text-align: center; }
+  .g1 { background: linear-gradient(#bc4c00, #fb8f44); }
+  .g2 { background: linear-gradient(135deg, #0969da, #8250df); }
+  .g3 { color: #fff; background: linear-gradient(rgb(0 0 0 / 55%), rgb(0 0 0 / 55%)), url("cup.svg") center / cover; }
+</style></head><body>
+<div class="wrap">
+  <div class="cell"><p class="label">linear-gradient(цвет, цвет)</p><div class="t g1">сверху вниз</div></div>
+  <div class="cell"><p class="label">linear-gradient(135deg, …)</p><div class="t g2">по диагонали</div></div>
+  <div class="cell"><p class="label">затемнение + фото, cover</p><div class="t g3">Кофе, который хочется повторить</div></div>
+</div>
+</body></html>

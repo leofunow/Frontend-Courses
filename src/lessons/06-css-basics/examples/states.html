@@ -1,0 +1,16 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Состояния кнопки</title><link rel="stylesheet" href="demo.css">
+<style>
+  .wrap { grid-template-columns: repeat(4, 180px); }
+  .btn { display: inline-block; padding: 12px 22px; font: 600 16px -apple-system, sans-serif; color: #fff; background: #bc4c00; border: 0; border-radius: 8px; }
+  .hover { background: #953800; }
+  .focus { outline: 3px solid #0969da; outline-offset: 3px; }
+  .active { background: #762c00; transform: translateY(2px); }
+  .disabled { background: #d1d9e0; color: #818b98; }
+</style></head><body>
+<div class="wrap">
+  <div class="cell"><p class="label">обычная</p><span class="btn">Заказать</span></div>
+  <div class="cell"><p class="label">:hover — курсор</p><span class="btn hover">Заказать</span></div>
+  <div class="cell"><p class="label">:focus-visible — Tab</p><span class="btn focus">Заказать</span></div>
+  <div class="cell"><p class="label">:active — нажата</p><span class="btn active">Заказать</span></div>
+</div>
+</body></html>

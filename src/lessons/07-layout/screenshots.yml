@@ -35,3 +35,29 @@
   url: examples/justify-wide.html
   viewport: [1100, 400]
   clip: {selector: "body", pad: 0}
+
+# Дополнительные примеры: порядок, span, позиционирование, трансформации, макет
+- file: layout-order.webp
+  url: examples/order.html
+  viewport: [940, 260]
+  clip: {selector: ".wrap", pad: 4}
+
+- file: layout-span.webp
+  url: examples/span.html
+  viewport: [800, 300]
+  clip: {selector: ".grid", pad: 4}
+
+- file: layout-position.webp
+  url: examples/position.html
+  viewport: [900, 260]
+  clip: {selector: ".wrap", pad: 4}
+
+- file: layout-transform.webp
+  url: examples/transform.html
+  viewport: [900, 240]
+  clip: {selector: ".wrap", pad: 4}
+
+- file: layout-areas.webp
+  url: examples/areas.html
+  viewport: [700, 340]
+  clip: {selector: ".page", pad: 4}

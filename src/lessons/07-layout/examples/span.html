@@ -1,0 +1,14 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>span</title><link rel="stylesheet" href="demo.css">
+<style>
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 720px; padding: 12px; border: 1.5px dashed #afb8c1; border-radius: 8px; background: #f6f8fa; }
+  .box { min-height: 64px; display: grid; place-items: center; }
+  .wide { grid-column: span 2; }
+  .tall { grid-row: span 2; }
+</style></head><body>
+<div class="grid">
+  <div class="box b3 wide">grid-column: span 2 — хит сезона</div>
+  <div class="box tall">grid-row: span 2</div>
+  <div class="box">3</div><div class="box b2">4</div>
+  <div class="box">5</div><div class="box b2">6</div><div class="box">7</div>
+</div>
+</body></html>

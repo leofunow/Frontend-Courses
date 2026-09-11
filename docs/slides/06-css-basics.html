@@ -11,27 +11,44 @@
 <link rel="stylesheet" href="../assets/course.css">
 <link rel="stylesheet" href="../assets/slides.css">
 </head>
-<body class="slides-page">
+<body class="slides-page deck-showcase">
 <div class="reveal"><div class="slides">
-<section class="title-slide"><div class="slide-body"><p class="kicker">Модуль 1. HTML и CSS. Урок 6</p><h1>CSS — основы</h1><p class="sub">Селекторы, каскад, box model</p><p class="course"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-mortar-board octicon" aria-hidden="true" data-component="Octicon"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"></path></svg>Фронтенд с нуля</p></div><aside class="notes"><p><b>Титульный слайд</b> — 1 мин</p><p><strong>На слайде:</strong> название урока.</p>
-<p><strong>Рассказать:</strong> сегодня страницы из прошлых уроков станут красивыми.</p>
+<section class="title-slide" data-n="06"><div class="slide-body"><p class="kicker">Модуль 1. HTML и CSS. Урок 6</p><h1>CSS — основы</h1><p class="sub">Селекторы, каскад, box model</p><p class="course"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-mortar-board octicon" aria-hidden="true" data-component="Octicon"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"></path></svg>Фронтенд с нуля</p></div><aside class="notes"><p><b>Титульный слайд</b> — 1 мин</p><p><strong>На слайде:</strong> название урока.</p>
+<p><strong>Рассказать:</strong> сегодня страницы из прошлых уроков станут красивыми — и научимся понимать, почему стиль сработал или нет.</p>
+</aside></section>
+<section class="part " data-background-color="#ddf4ff"><div class="slide-body"><p class="part-n">Часть 1</p><h2 id="первые-правила">Первые правила</h2>
+<p>Подключаем стили и пишем правило</p>
+</div><aside class="notes"><p><b>Часть 1. Первые правила</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель первой части.</p>
+<p><strong>Рассказать:</strong> начнём с того, как стили попадают на страницу.</p>
 </aside></section>
 <section class="statement "><div class="slide-body"><p>HTML — что есть на странице. CSS — как это выглядит</p>
+<p>Кнопка без CSS серая, но работает</p>
 </div><aside class="notes"><p><b>HTML — что есть, CSS — как выглядит</b> — 1 мин</p><p><strong>На слайде:</strong> тезис.</p>
-<p><strong>Рассказать:</strong> вспомнить кнопку из урока 1: без CSS она серая, но работает.</p>
+<p><strong>Рассказать:</strong> вспомнить кнопку из урока 1: без CSS она серая, но работает. HTML отвечает за смысл, CSS — за вид.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="подключаем-стили">Подключаем стили</h2>
 <figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">link</span><span style="color:#6F42C1"> rel</span><span style="color:#24292E">=</span><span style="color:#032F62">"stylesheet"</span><span style="color:#6F42C1"> href</span><span style="color:#24292E">=</span><span style="color:#032F62">"css/style.css"</span><span style="color:#24292E">></span></span></code></pre></figure>
-<figure class="diagram"><div class="dg dg-tree-wrap"><div class="dg-tree"><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">zerno/</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">index.html</span><span class="dg-tree-note"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;</code></span></span></li><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">css/</span></span><ul><li><span class="dg-tree-row mark"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">style.css</span><span class="dg-tree-note">все стили сайта</span></span></li></ul></li></ul></li></ul></div></div><figcaption class="dg-caption">Стили в папке css, путь в href — от HTML-файла</figcaption></figure></div><aside class="notes"><p><b>Подключаем стили</b> — 4 мин</p><p><strong>На слайде:</strong> тег link и дерево с папкой css.</p>
+<figure class="diagram"><div class="dg dg-tree-wrap"><div class="dg-tree"><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">zerno/</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">index.html</span><span class="dg-tree-note"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;</code></span></span></li><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">css/</span></span><ul><li><span class="dg-tree-row mark"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">style.css</span><span class="dg-tree-note">все стили сайта</span></span></li></ul></li></ul></li></ul></div></div><figcaption class="dg-caption">Стили в папке css, путь в href — от HTML-файла</figcaption></figure></div><aside class="notes"><p><b>Подключаем стили</b> — 3 мин</p><p><strong>На слайде:</strong> тег link и дерево с папкой css.</p>
 <p><strong>Показать вживую:</strong> ученик создаёт <code>css/style.css</code> в рецепте, подключает, пишет <code>body { background: pink; }</code> — видно, что файл подключился. Путь в href — как в прошлом уроке.</p>
 </aside></section>
+<section class="cards "><div class="slide-body"><h2 id="три-способа-один-правильный">Три способа — один правильный</h2>
+<ul>
+<li><strong>Файл и link</strong> один файл на весь сайт — всегда так</li>
+<li><strong>Тег style</strong> для быстрых опытов на одной странице</li>
+<li><strong>Атрибут style</strong> почти никогда: не найти и не перебить</li>
+</ul>
+</div><aside class="notes"><p><b>Три способа — один правильный</b> — 2 мин</p><p><strong>На слайде:</strong> три карточки: файл, тег style, атрибут style.</p>
+<p><strong>Рассказать:</strong> атрибут <code>style</code> победит почти любое правило из файла — и его потом не найти. Поэтому все стили — в одном файле.</p>
+</aside></section>
 <section><div class="slide-body"><h2 id="анатомия-правила">Анатомия правила</h2>
-<figure class="diagram"><div class="dg dg-flow-wrap"><div class="dg-flow"><div class="dg-node k-accent"><div class="dg-title"><span class="dg-name"><code>h1</code></span></div><div class="dg-text">селектор: к каким элементам</div></div><div class="dg-node k-back"><div class="dg-title"><span class="dg-name"><code>color: brown;</code></span></div><div class="dg-text">свойство и значение через двоеточие, в конце точка с запятой</div></div><div class="dg-node k-back"><div class="dg-title"><span class="dg-name"><code>font-size: 2rem;</code></span></div><div class="dg-text">ещё одно объявление</div></div></div></div><figcaption class="dg-caption">Одно правило: все заголовки h1 — коричневые и размером 2rem</figcaption></figure><figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#22863A">h1</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#005CC5">  color</span><span style="color:#24292E">: </span><span style="color:#005CC5">brown</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#005CC5">  font-size</span><span style="color:#24292E">: </span><span style="color:#005CC5">2</span><span style="color:#D73A49">rem</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre></figure>
-</div><aside class="notes"><p><b>Анатомия правила</b> — 4 мин</p><p><strong>На слайде:</strong> селектор, свойство, значение.</p>
+<figure class="diagram"><div class="dg dg-flow-wrap"><div class="dg-flow"><div class="dg-node k-accent"><div class="dg-title"><span class="dg-name"><code>h1</code></span></div><div class="dg-text">селектор: к каким элементам</div></div><div class="dg-node k-back"><div class="dg-title"><span class="dg-name"><code>color: brown;</code></span></div><div class="dg-text">свойство и значение через двоеточие, в конце точка с запятой</div></div><div class="dg-node k-back"><div class="dg-title"><span class="dg-name"><code>font-size: 2rem;</code></span></div><div class="dg-text">ещё одно объявление</div></div></div></div><figcaption class="dg-caption">Одно правило: все заголовки h1 — коричневые и размером 2rem</figcaption></figure><figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#22863A">h1</span><span style="color:#24292E"> { </span><span style="color:#005CC5">color</span><span style="color:#24292E">: </span><span style="color:#005CC5">brown</span><span style="color:#24292E">; </span><span style="color:#005CC5">font-size</span><span style="color:#24292E">: </span><span style="color:#005CC5">2</span><span style="color:#D73A49">rem</span><span style="color:#24292E">; }</span></span></code></pre></figure>
+</div><aside class="notes"><p><b>Анатомия правила</b> — 3 мин</p><p><strong>На слайде:</strong> селектор, свойство, значение.</p>
 <p><strong>Показать вживую:</strong> удалить точку с запятой — следующее объявление перестало работать. Biome подсветит.</p>
+</aside></section>
+<section class="part " data-background-color="#dafbe1"><div class="slide-body"><p class="part-n">Часть 2</p><h2 id="селекторы-и-каскад">Селекторы и каскад</h2>
+<p>Кого красим и кто побеждает в споре</p>
+</div><aside class="notes"><p><b>Часть 2. Селекторы и каскад</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель второй части.</p>
+<p><strong>Рассказать:</strong> селектор — это «кого красим». Каскад — «кто победит, если правил несколько».</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="селекторы">Селекторы</h2>
 <table>
@@ -59,86 +76,75 @@
 <td>и то и другое</td>
 </tr>
 <tr>
-<td><code>a:hover</code></td>
-<td>ссылка под курсором</td>
+<td><code>#logo</code></td>
+<td>id — для стилей лучше класс</td>
 </tr>
 </tbody>
 </table>
-</div><aside class="notes"><p><b>Селекторы</b> — 6 мин</p><p><strong>На слайде:</strong> таблица селекторов.</p>
-<p><strong>Показать вживую:</strong> песочница «Классы и состояния»: навести мышь на ссылку, поменять цвет карточки.</p>
+</div><aside class="notes"><p><b>Селекторы</b> — 3 мин</p><p><strong>На слайде:</strong> таблица из пяти селекторов.</p>
+<p><strong>Рассказать:</strong> пробел — «внутри», запятая — «и то и другое», точка — класс, решётка — id.</p>
 <p><strong>Спросить:</strong> «Как выбрать только ссылки в подвале, но не в меню?» Ответ: <code>footer a</code>.</p>
 </aside></section>
-<section><div class="slide-body"><h2 id="имена-классов">Имена классов</h2>
+<section class="cards "><div class="slide-body"><h2 id="имена-классов">Имена классов</h2>
 <ul>
-<li>По смыслу: <code>.card</code>, <code>.card-title</code>, <code>.main-nav</code></li>
-<li>Не по виду: <s><code>.red-text</code></s></li>
-<li>Стили — классами, не по id</li>
+<li><strong>По смыслу</strong> <code>.card</code>, <code>.card-title</code>, <code>.main-nav</code></li>
+<li><strong>Не по виду</strong> <code>.red-text</code> устареет, когда цвет поменяют</li>
+<li><strong>Латиницей через дефис</strong> <code>.price-old</code>, не <code>.ЦенаСтарая</code></li>
 </ul>
-</div><aside class="notes"><p><b>Имена классов</b> — 3 мин</p><p><strong>На слайде:</strong> правила именования.</p>
+</div><aside class="notes"><p><b>Имена классов</b> — 2 мин</p><p><strong>На слайде:</strong> три карточки с правилами именования.</p>
 <p><strong>Рассказать:</strong> <code>.red-text</code> — плохо: завтра дизайнер сделает его синим. Класс описывает, что это, а не как выглядит.</p>
 </aside></section>
-<section><div class="slide-body"><h2 id="цвета-и-единицы">Цвета и единицы</h2>
-<div class="cols"><div class="col"><table>
-<thead>
-<tr>
-<th>Цвет</th>
-<th>Пример</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HEX</td>
-<td><code>#1f883d</code></td>
-</tr>
-<tr>
-<td>RGB</td>
-<td><code>rgb(31 136 61)</code></td>
-</tr>
-<tr>
-<td>Прозрачный</td>
-<td><code>rgb(0 0 0 / 50%)</code></td>
-</tr>
-</tbody>
-</table>
-</div><div class="col"><table>
-<thead>
-<tr>
-<th>Единица</th>
-<th>Где</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>px</code></td>
-<td>рамки</td>
-</tr>
-<tr>
-<td><code>rem</code></td>
-<td>шрифты, отступы</td>
-</tr>
-<tr>
-<td><code>%</code></td>
-<td>ширина</td>
-</tr>
-</tbody>
-</table>
-</div></div></div><aside class="notes"><p><b>Цвета и единицы</b> — 5 мин</p><p><strong>На слайде:</strong> две таблицы.</p>
-<p><strong>Рассказать:</strong> цвета берём из макета в HEX. Шрифты и отступы — в rem, рамки — в px.</p>
-<p><strong>Показать вживую:</strong> ⌘+ в браузере: rem-текст увеличивается вместе со страницей.</p>
+<section><div class="slide-body"><h2 id="состояния-псевдоклассы">Состояния: псевдоклассы</h2>
+<figure class="shot"><img src="../lessons/06-css-basics/img/css-states.webp" alt="" loading="lazy"></figure><p><code>:hover</code> · <code>:focus-visible</code> · <code>:active</code> — ответ на каждое действие</p>
+</div><aside class="notes"><p><b>Состояния: псевдоклассы</b> — 4 мин</p><p><strong>На слайде:</strong> кнопка в четырёх состояниях.</p>
+<p><strong>Рассказать:</strong></p>
+<ul>
+<li>Интерфейс отвечает на каждое действие: навели, дошли клавишей, нажали.</li>
+<li><code>outline: none</code> без замены — ошибка: человек с клавиатурой теряет фокус.</li>
+</ul>
+<p><strong>Показать вживую:</strong> на сайте курса нажимать <kbd>Tab</kbd> — видно рамку фокуса у ссылок.</p>
 </aside></section>
-<section><div class="slide-body"><h2 id="текст">Текст</h2>
-<figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#22863A">body</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#005CC5">  font-family</span><span style="color:#24292E">: </span><span style="color:#005CC5">-apple-system</span><span style="color:#24292E">, </span><span style="color:#032F62">"Segoe UI"</span><span style="color:#24292E">, </span><span style="color:#005CC5">sans-serif</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#005CC5">  line-height</span><span style="color:#24292E">: </span><span style="color:#005CC5">1.5</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#005CC5">  color</span><span style="color:#24292E">: </span><span style="color:#005CC5">#1f2328</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre></figure>
-<p>Строка — не шире 60–70 символов: <code>max-width: 60ch</code></p>
-</div><aside class="notes"><p><b>Текст</b> — 5 мин</p><p><strong>На слайде:</strong> шрифтовой стек, line-height, ширина строки.</p>
-<p><strong>Показать вживую:</strong> песочница «Типографика»: убрать <code>max-width: 60ch</code> — строки стали длинными, читать тяжело.</p>
+<section><div class="slide-body"><h2 id="позиции-в-списке">Позиции в списке</h2>
+<figure class="shot"><img src="../lessons/06-css-basics/img/css-children.webp" alt="" loading="lazy"></figure><p><code>:first-child</code>, <code>:last-child</code>, <code>:nth-child(even)</code></p>
+</div><aside class="notes"><p><b>Позиции в списке</b> — 4 мин</p><p><strong>На слайде:</strong> три списка: первый и последний, зебра, каждый третий.</p>
+<p><strong>Показать вживую:</strong> песочница «Зебра и последний пункт»: <code>even</code> → <code>odd</code> → <code>3</code>.</p>
+<p><strong>Спросить:</strong> «Как убрать линию под последним пунктом, не трогая HTML?» Ответ: <code>li:last-child { border-bottom: 0; }</code>.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="before-и-after">::before и ::after</h2>
+<figure class="shot"><img src="../lessons/06-css-basics/img/css-pseudo.webp" alt="" loading="lazy"></figure><p>Украшение без лишнего тега. Без <code>content</code> не появится</p>
+</div><aside class="notes"><p><b>::before и ::after</b> — 4 мин</p><p><strong>На слайде:</strong> значок «Новинка», стрелка у ссылки, кавычки.</p>
+<p><strong>Показать вживую:</strong> песочница «Значок „Новинка“»: убрать класс <code>new</code>, убрать <code>content</code> — значок пропал.</p>
+<p><strong>Рассказать:</strong> псевдоэлементы — для украшений. Важный текст пишем в HTML.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="селекторы-атрибутов">Селекторы атрибутов</h2>
+<table>
+<thead>
+<tr>
+<th>Селектор</th>
+<th>Выбирает</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>input[type=&quot;email&quot;]</code></td>
+<td>поля для почты</td>
+</tr>
+<tr>
+<td><code>a[target=&quot;_blank&quot;]</code></td>
+<td>ссылки в новой вкладке</td>
+</tr>
+<tr>
+<td><code>a[href^=&quot;tel:&quot;]</code></td>
+<td>ссылки на телефон</td>
+</tr>
+</tbody>
+</table>
+</div><aside class="notes"><p><b>Селекторы атрибутов</b> — 2 мин</p><p><strong>На слайде:</strong> три селектора в квадратных скобках.</p>
+<p><strong>Рассказать:</strong> удобно, когда нужно выделить элементы по смыслу атрибута: все ссылки в новую вкладку, все телефоны.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="каскад-кто-победит">Каскад: кто победит</h2>
 <figure class="diagram"><div class="dg dg-flow-wrap"><div class="dg-flow"><div class="dg-node k-muted"><div class="dg-title"><span class="dg-name"><code>p</code></span></div><div class="dg-text">тег — самый лёгкий</div></div><div class="dg-arrow bare"><div class="dg-link right"><span class="dg-line"></span></div></div><div class="dg-node k-front"><div class="dg-title"><span class="dg-name"><code>.note</code></span></div><div class="dg-text">класс, :hover — тяжелее любого числа тегов</div></div><div class="dg-arrow bare"><div class="dg-link right"><span class="dg-line"></span></div></div><div class="dg-node k-accent"><div class="dg-title"><span class="dg-name"><code>#promo</code></span></div><div class="dg-text">id — тяжелее любого числа классов</div></div><div class="dg-arrow bare"><div class="dg-link right"><span class="dg-line"></span></div></div><div class="dg-node k-db"><div class="dg-title"><span class="dg-name"><code>style=&quot;…&quot;</code></span></div><div class="dg-text">атрибут в HTML — тяжелее всех</div></div></div></div><figcaption class="dg-caption">Слева направо вес растёт. Более весомый селектор побеждает, где бы ни стоял</figcaption></figure><p>При равном весе — правило ниже в файле</p>
-</div><aside class="notes"><p><b>Каскад: кто победит</b> — 7 мин</p><p><strong>На слайде:</strong> шкала веса: тег, класс, id, style.</p>
+</div><aside class="notes"><p><b>Каскад: кто победит</b> — 4 мин</p><p><strong>На слайде:</strong> шкала веса: тег, класс, id, style.</p>
 <p><strong>Рассказать:</strong></p>
 <ul>
 <li>Сначала сравниваем вес. Только при равном весе смотрим на порядок.</li>
@@ -150,7 +156,7 @@
 <figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">#promo</span><span style="color:#24292E"> { </span><span style="color:#005CC5">color</span><span style="color:#24292E">: </span><span style="color:#005CC5">purple</span><span style="color:#24292E">; }</span></span>
 <span class="line"><span style="color:#6F42C1">.note</span><span style="color:#24292E"> { </span><span style="color:#005CC5">color</span><span style="color:#24292E">: </span><span style="color:#005CC5">green</span><span style="color:#24292E">; }</span></span>
 <span class="line"><span style="color:#22863A">p</span><span style="color:#24292E"> { </span><span style="color:#005CC5">color</span><span style="color:#24292E">: </span><span style="color:#005CC5">red</span><span style="color:#24292E">; }</span></span></code></pre></figure>
-</div><aside class="notes"><p><b>Проверим</b> — 5 мин</p><p><strong>На слайде:</strong> три правила для одного абзаца.</p>
+</div><aside class="notes"><p><b>Проверим</b> — 3 мин</p><p><strong>На слайде:</strong> три правила для одного абзаца.</p>
 <p><strong>Показать вживую:</strong> после ответа ученика открыть песочницу «Кто победит?» и проверить.</p>
 <p><strong>Спросить:</strong> ученик предсказывает цвет до запуска. Потом удалить #promo, поменять порядок правил и снова предсказать.</p>
 </aside></section>
@@ -170,54 +176,129 @@
 </tbody>
 </table>
 <p>Шрифт и цвет — один раз на <code>body</code></p>
-</div><aside class="notes"><p><b>Наследование</b> — 3 мин</p><p><strong>На слайде:</strong> таблица наследуемых свойств.</p>
+</div><aside class="notes"><p><b>Наследование</b> — 2 мин</p><p><strong>На слайде:</strong> таблица наследуемых свойств.</p>
 <p><strong>Рассказать:</strong> цвет и шрифт задаём один раз на body. Рамку у body дети не получат.</p>
 </aside></section>
+<section class="part " data-background-color="#fbefff"><div class="slide-body"><p class="part-n">Часть 3</p><h2 id="внешний-вид">Внешний вид</h2>
+<p>Цвет, текст, шрифты, фон и тени</p>
+</div><aside class="notes"><p><b>Часть 3. Внешний вид</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель третьей части.</p>
+<p><strong>Рассказать:</strong> теперь — из чего складывается вид: цвет, текст, шрифт, фон, тени.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="цвета">Цвета</h2>
+<table>
+<thead>
+<tr>
+<th>Запись</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HEX — из Figma</td>
+<td><code>#1f883d</code></td>
+</tr>
+<tr>
+<td>RGB</td>
+<td><code>rgb(31 136 61)</code></td>
+</tr>
+<tr>
+<td>С прозрачностью</td>
+<td><code>rgb(0 0 0 / 50%)</code></td>
+</tr>
+</tbody>
+</table>
+</div><aside class="notes"><p><b>Цвета</b> — 2 мин</p><p><strong>На слайде:</strong> три записи цвета.</p>
+<p><strong>Рассказать:</strong> цвета берём из макета в HEX. Прозрачность пригодится для теней и затемнений.</p>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="единицы">Единицы</h2>
+<ul>
+<li><strong>px</strong> рамки, тени, мелкие детали</li>
+<li><strong>rem</strong> шрифты и отступы — растут с настройкой шрифта</li>
+<li><strong>%</strong> ширина от родителя</li>
+<li><strong>vw / vh</strong> доля окна: первый экран на всю высоту</li>
+</ul>
+</div><aside class="notes"><p><b>Единицы</b> — 3 мин</p><p><strong>На слайде:</strong> четыре карточки: px, rem, %, vw/vh.</p>
+<p><strong>Показать вживую:</strong> ⌘+ в браузере: rem-текст увеличивается вместе со страницей.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="текст">Текст</h2>
+<figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#22863A">body</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#005CC5">  font-family</span><span style="color:#24292E">: </span><span style="color:#005CC5">-apple-system</span><span style="color:#24292E">, </span><span style="color:#032F62">"Segoe UI"</span><span style="color:#24292E">, </span><span style="color:#005CC5">sans-serif</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  line-height</span><span style="color:#24292E">: </span><span style="color:#005CC5">1.5</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#005CC5">  color</span><span style="color:#24292E">: </span><span style="color:#005CC5">#1f2328</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#22863A">article</span><span style="color:#24292E"> { </span><span style="color:#005CC5">max-width</span><span style="color:#24292E">: </span><span style="color:#005CC5">60</span><span style="color:#D73A49">ch</span><span style="color:#24292E">; }</span></span></code></pre></figure>
+</div><aside class="notes"><p><b>Текст</b> — 3 мин</p><p><strong>На слайде:</strong> шрифтовой стек, line-height, ширина строки.</p>
+<p><strong>Показать вживую:</strong> песочница «Типографика»: убрать <code>max-width: 60ch</code> — строки стали длинными, читать тяжело.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="подключаемые-шрифты">Подключаемые шрифты</h2>
+<figure class="shot"><img src="../lessons/06-css-basics/img/css-fonts.webp" alt="" loading="lazy"></figure><p>Google Fonts → Cyrillic → Get embed code → <code>&lt;link&gt;</code> в head</p>
+</div><aside class="notes"><p><b>Подключаемые шрифты</b> — 4 мин</p><p><strong>На слайде:</strong> одно название в четырёх шрифтах.</p>
+<p><strong>Показать вживую:</strong> fonts.google.com → Language: Cyrillic → выбрать шрифт → Get font → Get embed code → скопировать <code>&lt;link&gt;</code> в head страницы ученика → <code>font-family</code> для заголовков.</p>
+<p><strong>Рассказать:</strong> один подключаемый шрифт для заголовков, основной текст — системным: быстрее грузится.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="оформление-текста">Оформление текста</h2>
+<figure class="shot"><img src="../lessons/06-css-basics/img/css-text.webp" alt="" loading="lazy"></figure></div><aside class="notes"><p><b>Оформление текста</b> — 3 мин</p><p><strong>На слайде:</strong> шесть приёмов оформления текста.</p>
+<p><strong>Рассказать:</strong> заглавные буквы — через <code>text-transform</code>, а не капсом в HTML. Старая цена — <code>line-through</code>.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="скругления-и-тени">Скругления и тени</h2>
+<figure class="shot"><img src="../lessons/06-css-basics/img/css-effects.webp" alt="" loading="lazy"></figure><figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">.card</span><span style="color:#24292E"> { </span><span style="color:#005CC5">border-radius</span><span style="color:#24292E">: </span><span style="color:#005CC5">16</span><span style="color:#D73A49">px</span><span style="color:#24292E">; </span><span style="color:#005CC5">box-shadow</span><span style="color:#24292E">: </span><span style="color:#005CC5">0</span><span style="color:#005CC5"> 8</span><span style="color:#D73A49">px</span><span style="color:#005CC5"> 24</span><span style="color:#D73A49">px</span><span style="color:#005CC5"> rgb</span><span style="color:#24292E">(</span><span style="color:#005CC5">31</span><span style="color:#005CC5"> 35</span><span style="color:#005CC5"> 40</span><span style="color:#24292E"> / </span><span style="color:#005CC5">18</span><span style="color:#D73A49">%</span><span style="color:#24292E">); }</span></span></code></pre></figure>
+</div><aside class="notes"><p><b>Скругления и тени</b> — 3 мин</p><p><strong>На слайде:</strong> четыре блока: без скругления, со скруглением, с тенью, круг.</p>
+<p><strong>Рассказать:</strong> четыре числа тени: вправо, вниз, размытие, цвет. Тень — мягкая и полупрозрачная.</p>
+<p><strong>Показать вживую:</strong> в DevTools у карточки ученика дописать <code>box-shadow</code> и подобрать размытие стрелками.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="градиенты-и-фон-картинка">Градиенты и фон-картинка</h2>
+<figure class="shot"><img src="../lessons/06-css-basics/img/css-gradients.webp" alt="" loading="lazy"></figure><p><code>linear-gradient(135deg, #bc4c00, #fb8f44)</code></p>
+</div><aside class="notes"><p><b>Градиенты и фон-картинка</b> — 3 мин</p><p><strong>На слайде:</strong> три градиента, последний — затемнение поверх фото.</p>
+<p><strong>Показать вживую:</strong> песочница «Градиент»: поменять угол и добавить третий цвет.</p>
+</aside></section>
+<section class="part " data-background-color="#fff8c5"><div class="slide-body"><p class="part-n">Часть 4</p><h2 id="размеры-и-devtools">Размеры и DevTools</h2>
+<p>Блочная модель и отладка стилей</p>
+</div><aside class="notes"><p><b>Часть 4. Размеры и DevTools</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель четвёртой части.</p>
+<p><strong>Рассказать:</strong> почему блок оказался шире, чем задали, и как это увидеть.</p>
+</aside></section>
 <section><div class="slide-body"><h2 id="блочная-модель">Блочная модель</h2>
-<figure class="diagram"><div class="dg dg-flow-wrap"><div class="dg-flow"><div class="dg-group k-db" style="--cols:1"><div class="dg-group-title"><span>margin — внешний отступ, прозрачный</span></div><div class="dg-group-items"><div class="dg-group k-muted" style="--cols:1"><div class="dg-group-title"><span>border — рамка</span></div><div class="dg-group-items"><div class="dg-group k-back" style="--cols:1"><div class="dg-group-title"><span>padding — внутренний отступ, фон виден</span></div><div class="dg-group-items"><div class="dg-node k-front"><div class="dg-title"><span class="dg-name">content — содержимое</span></div><div class="dg-text">width и height</div></div></div></div></div></div></div></div></div></div><figcaption class="dg-caption">Слои элемента от внешнего к внутреннему. Цвета — как в DevTools</figcaption></figure></div><aside class="notes"><p><b>Блочная модель</b> — 7 мин</p><p><strong>На слайде:</strong> вложенные слои margin, border, padding, content.</p>
+<figure class="diagram"><div class="dg dg-flow-wrap"><div class="dg-flow"><div class="dg-group k-db" style="--cols:1"><div class="dg-group-title"><span>margin — внешний отступ, прозрачный</span></div><div class="dg-group-items"><div class="dg-group k-muted" style="--cols:1"><div class="dg-group-title"><span>border — рамка</span></div><div class="dg-group-items"><div class="dg-group k-back" style="--cols:1"><div class="dg-group-title"><span>padding — внутренний отступ, фон виден</span></div><div class="dg-group-items"><div class="dg-node k-front"><div class="dg-title"><span class="dg-name">content — содержимое</span></div><div class="dg-text">width и height</div></div></div></div></div></div></div></div></div></div><figcaption class="dg-caption">Слои элемента от внешнего к внутреннему. Цвета — как в DevTools</figcaption></figure></div><aside class="notes"><p><b>Блочная модель</b> — 4 мин</p><p><strong>На слайде:</strong> вложенные слои margin, border, padding, content.</p>
 <p><strong>Показать вживую:</strong> DevTools → Computed на карточке: та же схема, в тех же цветах. Навести на слои — они подсвечиваются на странице.</p>
 </aside></section>
-<section><div class="slide-body"><h2 id="box-sizing">box-sizing</h2>
-<figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">.card</span><span style="color:#24292E"> { </span><span style="color:#005CC5">width</span><span style="color:#24292E">: </span><span style="color:#005CC5">300</span><span style="color:#D73A49">px</span><span style="color:#24292E">; </span><span style="color:#005CC5">padding</span><span style="color:#24292E">: </span><span style="color:#005CC5">24</span><span style="color:#D73A49">px</span><span style="color:#24292E">; </span><span style="color:#005CC5">border</span><span style="color:#24292E">: </span><span style="color:#005CC5">1</span><span style="color:#D73A49">px</span><span style="color:#005CC5"> solid</span><span style="color:#24292E">; }</span></span></code></pre></figure>
-<p>Реальная ширина: 300 + 48 + 2 = <strong>350px</strong></p>
-<figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#22863A">*</span><span style="color:#24292E">, </span><span style="color:#22863A">*</span><span style="color:#6F42C1">::before</span><span style="color:#24292E">, </span><span style="color:#22863A">*</span><span style="color:#6F42C1">::after</span><span style="color:#24292E"> { </span><span style="color:#005CC5">box-sizing</span><span style="color:#24292E">: </span><span style="color:#005CC5">border-box</span><span style="color:#24292E">; }</span></span></code></pre></figure>
-<p>Теперь ровно <strong>300px</strong></p>
-</div><aside class="notes"><p><b>box-sizing</b> — 6 мин</p><p><strong>На слайде:</strong> расчёт 350px и исправление.</p>
+<section class="numbers "><div class="slide-body"><h2 id="box-sizing">box-sizing</h2>
+<ul>
+<li><strong>350px</strong> реальная ширина <code>width: 300px</code> с padding 24 и рамкой 1</li>
+<li><strong>300px</strong> та же карточка с <code>box-sizing: border-box</code></li>
+<li><strong>1</strong> строка в начале каждого проекта: <code>*, *::before, *::after</code></li>
+</ul>
+</div><aside class="notes"><p><b>box-sizing</b> — 4 мин</p><p><strong>На слайде:</strong> три числа: 350, 300, 1.</p>
 <p><strong>Показать вживую:</strong> песочница «box-sizing». Ученик сам считает ширину первого блока.</p>
 <p><strong>Спросить:</strong> «Зачем писать box-sizing для всех элементов, а не только для карточки?» Ответ: чтобы все размеры считались одинаково.</p>
 </aside></section>
-<section><div class="slide-body"><h2 id="devtools-styles">DevTools: Styles</h2>
-<ol>
-<li>Правый клик → «Просмотреть код»</li>
-<li>Styles — все правила элемента</li>
-<li>Зачёркнутое — проиграло в каскаде</li>
-<li>Меняем значения прямо там</li>
-<li>Computed — итог и блочная модель</li>
-</ol>
-</div><aside class="notes"><p><b>DevTools: Styles</b> — 8 мин</p><p><strong>На слайде:</strong> пять шагов работы со стилями в DevTools.</p>
-<p><strong>Показать вживую:</strong> на странице ученика найти зачёркнутое свойство, объяснить почему. Поменять цвет пипеткой, перенести значение в style.css.</p>
+<section><div class="slide-body"><h2 id="overflow">overflow</h2>
+<figure class="shot"><img src="../lessons/06-css-basics/img/css-overflow.webp" alt="" loading="lazy"></figure><p><code>visible</code> — по умолчанию, <code>hidden</code> — обрезать, <code>auto</code> — прокрутка</p>
+</div><aside class="notes"><p><b>overflow</b> — 2 мин</p><p><strong>На слайде:</strong> один текст в трёх блоках.</p>
+<p><strong>Рассказать:</strong> высоту блокам с текстом лучше не задавать. <code>hidden</code> — для картинок в скруглённых карточках, <code>auto</code> — для таблиц на телефоне.</p>
 </aside></section>
-<section><div class="slide-body"><h2 id="частые-ошибки">Частые ошибки</h2>
+<section><div class="slide-body"><h2 id="devtools-styles">DevTools: Styles</h2>
+<figure class="shot"><img src="../lessons/06-css-basics/img/css-devtools-styles.webp" alt="" loading="lazy"></figure><p>Зачёркнутое — проиграло. <code>:hov</code> — включить <code>:hover</code> без мыши</p>
+</div><aside class="notes"><p><b>DevTools: Styles</b> — 4 мин</p><p><strong>На слайде:</strong> панель Styles с дописанным свойством.</p>
+<p><strong>Показать вживую:</strong> на странице ученика найти зачёркнутое свойство, объяснить почему. Через <code>:hov</code> включить <code>:hover</code> у ссылки. Поменять цвет пипеткой, перенести значение в style.css.</p>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="частые-ошибки">Частые ошибки</h2>
 <ul>
-<li>Нет точки с запятой или закрывающей скобки</li>
-<li>Забыли точку перед классом</li>
-<li>Неверный путь в <code>href</code></li>
-<li><code>!important</code> вместо точного селектора</li>
+<li><strong>Нет ; или }</strong> ломается следующее объявление</li>
+<li><strong>Забыли точку</strong> <code>card</code> вместо <code>.card</code></li>
+<li><strong>Неверный href</strong> стили не подключились</li>
+<li><strong>!important</strong> вместо точного селектора</li>
 </ul>
-</div><aside class="notes"><p><b>Частые ошибки</b> — 2 мин</p><p><strong>На слайде:</strong> четыре ошибки.</p>
+</div><aside class="notes"><p><b>Частые ошибки</b> — 2 мин</p><p><strong>На слайде:</strong> четыре карточки с ошибками.</p>
 <p><strong>Рассказать:</strong> если стиль «не работает» — открываем DevTools, а не пишем <code>!important</code>.</p>
 </aside></section>
-<section><div class="slide-body"><h2 id="воркшоп-оформляем-страницу-кофейни">Воркшоп: оформляем страницу кофейни</h2>
-<ol>
-<li>Подключить <code>style.css</code> и проверить, что работает</li>
-<li>Текст: шрифт, межстрочный интервал, ширина</li>
-<li>Карточка с классом, отступами и рамкой</li>
-<li>Правим вживую в DevTools → Styles</li>
-<li>Кто победил в каскаде и почему</li>
-<li>Переносим найденное обратно в файл</li>
-</ol>
-</div><aside class="notes"><p><b>Воркшоп: оформляем страницу кофейни</b> — 20 мин</p><p><strong>На слайде:</strong> шесть шагов: от подключения стилей до переноса правок из DevTools в файл.</p>
-<p><strong>Подготовить заранее:</strong> папка <code>workshop-html</code> открыта в VS Code, Go Live включён, <code>index.html</code> в браузере. Окна VS Code и Chrome стоят рядом.</p>
+<section class="cards "><div class="slide-body"><h2 id="воркшоп-оформляем-страницу-кофейни">Воркшоп: оформляем страницу кофейни</h2>
+<ul>
+<li><strong>Подключить</strong> style.css и проверить</li>
+<li><strong>Текст</strong> шрифт, интервал, веб-шрифт</li>
+<li><strong>Карточка</strong> скругление, тень, :hover</li>
+<li><strong>DevTools</strong> правим вживую, переносим в файл</li>
+</ul>
+</div><aside class="notes"><p><b>Воркшоп: оформляем страницу кофейни</b> — 16 мин</p><p><strong>На слайде:</strong> четыре шага: подключить, текст, карточка, DevTools.</p>
+<p><strong>Подготовить заранее:</strong> папка <code>workshop-html</code> открыта в VS Code, Go Live включён, <code>index.html</code> в браузере. Окна VS Code и Chrome стоят рядом. Вкладка fonts.google.com.</p>
 <p><strong>Показать вживую:</strong></p>
 <ol>
 <li><strong>Подключить.</strong> В проводнике New Folder → <code>css</code> → New File → <code>style.css</code>.
@@ -226,35 +307,34 @@
 <li>В <code>style.css</code>: <code>body { background: pink; }</code> → <kbd>⌘</kbd>+<kbd>S</kbd>. Розовый фон — файл подключён. Удалите эту строку.</li>
 </ul>
 </li>
-<li><strong>Текст.</strong>
+<li><strong>Текст и шрифт.</strong>
 <ul>
 <li><code>body { font-family: -apple-system, &quot;Segoe UI&quot;, sans-serif; line-height: 1.5; color: #1f2328; }</code>.</li>
 <li><code>main { max-width: 720px; margin: 0 auto; padding: 0 16px; }</code> — текст по центру и не шире 60–70 символов.</li>
-<li>Сузьте окно браузера — поля <code>padding</code> не дают тексту прилипнуть к краю.</li>
+<li>Google Fonts → фильтр Cyrillic → Montserrat → Get font → Get embed code → скопируйте <code>&lt;link&gt;</code> в <code>head</code> перед <code>style.css</code>. В CSS: <code>h1, h2 { font-family: &quot;Montserrat&quot;, sans-serif; }</code>.</li>
 </ul>
 </li>
 <li><strong>Карточка.</strong> В HTML оберните список напитков в <code>section.card</code> (выделить строки → <kbd>⇧</kbd>+<kbd>⌘</kbd>+<kbd>P</kbd> → Emmet: Wrap with Abbreviation → <code>section.card</code>).
 <ul>
-<li>В CSS: <code>.card { padding: 24px; border: 1px solid #d1d9e0; border-radius: 12px; }</code>.</li>
-<li><code>.card h2 { margin-top: 0; }</code> — селектор потомка.</li>
+<li>В CSS: <code>.card { padding: 24px; border: 1px solid #d1d9e0; border-radius: 12px; box-shadow: 0 8px 24px rgb(31 35 40 / 12%); }</code>.</li>
+<li><code>.card h2 { margin-top: 0; }</code> — селектор потомка. <code>.card li:nth-child(even) { background: #f6f8fa; }</code> — зебра.</li>
+<li>Ссылкам в меню: <code>nav a:hover { color: #bc4c00; }</code> и <code>nav a:focus-visible { outline: 3px solid #0969da; }</code>. Пройдитесь <kbd>Tab</kbd> по странице.</li>
 </ul>
 </li>
 <li><strong>DevTools → Styles.</strong> Правый щелчок по карточке → «Просмотреть код».
 <ul>
 <li>Справа панель Styles: все правила этой карточки. Щёлкните по <code>24px</code> → стрелки <kbd>↑</kbd> <kbd>↓</kbd> меняют на 1, с <kbd>⇧</kbd> — на 10.</li>
 <li>Щёлкните по цветному квадратику у <code>#d1d9e0</code> — палитра. Пипеткой возьмите цвет с кнопки или логотипа.</li>
-<li>Снимите галочку у свойства — оно выключилось. Поставьте обратно.</li>
-<li>Щёлкните по пустому месту внутри правила <code>.card</code> — добавьте <code>background: #fffaf3</code>.</li>
+<li>Кнопка <code>:hov</code> → галочка <code>:hover</code> у ссылки меню — видно стиль наведения без мыши.</li>
 </ul>
 </li>
 <li><strong>Каскад.</strong> В CSS добавьте <code>section { border-color: red; }</code> — рамка не покраснела.
 <ul>
 <li>В Styles правило <code>section</code> зачёркнуто: у <code>.card</code> вес больше. Поменяйте на <code>section.card</code> ниже по файлу — теперь красная.</li>
-<li>Вкладка Computed: схема блочной модели. Наведите на слои — они подсвечиваются на странице.</li>
-<li>Добавьте <code>.card { width: 300px; }</code> — в Computed ширина 350 с отступами и рамкой. Добавьте в начало файла <code>*, *::before, *::after { box-sizing: border-box; }</code> — стало 300.</li>
+<li>Вкладка Computed: схема блочной модели. Добавьте <code>.card { width: 300px; }</code> — ширина 350. Добавьте в начало файла <code>*, *::before, *::after { box-sizing: border-box; }</code> — стало 300.</li>
 </ul>
 </li>
-<li><strong>Обратно в файл.</strong> Правки в DevTools живут до обновления: <kbd>⌘</kbd>+<kbd>R</kbd> — фон карточки пропал.
+<li><strong>Обратно в файл.</strong> Правки в DevTools живут до обновления: <kbd>⌘</kbd>+<kbd>R</kbd> — изменения пропали.
 <ul>
 <li>Повторите правку, правый щелчок по свойству → Copy declaration → вставьте в <code>style.css</code> → <kbd>⌘</kbd>+<kbd>S</kbd>.</li>
 </ul>
@@ -264,7 +344,7 @@
 </aside></section>
 <section><div class="slide-body"><h2 id="домашнее-задание">Домашнее задание</h2>
 <ol>
-<li>Стили для рецепта</li>
+<li>Стили для рецепта — с веб-шрифтом и состояниями ссылок</li>
 <li>Карточка по размерам — ровно 320px</li>
 <li>Спор правил</li>
 <li>Со звёздочкой: визитка по картинке</li>
@@ -273,7 +353,8 @@
 <p><strong>Рассказать:</strong></p>
 <ul>
 <li>Карточку проверяет плашка с точностью до пикселя.</li>
-<li>В «Споре правил» сначала ответы на бумаге, потом проверка.</li>
+<li>В «Споре правил» сначала ответы в таблице, потом проверка.</li>
+<li>В рецепте — веб-шрифт для заголовков и заметные состояния ссылок.</li>
 </ul>
 </aside></section>
 </div></div>

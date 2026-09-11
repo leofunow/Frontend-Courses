@@ -13,3 +13,21 @@
     - press: Tab
     - press: Tab
   clip: {selector: "form", pad: 16}
+
+# Как выглядят поля разных типов
+- file: forms-input-types.webp
+  url: examples/input-types.html
+  viewport: [620, 520]
+  clip: {selector: "form", pad: 4}
+
+# radio, checkbox, select, textarea в группах fieldset
+- file: forms-choices.webp
+  url: examples/choices.html
+  viewport: [700, 420]
+  clip: {selector: "form", pad: 4}
+
+# Таблица с объединёнными ячейками: голубые — colspan
+- file: forms-table.webp
+  url: examples/table.html
+  viewport: [620, 420]
+  clip: {selector: "table", pad: 8}

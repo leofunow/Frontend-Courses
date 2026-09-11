@@ -1,0 +1,14 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>order и align-self</title><link rel="stylesheet" href="demo.css">
+<style>
+  .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; width: 860px; }
+  .row { align-items: flex-start; gap: 8px; min-height: 120px; }
+  .row .box { min-width: 70px; text-align: center; }
+  .tall { padding: 26px 14px; }
+</style></head><body>
+<div class="wrap">
+  <div><p class="label">order: -1 у третьего — он встал первым</p>
+    <div class="row"><div class="box">1</div><div class="box b2">2</div><div class="box b3" style="order:-1">3 · order: -1</div></div></div>
+  <div><p class="label">align-self: flex-end у второго</p>
+    <div class="row"><div class="box tall">1</div><div class="box b2" style="align-self:flex-end">2 · flex-end</div><div class="box b3">3</div></div></div>
+</div>
+</body></html>

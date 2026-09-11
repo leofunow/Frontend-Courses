@@ -143,3 +143,31 @@ body.slides-page { background: var(--bgColor-default); }
 .slide-zoom { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 2vmin; background: rgb(255 255 255 / 96%); cursor: zoom-out; }
 .slide-zoom img { max-width: 100%; max-height: 100%; object-fit: contain; border: 1px solid var(--borderColor-default); border-radius: 12px; box-shadow: var(--shadow-floating-large); }
 .print-pdf .slide-zoom { display: none; }
+
+/* ===== Витрина: шаги, списки, таблицы, титульный слайд ===== */
+/* нумерованный список — шаги с номерами в кружках */
+.deck-showcase .reveal :is(.slide-body, .col) > ol { counter-reset: step; margin-left: 0; padding: 0; list-style: none; }
+.deck-showcase .reveal :is(.slide-body, .col) > ol > li { position: relative; counter-increment: step; padding-left: 2.1em; min-height: 1.6em; }
+.deck-showcase .reveal :is(.slide-body, .col) > ol > li + li { margin-top: .45em; }
+.deck-showcase .reveal :is(.slide-body, .col) > ol > li::before { content: counter(step); position: absolute; left: 0; top: .05em; width: 1.45em; height: 1.45em; font-size: .85em; font-weight: 700; line-height: 1.45em; text-align: center; color: #fff; background: var(--fgColor-accent); border-radius: 50%; }
+/* маркированный список (кроме карточек и чисел) — маленькие квадратные маркеры */
+/* только обычные списки слайда, не списки внутри схем-деревьев */
+.deck-showcase .reveal section:not(.cards):not(.numbers) :is(.slide-body, .col) > ul { margin-left: 0; padding: 0; list-style: none; }
+.deck-showcase .reveal section:not(.cards):not(.numbers) :is(.slide-body, .col) > ul > li { position: relative; padding-left: 1.1em; }
+.deck-showcase .reveal section:not(.cards):not(.numbers) :is(.slide-body, .col) > ul > li::before { content: ""; position: absolute; left: .1em; top: .55em; width: .4em; height: .4em; border-radius: 2px; background: var(--fgColor-accent); }
+/* шапка таблицы — светлая акцентная */
+.deck-showcase .reveal table th { background: var(--bgColor-accent-muted); color: var(--fgColor-default); }
+/* титульный слайд без фото — крупный номер урока справа */
+.deck-showcase .title-slide:not(.has-cover)::after { content: attr(data-n); position: absolute; right: 0; top: 50%; transform: translateY(-50%); font: 800 360px/1 var(--font); letter-spacing: -.04em; color: var(--bgColor-accent-muted); z-index: -1; }
+.deck-showcase .title-slide:not(.has-cover) .slide-body { position: relative; z-index: 1; }
+/* терминал на витринных слайдах крупнее */
+.deck-showcase .reveal .term-body { font-size: .9em !important; }
+/* витрина: код, таблицы и схемы крупнее — на экране их читают с пары метров */
+.deck-showcase .reveal figure.code { font-size: 1em; }
+.deck-showcase .reveal .cols figure.code { font-size: .92em; }
+.deck-showcase .reveal table { font-size: 1em; }
+.deck-showcase .reveal .cols table { font-size: .9em; }
+.deck-showcase .reveal .dg { font-size: 26px; }
+/* photo contain — скриншот справа целиком, без обрезки */
+.reveal section.photo.contain figure.shot img { height: auto; max-height: 560px; object-fit: contain; border: 1px solid var(--borderColor-default); border-radius: 12px; }
+.deck-showcase .reveal .dg.dg-tree-wrap { font-size: 32px; }

@@ -11,62 +11,47 @@
 <link rel="stylesheet" href="../assets/course.css">
 <link rel="stylesheet" href="../assets/slides.css">
 </head>
-<body class="slides-page">
+<body class="slides-page deck-showcase">
 <div class="reveal"><div class="slides">
-<section class="title-slide"><div class="slide-body"><p class="kicker">Модуль 1. HTML и CSS. Урок 8</p><h1>Адаптивная вёрстка</h1><p class="sub">Одна страница для телефона и ноутбука</p><p class="course"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-mortar-board octicon" aria-hidden="true" data-component="Octicon"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"></path></svg>Фронтенд с нуля</p></div><aside class="notes"><p><b>Титульный слайд</b> — 1 мин</p><p><strong>На слайде:</strong> название урока.</p>
+<section class="title-slide" data-n="08"><div class="slide-body"><p class="kicker">Модуль 1. HTML и CSS. Урок 8</p><h1>Адаптивная вёрстка</h1><p class="sub">Одна страница для телефона и ноутбука</p><p class="course"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-mortar-board octicon" aria-hidden="true" data-component="Octicon"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"></path></svg>Фронтенд с нуля</p></div><aside class="notes"><p><b>Титульный слайд</b> — 1 мин</p><p><strong>На слайде:</strong> название урока.</p>
 <p><strong>Рассказать:</strong> до сих пор всё верстали под ноутбук. Сегодня научим страницы жить на телефоне.</p>
 </aside></section>
-<section class="statement "><div class="slide-body"><p>Одна страница — любой экран</p>
-</div><aside class="notes"><p><b>Одна страница — любой экран</b> — 2 мин</p><p><strong>На слайде:</strong> тезис.</p>
-<p><strong>Рассказать:</strong> больше половины посетителей сайтов приходят с телефона.</p>
-<p><strong>Спросить:</strong> «С чего вы чаще открываете сайты — с телефона или с ноутбука?» Большинство отвечает «с телефона». Отсюда и урок.</p>
+<section class="part " data-background-color="#ddf4ff"><div class="slide-body"><p class="part-n">Часть 1</p><h2 id="один-сайт-любой-экран">Один сайт — любой экран</h2>
+<p>Viewport, режим устройств и ширины для проверки</p>
+</div><aside class="notes"><p><b>Часть 1. Один сайт — любой экран</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель первой части.</p>
+<p><strong>Рассказать:</strong> сначала — как увидеть страницу глазами телефона.</p>
+</aside></section>
+<section class="statement "><div class="slide-body"><p>Раньше делали два сайта: <code>site.ru</code> и <code>m.site.ru</code></p>
+<p>Теперь — одна страница, которая перестраивается сама</p>
+</div><aside class="notes"><p><b>Раньше делали два сайта</b> — 2 мин</p><p><strong>На слайде:</strong> тезис про мобильные версии <code>m.</code>.</p>
+<p><strong>Рассказать:</strong> мобильные версии живут до сих пор, но это двойная работа. Адаптивная вёрстка — один HTML на все экраны.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="один-сайт-три-ширины">Один сайт, три ширины</h2>
-<figure class="shot"><img src="../lessons/08-responsive/img/resp-devices.webp" alt="" loading="lazy"></figure></div><aside class="notes"><p><b>Один сайт, три ширины</b> — 4 мин</p><p><strong>На слайде:</strong> одна страница на телефоне, планшете и ноутбуке.</p>
-<p><strong>Рассказать:</strong> HTML один и тот же. Меняется только CSS в зависимости от ширины экрана.</p>
+<figure class="shot"><img src="../lessons/08-responsive/img/resp-devices.webp" alt="" loading="lazy"></figure></div><aside class="notes"><p><b>Один сайт, три ширины</b> — 3 мин</p><p><strong>На слайде:</strong> одна страница на телефоне, планшете и ноутбуке.</p>
 <p><strong>Показать вживую:</strong> открыть сайт курса и сузить окно браузера: боковое меню пропадает, контент перестраивается.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="meta-viewport">meta viewport</h2>
 <figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">meta</span><span style="color:#6F42C1"> name</span><span style="color:#24292E">=</span><span style="color:#032F62">"viewport"</span><span style="color:#6F42C1"> content</span><span style="color:#24292E">=</span><span style="color:#032F62">"width=device-width, initial-scale=1"</span><span style="color:#24292E">></span></span></code></pre></figure>
-<div class="cols"><div class="col"><figure class="shot"><img src="../lessons/08-responsive/img/resp-no-viewport.webp" alt="Без неё" loading="lazy"><figcaption>Без неё</figcaption></figure></div><div class="col"><figure class="shot"><img src="../lessons/08-responsive/img/resp-with-viewport.webp" alt="С ней" loading="lazy"><figcaption>С ней</figcaption></figure></div></div></div><aside class="notes"><p><b>meta viewport</b> — 5 мин</p><p><strong>На слайде:</strong> строка viewport и два скриншота.</p>
-<p><strong>Рассказать:</strong> телефон по умолчанию притворяется экраном 980px. Строка viewport это отменяет. Emmet по <code>!</code> вставляет её сам.</p>
-<p><strong>Спросить:</strong> «Есть ли viewport в ваших страницах из прошлых уроков?» Ученик открывает любую и проверяет.</p>
+<div class="cols"><div class="col"><figure class="shot"><img src="../lessons/08-responsive/img/resp-no-viewport.webp" alt="Без неё" loading="lazy"><figcaption>Без неё</figcaption></figure></div><div class="col"><figure class="shot"><img src="../lessons/08-responsive/img/resp-with-viewport.webp" alt="С ней" loading="lazy"><figcaption>С ней</figcaption></figure></div></div></div><aside class="notes"><p><b>meta viewport</b> — 4 мин</p><p><strong>На слайде:</strong> строка viewport и два скриншота.</p>
+<p><strong>Рассказать:</strong> телефон по умолчанию притворяется экраном 980px и уменьшает страницу. Строка viewport это отменяет.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="режим-устройств">Режим устройств</h2>
-<figure class="shot"><img src="../lessons/08-responsive/img/devtools-device-toggle.webp" alt="⇧⌘M в DevTools" loading="lazy"><figcaption>⇧⌘M в DevTools</figcaption></figure></div><aside class="notes"><p><b>Режим устройств</b> — 7 мин</p><p><strong>На слайде:</strong> кнопка режима устройств в DevTools.</p>
-<p><strong>Показать вживую:</strong></p>
-<ul>
-<li>⇧⌘M на странице ученика, выбрать iPhone SE, потом Responsive.</li>
-<li>Потянуть край: ширина меняется на панели.</li>
-<li>Удалить viewport в Elements и обновить — страница мельчает.</li>
-</ul>
+<figure class="shot"><img src="../lessons/08-responsive/img/devtools-device-toggle.webp" alt="⇧⌘M в DevTools" loading="lazy"><figcaption>⇧⌘M в DevTools</figcaption></figure></div><aside class="notes"><p><b>Режим устройств</b> — 5 мин</p><p><strong>На слайде:</strong> кнопка режима устройств в DevTools.</p>
+<p><strong>Показать вживую:</strong> ⇧⌘M на странице ученика, выбрать iPhone SE, потом Responsive и потянуть край. Удалить viewport в Elements и обновить — страница мельчает.</p>
 </aside></section>
-<section><div class="slide-body"><h2 id="три-ширины-для-проверки">Три ширины для проверки</h2>
-<table>
-<thead>
-<tr>
-<th>Экран</th>
-<th>Ширина</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Телефон</td>
-<td>375px</td>
-</tr>
-<tr>
-<td>Планшет</td>
-<td>768px</td>
-</tr>
-<tr>
-<td>Ноутбук</td>
-<td>1280px</td>
-</tr>
-</tbody>
-</table>
-<p>Горизонтальная прокрутка — всегда ошибка</p>
-</div><aside class="notes"><p><b>Три ширины для проверки</b> — 2 мин</p><p><strong>На слайде:</strong> 375, 768, 1280.</p>
+<section class="numbers "><div class="slide-body"><h2 id="три-ширины-для-проверки">Три ширины для проверки</h2>
+<ul>
+<li><strong>375</strong> телефон</li>
+<li><strong>768</strong> планшет</li>
+<li><strong>1280</strong> ноутбук</li>
+</ul>
+</div><aside class="notes"><p><b>Три ширины для проверки</b> — 2 мин</p><p><strong>На слайде:</strong> 375, 768, 1280 крупными числами.</p>
 <p><strong>Рассказать:</strong> эти три ширины проверяем после каждой работы. Горизонтальная прокрутка на телефоне — всегда ошибка.</p>
+</aside></section>
+<section class="part " data-background-color="#dafbe1"><div class="slide-body"><p class="part-n">Часть 2</p><h2 id="медиазапросы">Медиазапросы</h2>
+<p>Стили, которые включаются на нужной ширине</p>
+</div><aside class="notes"><p><b>Часть 2. Медиазапросы</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель второй части.</p>
+<p><strong>Рассказать:</strong> теперь — как поменять стили на нужной ширине.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="медиазапрос">Медиазапрос</h2>
 <figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">.cards</span><span style="color:#24292E"> { </span><span style="color:#005CC5">grid-template-columns</span><span style="color:#24292E">: </span><span style="color:#005CC5">1</span><span style="color:#D73A49">fr</span><span style="color:#24292E">; }</span></span>
@@ -75,18 +60,13 @@
 <span class="line"><span style="color:#6F42C1">  .cards</span><span style="color:#24292E"> { </span><span style="color:#005CC5">grid-template-columns</span><span style="color:#24292E">: </span><span style="color:#005CC5">1</span><span style="color:#D73A49">fr</span><span style="color:#005CC5"> 1</span><span style="color:#D73A49">fr</span><span style="color:#24292E">; }</span></span>
 <span class="line"><span style="color:#24292E">}</span></span></code></pre></figure>
 <p><code>min-width: 640px</code> — «от 640px и шире»</p>
-</div><aside class="notes"><p><b>Медиазапрос</b> — 8 мин</p><p><strong>На слайде:</strong> одна колонка и две от 640px.</p>
-<p><strong>Показать вживую:</strong> песочница «Медиазапрос» — ученик меняет 300 на число больше ширины превью — блок синеет. Потом возвращает 300 и сужает окно браузера.</p>
-<p><strong>Спросить:</strong> «При ширине 639px сработает <code>min-width: 640px</code>?» Ответ: нет.</p>
+</div><aside class="notes"><p><b>Медиазапрос</b> — 6 мин</p><p><strong>На слайде:</strong> одна колонка и две от 640px.</p>
+<p><strong>Показать вживую:</strong> песочница «Медиазапрос» — ученик меняет 300 на число больше ширины превью, блок синеет.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="сначала-телефон">Сначала телефон</h2>
 <figure class="shot"><img src="../lessons/08-responsive/img/resp-breakpoints.webp" alt="" loading="lazy"></figure><p>Базовые стили — телефон, <code>min-width</code> добавляет колонки</p>
-</div><aside class="notes"><p><b>Сначала телефон</b> — 6 мин</p><p><strong>На слайде:</strong> шкала брейкпоинтов 0 → 640 → 1024.</p>
-<p><strong>Рассказать:</strong></p>
-<ul>
-<li>Телефон — самая простая раскладка. Её проще расширить, чем урезать.</li>
-<li>Брейкпоинты берут по содержимому: где развалилось, там и брейкпоинт.</li>
-</ul>
+</div><aside class="notes"><p><b>Сначала телефон</b> — 4 мин</p><p><strong>На слайде:</strong> шкала брейкпоинтов 0 → 640 → 1024.</p>
+<p><strong>Рассказать:</strong> телефон — самая простая раскладка. Её проще расширять, чем урезать. Брейкпоинт ставят там, где вёрстка начинает ломаться.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="порядок-в-файле">Порядок в файле</h2>
 <figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">/* телефон — без медиазапроса */</span></span>
@@ -95,10 +75,55 @@
 <span class="line"><span style="color:#D73A49">@media</span><span style="color:#24292E"> (</span><span style="color:#005CC5">min-width</span><span style="color:#24292E">: </span><span style="color:#005CC5">640</span><span style="color:#D73A49">px</span><span style="color:#24292E">) { … }   </span><span style="color:#6A737D">/* планшет */</span></span>
 <span class="line"><span style="color:#D73A49">@media</span><span style="color:#24292E"> (</span><span style="color:#005CC5">min-width</span><span style="color:#24292E">: </span><span style="color:#005CC5">1024</span><span style="color:#D73A49">px</span><span style="color:#24292E">) { … }  </span><span style="color:#6A737D">/* ноутбук */</span></span></code></pre></figure>
 <p>От меньшей ширины к большей, в конце файла</p>
-</div><aside class="notes"><p><b>Порядок в файле</b> — 3 мин</p><p><strong>На слайде:</strong> базовые стили и два медиазапроса.</p>
+</div><aside class="notes"><p><b>Порядок в файле</b> — 2 мин</p><p><strong>На слайде:</strong> базовые стили и два медиазапроса.</p>
 <p><strong>Рассказать:</strong> медиазапросы в конце файла, от меньшей ширины к большей. Правило ниже побеждает — как в уроке про каскад.</p>
 </aside></section>
-<section><div class="slide-body"><h2 id="резиновые-размеры">Резиновые размеры</h2>
+<section><div class="slide-body"><h2 id="диапазон">Диапазон</h2>
+<figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">@media</span><span style="color:#24292E"> (</span><span style="color:#005CC5">min-width</span><span style="color:#24292E">: </span><span style="color:#005CC5">640</span><span style="color:#D73A49">px</span><span style="color:#24292E">) </span><span style="color:#D73A49">and</span><span style="color:#24292E"> (</span><span style="color:#005CC5">max-width</span><span style="color:#24292E">: </span><span style="color:#005CC5">1023</span><span style="color:#D73A49">px</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#6F42C1">  .promo</span><span style="color:#24292E"> { </span><span style="color:#005CC5">font-size</span><span style="color:#24292E">: </span><span style="color:#005CC5">1.25</span><span style="color:#D73A49">rem</span><span style="color:#24292E">; }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* новая короткая запись */</span></span>
+<span class="line"><span style="color:#D73A49">@media</span><span style="color:#24292E"> (</span><span style="color:#005CC5">640</span><span style="color:#D73A49">px</span><span style="color:#D73A49"> &#x3C;=</span><span style="color:#005CC5"> width</span><span style="color:#D73A49"> &#x3C;</span><span style="color:#005CC5"> 1024</span><span style="color:#D73A49">px</span><span style="color:#24292E">) { … }</span></span></code></pre></figure>
+</div><aside class="notes"><p><b>Диапазон</b> — 2 мин</p><p><strong>На слайде:</strong> <code>and</code> и короткая запись с <code>&lt;=</code>.</p>
+<p><strong>Рассказать:</strong> диапазоны нужны редко: при mobile-first хватает <code>min-width</code>. Но в чужом коде они встретятся.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="не-только-ширина">Не только ширина</h2>
+<table>
+<thead>
+<tr>
+<th>Условие</th>
+<th>Когда</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>orientation: landscape</code></td>
+<td>телефон повернули боком</td>
+</tr>
+<tr>
+<td><code>hover: hover</code></td>
+<td>есть мышь</td>
+</tr>
+<tr>
+<td><code>prefers-color-scheme: dark</code></td>
+<td>в системе тёмная тема</td>
+</tr>
+<tr>
+<td><code>prefers-reduced-motion: reduce</code></td>
+<td>просят меньше анимации</td>
+</tr>
+</tbody>
+</table>
+</div><aside class="notes"><p><b>Не только ширина</b> — 3 мин</p><p><strong>На слайде:</strong> четыре медиафункции.</p>
+<p><strong>Показать вживую:</strong> в macOS включить тёмное оформление: сайт курса остаётся светлым, а GitHub меняется — он слушает <code>prefers-color-scheme</code>.</p>
+</aside></section>
+<section class="part " data-background-color="#fbefff"><div class="slide-body"><p class="part-n">Часть 3</p><h2 id="резиновые-размеры">Резиновые размеры</h2>
+<p>Ширины, шрифты и картинки, которые подстраиваются сами</p>
+</div><aside class="notes"><p><b>Часть 3. Резиновые размеры</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель третьей части.</p>
+<p><strong>Рассказать:</strong> меньше медиазапросов — меньше работы. Многие размеры подстраиваются сами.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="единицы-и-функции">Единицы и функции</h2>
 <table>
 <thead>
 <tr>
@@ -125,14 +150,22 @@
 </tr>
 </tbody>
 </table>
-</div><aside class="notes"><p><b>Резиновые размеры</b> — 6 мин</p><p><strong>На слайде:</strong> таблица единиц.</p>
+</div><aside class="notes"><p><b>Единицы и функции</b> — 3 мин</p><p><strong>На слайде:</strong> таблица единиц.</p>
 <p><strong>Показать вживую:</strong> песочница «Заголовок, который тянется» — сузить окно, размер плавно меняется и упирается в границы.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="width-или-max-width">width или max-width</h2>
 <figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">.page</span><span style="color:#24292E"> { </span><span style="color:#005CC5">width</span><span style="color:#24292E">: </span><span style="color:#005CC5">960</span><span style="color:#D73A49">px</span><span style="color:#24292E">; }       </span><span style="color:#6A737D">/* на телефоне — прокрутка */</span></span>
 <span class="line"><span style="color:#6F42C1">.page</span><span style="color:#24292E"> { </span><span style="color:#005CC5">max-width</span><span style="color:#24292E">: </span><span style="color:#005CC5">960</span><span style="color:#D73A49">px</span><span style="color:#24292E">; }   </span><span style="color:#6A737D">/* на телефоне — сжимается */</span></span></code></pre></figure>
-</div><aside class="notes"><p><b>width или max-width</b> — 3 мин</p><p><strong>На слайде:</strong> две строки.</p>
-<p><strong>Рассказать:</strong> главная замена сегодняшнего урока. Почти любой <code>width</code> в пикселях у контейнера должен стать <code>max-width</code>.</p>
+<p>Главная замена этого урока</p>
+</div><aside class="notes"><p><b>width или max-width</b> — 2 мин</p><p><strong>На слайде:</strong> две строки.</p>
+<p><strong>Рассказать:</strong> почти любой <code>width</code> в пикселях у контейнера должен стать <code>max-width</code>.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="min-и-max">min() и max()</h2>
+<figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">.page</span><span style="color:#24292E"> { </span><span style="color:#005CC5">width</span><span style="color:#24292E">: </span><span style="color:#005CC5">min</span><span style="color:#24292E">(</span><span style="color:#005CC5">100</span><span style="color:#D73A49">%</span><span style="color:#E36209"> -</span><span style="color:#005CC5"> 32</span><span style="color:#D73A49">px</span><span style="color:#24292E">, </span><span style="color:#005CC5">960</span><span style="color:#D73A49">px</span><span style="color:#24292E">); }</span></span>
+<span class="line"><span style="color:#6F42C1">.hero</span><span style="color:#24292E"> { </span><span style="color:#005CC5">padding</span><span style="color:#24292E">: </span><span style="color:#005CC5">max</span><span style="color:#24292E">(</span><span style="color:#005CC5">16</span><span style="color:#D73A49">px</span><span style="color:#24292E">, </span><span style="color:#005CC5">5</span><span style="color:#D73A49">vw</span><span style="color:#24292E">); }</span></span></code></pre></figure>
+<p><code>min</code> — берёт меньшее, <code>max</code> — большее</p>
+</div><aside class="notes"><p><b>min() и max()</b> — 2 мин</p><p><strong>На слайде:</strong> две функции на примерах.</p>
+<p><strong>Рассказать:</strong> <code>min(100% - 32px, 960px)</code> — это <code>max-width</code> и поля в одной строке.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="картинки">Картинки</h2>
 <figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#22863A">img</span><span style="color:#24292E"> {</span></span>
@@ -140,14 +173,38 @@
 <span class="line"><span style="color:#005CC5">  height</span><span style="color:#24292E">: </span><span style="color:#005CC5">auto</span><span style="color:#24292E">;</span></span>
 <span class="line"><span style="color:#005CC5">  display</span><span style="color:#24292E">: </span><span style="color:#005CC5">block</span><span style="color:#24292E">;</span></span>
 <span class="line"><span style="color:#24292E">}</span></span></code></pre></figure>
-</div><aside class="notes"><p><b>Картинки</b> — 4 мин</p><p><strong>На слайде:</strong> три строки для img.</p>
+<p>Одно правило — и ни одна картинка не вылезет</p>
+</div><aside class="notes"><p><b>Картинки</b> — 2 мин</p><p><strong>На слайде:</strong> три строки для img.</p>
 <p><strong>Показать вживую:</strong> картинка в задании 4 до и после <code>max-width: 100%</code> в DevTools.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="object-fit">object-fit</h2>
 <figure class="shot"><img src="../lessons/08-responsive/img/resp-fit.webp" alt="" loading="lazy"></figure><p>Превью и обложки — <code>cover</code></p>
-</div><aside class="notes"><p><b>object-fit</b> — 3 мин</p><p><strong>На слайде:</strong> fill, contain, cover.</p>
+</div><aside class="notes"><p><b>object-fit</b> — 2 мин</p><p><strong>На слайде:</strong> fill, contain, cover.</p>
 <p><strong>Рассказать:</strong> object-fit нужен, только когда у картинки заданы и ширина, и высота.</p>
 <p><strong>Спросить:</strong> «Что взять для аватарок в комментариях?» Ответ: cover.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="aspect-ratio">aspect-ratio</h2>
+<figure class="shot"><img src="../lessons/08-responsive/img/resp-aspect.webp" alt="" loading="lazy"></figure><p>Место под картинку есть ещё до загрузки — страница не прыгает</p>
+</div><aside class="notes"><p><b>aspect-ratio</b> — 2 мин</p><p><strong>На слайде:</strong> три блока с разными пропорциями.</p>
+<p><strong>Рассказать:</strong> без пропорций страница прыгает, пока грузятся картинки, — неудобно и мешает Lighthouse.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="srcset-браузер-выбирает-файл">srcset: браузер выбирает файл</h2>
+<figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">img</span><span style="color:#6F42C1"> src</span><span style="color:#24292E">=</span><span style="color:#032F62">"latte-800.jpg"</span></span>
+<span class="line"><span style="color:#6F42C1">     srcset</span><span style="color:#24292E">=</span><span style="color:#032F62">"latte-400.jpg 400w, latte-800.jpg 800w, latte-1600.jpg 1600w"</span></span>
+<span class="line"><span style="color:#6F42C1">     sizes</span><span style="color:#24292E">=</span><span style="color:#032F62">"(min-width: 1024px) 33vw, 100vw"</span></span>
+<span class="line"><span style="color:#6F42C1">     alt</span><span style="color:#24292E">=</span><span style="color:#032F62">"Латте"</span><span style="color:#24292E">></span></span></code></pre></figure>
+<p>Телефон качает лёгкий файл, ноутбук — чёткий</p>
+</div><aside class="notes"><p><b>srcset: браузер выбирает файл</b> — 3 мин</p><p><strong>На слайде:</strong> <code>img</code> с <code>srcset</code> и <code>sizes</code>.</p>
+<p><strong>Рассказать:</strong> телефону не нужно фото 1600px. Браузер сам выберет файл по ширине экрана и плотности пикселей.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="picture-другая-картинка">picture: другая картинка</h2>
+<figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">picture</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">source</span><span style="color:#6F42C1"> media</span><span style="color:#24292E">=</span><span style="color:#032F62">"(min-width: 1024px)"</span><span style="color:#6F42C1"> srcset</span><span style="color:#24292E">=</span><span style="color:#032F62">"hero-wide.webp"</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">img</span><span style="color:#6F42C1"> src</span><span style="color:#24292E">=</span><span style="color:#032F62">"hero-tall.webp"</span><span style="color:#6F42C1"> alt</span><span style="color:#24292E">=</span><span style="color:#032F62">"Бариста у кофемашины"</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;/</span><span style="color:#22863A">picture</span><span style="color:#24292E">></span></span></code></pre></figure>
+<p>На телефоне — вертикальное фото, на ноутбуке — широкое</p>
+</div><aside class="notes"><p><b>picture: другая картинка</b> — 2 мин</p><p><strong>На слайде:</strong> <code>picture</code> с двумя вариантами фото.</p>
+<p><strong>Рассказать:</strong> <code>picture</code> — когда нужна другая обрезка, а не просто другой размер.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="сетка-без-медиазапросов">Сетка без медиазапросов</h2>
 <figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">.menu</span><span style="color:#24292E"> {</span></span>
@@ -155,8 +212,13 @@
 <span class="line"><span style="color:#005CC5">  grid-template-columns</span><span style="color:#24292E">: </span><span style="color:#005CC5">repeat</span><span style="color:#24292E">(</span><span style="color:#005CC5">auto-fill</span><span style="color:#24292E">, </span><span style="color:#005CC5">minmax</span><span style="color:#24292E">(</span><span style="color:#005CC5">260</span><span style="color:#D73A49">px</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#D73A49">fr</span><span style="color:#24292E">));</span></span>
 <span class="line"><span style="color:#24292E">}</span></span></code></pre></figure>
 <p>Колонок столько, сколько влезет</p>
-</div><aside class="notes"><p><b>Сетка без медиазапросов</b> — 4 мин</p><p><strong>На слайде:</strong> auto-fill и minmax.</p>
+</div><aside class="notes"><p><b>Сетка без медиазапросов</b> — 3 мин</p><p><strong>На слайде:</strong> auto-fill и minmax.</p>
 <p><strong>Рассказать:</strong> если карточки одинаковые — медиазапросы не нужны. Если по макету строго 1, 2 и 3 колонки — нужны.</p>
+</aside></section>
+<section class="part " data-background-color="#fff8c5"><div class="slide-body"><p class="part-n">Часть 4</p><h2 id="переменные-и-темы">Переменные и темы</h2>
+<p>Один цвет — в одном месте</p>
+</div><aside class="notes"><p><b>Часть 4. Переменные и темы</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель четвёртой части.</p>
+<p><strong>Рассказать:</strong> последнее — как держать цвета в одном месте.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="css-переменные">CSS-переменные</h2>
 <figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">:root</span><span style="color:#24292E"> {</span></span>
@@ -167,18 +229,45 @@
 <span class="line"><span style="color:#005CC5">  background</span><span style="color:#24292E">: </span><span style="color:#005CC5">var</span><span style="color:#24292E">(</span><span style="color:#E36209">--color-accent</span><span style="color:#24292E">);</span></span>
 <span class="line"><span style="color:#24292E">}</span></span></code></pre></figure>
 <p>Поменяли в одном месте — поменялось везде</p>
-</div><aside class="notes"><p><b>CSS-переменные</b> — 7 мин</p><p><strong>На слайде:</strong> объявление и использование.</p>
-<p><strong>Показать вживую:</strong> песочница «Фирменный цвет в одном месте» — ученик меняет цвет, перекрашивается всё. Потом в DevTools → Styles у html поменять значение переменной.</p>
+</div><aside class="notes"><p><b>CSS-переменные</b> — 4 мин</p><p><strong>На слайде:</strong> объявление и использование.</p>
+<p><strong>Показать вживую:</strong> песочница «Фирменный цвет в одном месте» — ученик меняет цвет, перекрашивается всё.</p>
 </aside></section>
-<section><div class="slide-body"><h2 id="частые-ошибки">Частые ошибки</h2>
-<div class="cols"><div class="col"><ul>
-<li>Нет meta viewport</li>
-<li><code>width</code> в пикселях</li>
-<li>Меню только по <code>:hover</code></li>
-<li>Кнопки меньше 44px</li>
+<section><div class="slide-body"><h2 id="запасное-значение">Запасное значение</h2>
+<figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">.btn</span><span style="color:#24292E"> { </span><span style="color:#005CC5">background</span><span style="color:#24292E">: </span><span style="color:#005CC5">var</span><span style="color:#24292E">(</span><span style="color:#E36209">--color-acent</span><span style="color:#24292E">, </span><span style="color:#005CC5">#bc4c00</span><span style="color:#24292E">); }</span></span></code></pre></figure>
+<p>Опечатка в имени — кнопка всё равно оранжевая</p>
+</div><aside class="notes"><p><b>Запасное значение</b> — 2 мин</p><p><strong>На слайде:</strong> <code>var()</code> с запасным цветом.</p>
+<p><strong>Рассказать:</strong> запасное значение спасает от опечатки в имени переменной.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="темы">Темы</h2>
+<figure class="shot"><img src="../lessons/08-responsive/img/resp-themes.webp" alt="" loading="lazy"></figure><p>Та же разметка — другие значения переменных</p>
+</div><aside class="notes"><p><b>Темы</b> — 2 мин</p><p><strong>На слайде:</strong> одна карточка в светлой и тёмной теме.</p>
+<p><strong>Рассказать:</strong> тема — это набор других значений тех же переменных. CSS правил не меняется.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="тема-по-настройке-системы">Тема по настройке системы</h2>
+<figure class="code" data-lang="css"><figcaption><span>CSS</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">:root</span><span style="color:#24292E"> { </span><span style="color:#E36209">--bg</span><span style="color:#24292E">: </span><span style="color:#005CC5">#fffaf3</span><span style="color:#24292E">; </span><span style="color:#E36209">--text</span><span style="color:#24292E">: </span><span style="color:#005CC5">#1f2328</span><span style="color:#24292E">; }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">@media</span><span style="color:#24292E"> (prefers-color-scheme: dark) {</span></span>
+<span class="line"><span style="color:#6F42C1">  :root</span><span style="color:#24292E"> { </span><span style="color:#E36209">--bg</span><span style="color:#24292E">: </span><span style="color:#005CC5">#1f2328</span><span style="color:#24292E">; </span><span style="color:#E36209">--text</span><span style="color:#24292E">: </span><span style="color:#005CC5">#f6f8fa</span><span style="color:#24292E">; }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#22863A">body</span><span style="color:#24292E"> { </span><span style="color:#005CC5">background</span><span style="color:#24292E">: </span><span style="color:#005CC5">var</span><span style="color:#24292E">(</span><span style="color:#E36209">--bg</span><span style="color:#24292E">); </span><span style="color:#005CC5">color</span><span style="color:#24292E">: </span><span style="color:#005CC5">var</span><span style="color:#24292E">(</span><span style="color:#E36209">--text</span><span style="color:#24292E">); }</span></span></code></pre></figure>
+</div><aside class="notes"><p><b>Тема по настройке системы</b> — 3 мин</p><p><strong>На слайде:</strong> <code>prefers-color-scheme</code> и переменные.</p>
+<p><strong>Показать вживую:</strong> в DevTools: ⋮ → More tools → Rendering → Emulate CSS media feature prefers-color-scheme: dark.</p>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="частые-ошибки">Частые ошибки</h2>
+<ul>
+<li><strong>Нет viewport</strong> страница мелкая, медиазапросы молчат</li>
+<li><strong>width в px</strong> горизонтальная прокрутка</li>
+<li><strong>Только :hover</strong> на телефоне мыши нет</li>
+<li><strong>Мелкие кнопки</strong> меньше 44px — палец промахнётся</li>
 </ul>
-</div><div class="col"><figure class="shot"><img src="../lessons/08-responsive/img/resp-fixed.webp" alt="" loading="lazy"></figure></div></div></div><aside class="notes"><p><b>Частые ошибки</b> — 4 мин</p><p><strong>На слайде:</strong> четыре ошибки и промо-блок, вылезший за экран.</p>
+</div><aside class="notes"><p><b>Частые ошибки</b> — 3 мин</p><p><strong>На слайде:</strong> четыре карточки ошибок.</p>
 <p><strong>Рассказать:</strong> про палец — кнопки не меньше 44 на 44px. Про <code>:hover</code> — на телефоне его нет.</p>
+</aside></section>
+<section class="statement "><div class="slide-body"><p>Не запрещайте масштабирование</p>
+<p><code>user-scalable=no</code> отнимает у людей со слабым зрением возможность увеличить текст</p>
+</div><aside class="notes"><p><b>Не запрещайте масштабирование</b> — 1 мин</p><p><strong>На слайде:</strong> тезис про <code>user-scalable=no</code>.</p>
+<p><strong>Рассказать:</strong> в старых статьях это советуют. Не надо: это доступность.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="воркшоп-адаптируем-свою-страницу">Воркшоп: адаптируем свою страницу</h2>
 <ol>
@@ -238,8 +327,8 @@
 <li>Цвета в переменные</li>
 <li>Со звёздочкой: починить страницу</li>
 </ol>
-</div><aside class="notes"><p><b>Домашнее задание</b> — 5 мин</p><p><strong>На слайде:</strong> четыре задания.</p>
-<p><strong>Показать вживую:</strong> открыть задание 1 в режиме устройств, поменять ширину — плашка перепроверяется сама и показывает текущую ширину. Проверки для каждой ширины свои.</p>
+</div><aside class="notes"><p><b>Домашнее задание</b> — 3 мин</p><p><strong>На слайде:</strong> четыре задания.</p>
+<p><strong>Показать вживую:</strong> открыть задание 1 в режиме устройств, поменять ширину — плашка перепроверяется сама и показывает текущую ширину.</p>
 </aside></section>
 </div></div>
 <a class="back" href="../lessons/08-responsive.html" title="Вернуться к тексту урока (Esc)"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-arrow-left octicon" aria-hidden="true" data-component="Octicon"><path d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06Z"></path></svg>Текст урока <kbd>Esc</kbd></a>

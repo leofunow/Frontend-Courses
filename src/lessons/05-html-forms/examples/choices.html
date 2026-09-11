@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Выбор из вариантов</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 20px; font: 16px/1.4 -apple-system, "Segoe UI", sans-serif; color: #1f2328; background: #fff; }
+  form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; width: 620px; }
+  fieldset { margin: 0; padding: 10px 14px 14px; border: 1px solid #d1d9e0; border-radius: 10px; }
+  legend { padding: 0 6px; font-weight: 600; }
+  .opt { display: block; margin: 6px 0; }
+  select, textarea { font: inherit; width: 100%; padding: 6px 8px; border: 1px solid #afb8c1; border-radius: 6px; }
+  .tag { margin-left: 8px; font: 400 13px ui-monospace, Menlo, monospace; color: #59636e; }
+</style></head>
+<body>
+<form>
+  <fieldset><legend>Размер <span class="tag">radio</span></legend>
+    <label class="opt"><input type="radio" name="size"> S — 250 мл</label>
+    <label class="opt"><input type="radio" name="size" checked> M — 350 мл</label>
+    <label class="opt"><input type="radio" name="size"> L — 450 мл</label>
+  </fieldset>
+  <fieldset><legend>Добавки <span class="tag">checkbox</span></legend>
+    <label class="opt"><input type="checkbox" checked> Сироп</label>
+    <label class="opt"><input type="checkbox"> Корица</label>
+    <label class="opt"><input type="checkbox" checked> Овсяное молоко</label>
+  </fieldset>
+  <fieldset><legend>Где пить <span class="tag">select</span></legend>
+    <select aria-label="Где пить"><option>В кофейне</option><option>С собой</option></select>
+  </fieldset>
+  <fieldset><legend>Пожелания <span class="tag">textarea</span></legend>
+    <textarea rows="2" aria-label="Пожелания">Погорячее, пожалуйста</textarea>
+  </fieldset>
+</form>
+</body></html>

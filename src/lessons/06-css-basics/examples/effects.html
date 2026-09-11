@@ -1,0 +1,18 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Скругления, тени, фон</title><link rel="stylesheet" href="demo.css">
+<style>
+  body { background: #f6f8fa; }
+  .wrap { grid-template-columns: repeat(4, 190px); }
+  .t { height: 120px; display: grid; place-items: center; font-weight: 700; background: #fff; }
+  .r0 { border: 1px solid #d1d9e0; }
+  .r { border: 1px solid #d1d9e0; border-radius: 16px; }
+  .sh { border-radius: 16px; box-shadow: 0 8px 24px rgb(31 35 40 / 18%); }
+  .pill { height: auto; padding: 12px 20px; border-radius: 999px; color: #fff; background: #bc4c00; margin-top: 36px; }
+  .circle { width: 120px; border-radius: 50%; background: #ddf4ff; margin: 0 auto; }
+</style></head><body>
+<div class="wrap">
+  <div class="cell"><p class="label">без скругления</p><div class="t r0">угол 0</div></div>
+  <div class="cell"><p class="label">border-radius: 16px</p><div class="t r">16px</div></div>
+  <div class="cell"><p class="label">box-shadow</p><div class="t sh">тень</div></div>
+  <div class="cell"><p class="label">border-radius: 50% / 999px</p><div class="t circle">круг</div></div>
+</div>
+</body></html>

@@ -60,3 +60,15 @@
   viewport: [375, 640]
   mobile: true
   hide: ["[data-runner]"]
+
+# aspect-ratio: три пропорции
+- file: resp-aspect.webp
+  url: examples/aspect.html
+  viewport: [760, 300]
+  clip: {selector: ".wrap", pad: 0}
+
+# Одна разметка — две темы через переменные
+- file: resp-themes.webp
+  url: examples/themes.html
+  viewport: [800, 320]
+  clip: {selector: ".wrap", pad: 0}

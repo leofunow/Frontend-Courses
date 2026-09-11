@@ -10,3 +10,15 @@
   viewport: [760, 1200]
   hide: ["[data-runner]"]
   clip: {selector: "body", pad: 8}
+
+# Теги форматирования текста: код и результат
+- file: html-text-format.webp
+  url: examples/text-format.html
+  viewport: [760, 520]
+  clip: {selector: ".grid", pad: 4}
+
+# Раскрывающиеся блоки details: второй открыт
+- file: html-details.webp
+  url: examples/details.html
+  viewport: [640, 360]
+  clip: {selector: ".faq", pad: 4}

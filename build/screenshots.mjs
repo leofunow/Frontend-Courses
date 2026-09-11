@@ -100,6 +100,34 @@ for (const job of jobs) {
     await page.setViewport({ width: w, height: h, deviceScaleFactor: 2, isMobile: !!job.mobile, hasTouch: !!job.mobile });
     await page.goto(job.url, { waitUntil: 'networkidle2', timeout: 60000 });
     await new Promise((r) => setTimeout(r, 1200));
+    // vscodeTheme: "Default Light Modern" — тема vscode.dev (по умолчанию тёмная, а курс — светлый).
+    // Список тем в headless-режиме выбор не подтверждает, поэтому пишем тему в пользовательский settings.json и закрываем вкладку
+    if (job.vscodeTheme) {
+      const isLight = () => page.evaluate(() => { const w = document.querySelector('.monaco-workbench'); return !!w && w.classList.contains('vs') && !w.classList.contains('vs-dark'); });
+      const combo = async (...keys) => { for (const k of keys) await page.keyboard.down(k); for (const k of [...keys].reverse()) await page.keyboard.up(k); };
+      const palette = async (cmd) => { await page.keyboard.press('F1'); await new Promise((r) => setTimeout(r, 800)); await page.keyboard.type(cmd, { delay: 15 }); await new Promise((r) => setTimeout(r, 1000)); await page.keyboard.press('Enter'); await new Promise((r) => setTimeout(r, 1500)); };
+      await page.waitForSelector('.monaco-workbench', { timeout: 30000 });
+      await new Promise((r) => setTimeout(r, 2000));
+      for (let attempt = 0; attempt < 3 && !(await isLight()); attempt++) {
+        await palette('Preferences: Open User Settings (JSON)');
+        await new Promise((r) => setTimeout(r, 1000));
+        await combo('Meta', 'KeyA');
+        await page.keyboard.type(`{"workbench.colorTheme": "${job.vscodeTheme}"`, { delay: 10 });
+        await combo('Meta', 'KeyS');
+        await new Promise((r) => setTimeout(r, 1500));
+      }
+      if (!(await isLight())) throw new Error(`не удалось включить тему ${job.vscodeTheme}`);
+      // настройки открываются модальным окном — закрываем его Escape, иначе всё дальнейшее печатается в settings.json
+      await page.keyboard.press('Escape');
+      await new Promise((r) => setTimeout(r, 1000));
+      if (job.vscodeWelcome) await palette('Help: Welcome');
+      else {
+        // вернуть фокус в окно редактора, иначе следующие сочетания клавиш уходят в никуда
+        const ed = await page.$('.part.editor');
+        if (ed) { const b = await ed.boundingBox(); await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2); }
+        await new Promise((r) => setTimeout(r, 800));
+      }
+    }
     for (const step of job.steps || []) {
       if (step.wait) await new Promise((r) => setTimeout(r, step.wait));
       if (step.press) {

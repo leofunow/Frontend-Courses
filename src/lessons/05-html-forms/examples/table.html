@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Таблица цен</title>
+<style>
+  body { margin: 0; padding: 20px; font: 16px/1.4 -apple-system, "Segoe UI", sans-serif; color: #1f2328; background: #fff; }
+  table { border-collapse: collapse; }
+  caption { margin-bottom: 8px; font-weight: 600; text-align: left; }
+  th, td { padding: 8px 14px; border: 1px solid #d1d9e0; text-align: left; }
+  thead th { background: #f6f8fa; }
+  tbody th { font-weight: 600; }
+  tfoot td { color: #59636e; font-size: 14px; }
+  .span { background: #ddf4ff; }
+</style></head>
+<body>
+<table>
+  <caption>Цены на кофе</caption>
+  <thead>
+    <tr><th rowspan="2">Напиток</th><th colspan="3" class="span">Объём</th></tr>
+    <tr><th>S</th><th>M</th><th>L</th></tr>
+  </thead>
+  <tbody>
+    <tr><th>Эспрессо</th><td>150 ₽</td><td colspan="2" class="span">только маленький</td></tr>
+    <tr><th>Капучино</th><td>200 ₽</td><td>220 ₽</td><td>250 ₽</td></tr>
+    <tr><th>Раф</th><td>230 ₽</td><td>260 ₽</td><td>290 ₽</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="4">Растительное молоко — без доплаты</td></tr>
+  </tfoot>
+</table>
+</body></html>

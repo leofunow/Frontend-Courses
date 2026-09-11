@@ -1,0 +1,19 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>before и after</title><link rel="stylesheet" href="demo.css">
+<style>
+  .wrap { grid-template-columns: repeat(3, 240px); align-items: start; }
+  .card { position: relative; padding: 18px; border: 1px solid #d1d9e0; border-radius: 10px; }
+  .card h3 { margin: 0 0 4px; font-size: 17px; }
+  .card p { margin: 0; color: #59636e; }
+  .card.new::before { content: "Новинка"; position: absolute; top: -10px; right: 12px; padding: 2px 8px; font-size: 12px; font-weight: 700; color: #fff; background: #1a7f37; border-radius: 999px; }
+  .ext { color: #0969da; }
+  .ext::after { content: " ↗"; }
+  .quote { margin: 0; padding: 14px 18px; font-size: 17px; background: #f6f8fa; border-radius: 10px; }
+  .quote::before { content: "«"; color: #bc4c00; font-weight: 700; }
+  .quote::after { content: "»"; color: #bc4c00; font-weight: 700; }
+</style></head><body>
+<div class="wrap">
+  <div class="cell"><p class="label">.new::before — значок</p><div class="card new"><h3>Раф с халвой</h3><p>320 ₽</p></div></div>
+  <div class="cell"><p class="label">a[target]::after — стрелка</p><p style="margin:0;font-size:17px">Отзывы на <span class="ext">Яндекс Картах</span></p></div>
+  <div class="cell"><p class="label">::before и ::after — кавычки</p><p class="quote">Лучший капучино в районе</p></div>
+</div>
+</body></html>

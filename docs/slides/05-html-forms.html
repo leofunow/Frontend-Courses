@@ -11,18 +11,24 @@
 <link rel="stylesheet" href="../assets/course.css">
 <link rel="stylesheet" href="../assets/slides.css">
 </head>
-<body class="slides-page">
+<body class="slides-page deck-showcase">
 <div class="reveal"><div class="slides">
-<section class="title-slide"><div class="slide-body"><p class="kicker">Модуль 1. HTML и CSS. Урок 5</p><h1>Формы, таблицы и доступность</h1><p class="sub">Как пользователь вводит данные</p><p class="course"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-mortar-board octicon" aria-hidden="true" data-component="Octicon"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"></path></svg>Фронтенд с нуля</p></div><aside class="notes"><p><b>Титульный слайд</b> — 1 мин</p><p><strong>На слайде:</strong> название урока.</p>
+<section class="title-slide" data-n="05"><div class="slide-body"><p class="kicker">Модуль 1. HTML и CSS. Урок 5</p><h1>Формы, таблицы и доступность</h1><p class="sub">Как пользователь вводит данные</p><p class="course"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-mortar-board octicon" aria-hidden="true" data-component="Octicon"><path d="M7.693 1.066a.747.747 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702-.278 0-.55-.012-.816-.036a.75.75 0 0 1 .133-1.494c.22.02.45.03.683.03 1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.747.747 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.697.697 0 0 0-.5-.203.707.707 0 0 0-.5.203c-.125.124-.25.347-.25.735Z"></path></svg>Фронтенд с нуля</p></div><aside class="notes"><p><b>Титульный слайд</b> — 1 мин</p><p><strong>На слайде:</strong> название урока.</p>
 <p><strong>Рассказать:</strong> сегодня страница начинает принимать данные от человека.</p>
 </aside></section>
-<section class="statement "><div class="slide-body"><p>Форма — главный способ получить что-то от пользователя. Сделаем её удобной для всех</p>
-</div><aside class="notes"><p><b>Форма — главный способ получить что-то от пользователя</b> — 1 мин</p><p><strong>На слайде:</strong> тезис.</p>
-<p><strong>Рассказать:</strong> вход, заказ, поиск, запись — всё это формы.</p>
+<section class="part " data-background-color="#ddf4ff"><div class="slide-body"><p class="part-n">Часть 1</p><h2 id="формы">Формы</h2>
+<p>Как страница получает данные от человека</p>
+</div><aside class="notes"><p><b>Часть 1. Формы</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель первой части.</p>
+<p><strong>Рассказать:</strong> сначала — как устроена любая форма.</p>
+</aside></section>
+<section class="statement "><div class="slide-body"><p>Вход, поиск, заказ, запись к врачу — всё это формы</p>
+</div><aside class="notes"><p><b>Всё это формы</b> — 1 мин</p><p><strong>На слайде:</strong> тезис.</p>
+<p><strong>Рассказать:</strong> за каждой из этих форм — один и тот же набор тегов, который разберём сегодня.</p>
+<p><strong>Спросить:</strong> «Какую форму вы заполняли сегодня?» Поиск, вход в почту, заказ еды — формы везде.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="как-устроена-форма">Как устроена форма</h2>
-<figure class="diagram"><div class="dg dg-flow-wrap"><div class="dg-flow"><div class="dg-node k-muted"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-pencil octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg><span class="dg-name">Пользователь заполняет поля</span></div><div class="dg-text">input, select, textarea</div></div><div class="dg-arrow"><div class="dg-link right"><span class="dg-label">кнопка submit</span><span class="dg-line"></span></div></div><div class="dg-node k-accent"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-checklist octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"></path></svg><span class="dg-name">Браузер проверяет</span></div><div class="dg-text">required, email, min…</div></div><div class="dg-arrow"><div class="dg-link right"><span class="dg-label">всё верно</span><span class="dg-line"></span></div></div><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span class="dg-name">Данные уходят</span></div><div class="dg-text">на адрес из action</div></div></div></div><figcaption class="dg-caption">Что происходит, когда пользователь нажимает кнопку отправки</figcaption></figure></div><aside class="notes"><p><b>Как устроена форма</b> — 4 мин</p><p><strong>На слайде:</strong> пользователь → проверка браузера → отправка.</p>
-<p><strong>Рассказать:</strong> сервера у нас пока нет, поэтому отправка сейчас будет обновлять страницу. Свой сервер напишем позже.</p>
+<figure class="diagram"><div class="dg dg-flow-wrap"><div class="dg-flow"><div class="dg-node k-muted"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-pencil octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg><span class="dg-name">Пользователь заполняет поля</span></div><div class="dg-text">input, select, textarea</div></div><div class="dg-arrow"><div class="dg-link right"><span class="dg-label">кнопка submit</span><span class="dg-line"></span></div></div><div class="dg-node k-accent"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-checklist octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"></path></svg><span class="dg-name">Браузер проверяет</span></div><div class="dg-text">required, email, min…</div></div><div class="dg-arrow"><div class="dg-link right"><span class="dg-label">всё верно</span><span class="dg-line"></span></div></div><div class="dg-node k-back"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-server octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v4c0 .372-.116.717-.314 1 .198.283.314.628.314 1v4a1.75 1.75 0 0 1-1.75 1.75H1.75A1.75 1.75 0 0 1 0 12.75v-4c0-.358.109-.707.314-1a1.739 1.739 0 0 1-.314-1v-4C0 1.784.784 1 1.75 1ZM1.5 2.75v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm.25 5.75a.25.25 0 0 0-.25.25v4c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-4a.25.25 0 0 0-.25-.25ZM7 4.75A.75.75 0 0 1 7.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 7 4.75ZM7.75 10h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM3 4.75A.75.75 0 0 1 3.75 4h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 4.75ZM3.75 10h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"></path></svg><span class="dg-name">Данные уходят</span></div><div class="dg-text">на адрес из action</div></div></div></div><figcaption class="dg-caption">Что происходит, когда пользователь нажимает кнопку отправки</figcaption></figure></div><aside class="notes"><p><b>Как устроена форма</b> — 3 мин</p><p><strong>На слайде:</strong> пользователь → проверка браузера → отправка.</p>
+<p><strong>Рассказать:</strong> сервера у нас пока нет, поэтому отправка сейчас будет обновлять страницу. Свой сервер напишем в уроке 29.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="минимальная-форма">Минимальная форма</h2>
 <figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">form</span><span style="color:#6F42C1"> action</span><span style="color:#24292E">=</span><span style="color:#032F62">"/booking"</span><span style="color:#6F42C1"> method</span><span style="color:#24292E">=</span><span style="color:#032F62">"post"</span><span style="color:#24292E">></span></span>
@@ -30,10 +36,19 @@
 <span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">input</span><span style="color:#6F42C1"> id</span><span style="color:#24292E">=</span><span style="color:#032F62">"name"</span><span style="color:#6F42C1"> name</span><span style="color:#24292E">=</span><span style="color:#032F62">"name"</span><span style="color:#6F42C1"> required</span><span style="color:#24292E">></span></span>
 <span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">button</span><span style="color:#6F42C1"> type</span><span style="color:#24292E">=</span><span style="color:#032F62">"submit"</span><span style="color:#24292E">>Записаться&#x3C;/</span><span style="color:#22863A">button</span><span style="color:#24292E">></span></span>
 <span class="line"><span style="color:#24292E">&#x3C;/</span><span style="color:#22863A">form</span><span style="color:#24292E">></span></span></code></pre></figure>
-<p><code>action</code> — куда, <code>method</code> — как, <code>name</code> — под каким именем</p>
-</div><aside class="notes"><p><b>Минимальная форма</b> — 5 мин</p><p><strong>На слайде:</strong> форма с одним полем и кнопкой.</p>
+</div><aside class="notes"><p><b>Минимальная форма</b> — 4 мин</p><p><strong>На слайде:</strong> форма с одним полем и кнопкой.</p>
 <p><strong>Показать вживую:</strong> ученик в VS Code создаёт форму. Отправить с <code>method=&quot;get&quot;</code> и посмотреть адрес: <code>?name=Мария</code>.</p>
 <p><strong>Спросить:</strong> «Откуда в адресе взялось слово name?» Ответ: из атрибута name поля.</p>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="четыре-главных-атрибута">Четыре главных атрибута</h2>
+<ul>
+<li><strong>action</strong> куда отправить данные</li>
+<li><strong>method</strong> как: <code>post</code> для данных, <code>get</code> для поиска</li>
+<li><strong>name</strong> под каким именем уйдёт значение</li>
+<li><strong>type</strong> у кнопки — всегда явно</li>
+</ul>
+</div><aside class="notes"><p><b>Четыре главных атрибута</b> — 2 мин</p><p><strong>На слайде:</strong> action, method, name, type.</p>
+<p><strong>Рассказать:</strong> GET кладёт данные в адрес — годится для поиска. POST прячет их в тело запроса — для паролей и заказов.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="подпись-for-id">Подпись: for + id</h2>
 <figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">label</span><span style="color:#6F42C1"> for</span><span style="color:#24292E">=</span><span style="color:#032F62">"email"</span><span style="color:#24292E">>Email&#x3C;/</span><span style="color:#22863A">label</span><span style="color:#24292E">></span></span>
@@ -41,24 +56,36 @@
 <ul>
 <li>По подписи можно щёлкнуть</li>
 <li>VoiceOver её прочитает</li>
-<li>placeholder — не подпись</li>
+<li>Biome перестанет ругаться</li>
 </ul>
-</div><aside class="notes"><p><b>Подпись: for + id</b> — 5 мин</p><p><strong>На слайде:</strong> label и input.</p>
+</div><aside class="notes"><p><b>Подпись: for + id</b> — 4 мин</p><p><strong>На слайде:</strong> label и input.</p>
 <p><strong>Показать вживую:</strong> щёлкнуть по подписи — курсор в поле. Удалить <code>for</code> — перестало работать.</p>
-<p><strong>Рассказать:</strong> placeholder исчезает при вводе — это пример значения, не подпись.</p>
 </aside></section>
-<section><div class="slide-body"><h2 id="типы-полей">Типы полей</h2>
+<section class="statement "><div class="slide-body"><p>placeholder — это пример значения, а не подпись. Он исчезает, как только человек начал печатать</p>
+</div><aside class="notes"><p><b>placeholder — не подпись</b> — 2 мин</p><p><strong>На слайде:</strong> тезис.</p>
+<p><strong>Рассказать:</strong> человек начал печатать — подсказка пропала, и он забыл, что вводит. Placeholder — только пример значения.</p>
+</aside></section>
+<section class="part " data-background-color="#dafbe1"><div class="slide-body"><p class="part-n">Часть 2</p><h2 id="поля">Поля</h2>
+<p>Правильный тип поля — половина удобства</p>
+</div><aside class="notes"><p><b>Часть 2. Поля</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель второй части.</p>
+<p><strong>Рассказать:</strong> правильный тип поля делает половину работы за нас.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="одно-поле-много-типов">Одно поле — много типов</h2>
+<figure class="shot"><img src="../lessons/05-html-forms/img/forms-input-types.webp" alt="" loading="lazy"></figure></div><aside class="notes"><p><b>Одно поле — много типов</b> — 3 мин</p><p><strong>На слайде:</strong> скриншот полей разных типов.</p>
+<p><strong>Показать вживую:</strong> песочница «Типы полей». Если есть телефон — открыть страницу на нём и показать разные клавиатуры.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="что-даёт-type">Что даёт type</h2>
 <table>
 <thead>
 <tr>
 <th>type</th>
-<th>Что даёт</th>
+<th>На телефоне и в браузере</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>email</code></td>
-<td>клавиатура с @ и проверка адреса</td>
+<td>клавиатура с @, проверка адреса</td>
 </tr>
 <tr>
 <td><code>tel</code></td>
@@ -66,7 +93,7 @@
 </tr>
 <tr>
 <td><code>number</code></td>
-<td>стрелки, <code>min</code> и <code>max</code></td>
+<td>стрелки, <code>min</code>, <code>max</code>, <code>step</code></td>
 </tr>
 <tr>
 <td><code>date</code>, <code>time</code></td>
@@ -74,60 +101,98 @@
 </tr>
 <tr>
 <td><code>password</code></td>
-<td>скрытые символы</td>
+<td>точки вместо символов</td>
+</tr>
+<tr>
+<td><code>search</code>, <code>url</code></td>
+<td>кнопка «Найти», проверка адреса</td>
 </tr>
 </tbody>
 </table>
-</div><aside class="notes"><p><b>Типы полей</b> — 6 мин</p><p><strong>На слайде:</strong> таблица типов.</p>
-<p><strong>Показать вживую:</strong> песочница «Типы полей». Если есть телефон — открыть страницу на нём и показать разные клавиатуры.</p>
+</div><aside class="notes"><p><b>Что даёт type</b> — 3 мин</p><p><strong>На слайде:</strong> таблица типов.</p>
+<p><strong>Рассказать:</strong> неизвестный type браузер превращает в text — опечатка ничего не сломает, но и пользы не даст.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="выбор-из-вариантов">Выбор из вариантов</h2>
-<table>
-<thead>
-<tr>
-<th>Элемент</th>
-<th>Когда</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>radio</code></td>
-<td>один из нескольких, общий <code>name</code></td>
-</tr>
-<tr>
-<td><code>checkbox</code></td>
-<td>сколько угодно или «согласен»</td>
-</tr>
-<tr>
-<td><code>select</code></td>
-<td>много вариантов</td>
-</tr>
-<tr>
-<td><code>textarea</code></td>
-<td>длинный текст</td>
-</tr>
-</tbody>
-</table>
-</div><aside class="notes"><p><b>Выбор из вариантов</b> — 6 мин</p><p><strong>На слайде:</strong> radio, checkbox, select, textarea.</p>
-<p><strong>Показать вживую:</strong> в песочнице поменять name у одного radio — теперь можно выбрать два. Вернуть.</p>
+<figure class="shot"><img src="../lessons/05-html-forms/img/forms-choices.webp" alt="" loading="lazy"></figure></div><aside class="notes"><p><b>Выбор из вариантов</b> — 3 мин</p><p><strong>На слайде:</strong> radio, checkbox, select и textarea в группах.</p>
+<p><strong>Показать вживую:</strong> в песочнице «Переключатели, флажки, список» поменять name у одного radio — теперь можно выбрать два. Вернуть.</p>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="что-выбрать">Что выбрать</h2>
+<ul>
+<li><strong>radio</strong> один из нескольких, общий <code>name</code></li>
+<li><strong>checkbox</strong> сколько угодно или «согласен»</li>
+<li><strong>select</strong> много вариантов в списке</li>
+<li><strong>textarea</strong> длинный текст</li>
+</ul>
+</div><aside class="notes"><p><b>Что выбрать</b> — 2 мин</p><p><strong>На слайде:</strong> четыре карточки.</p>
+<p><strong>Рассказать:</strong> если вариантов больше пяти-семи, radio становится длинным — берите select.</p>
 <p><strong>Спросить:</strong> «Размер пиццы и добавки к ней — какие элементы?» Ответ: radio и checkbox.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="value-и-checked">value и checked</h2>
+<figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">input</span><span style="color:#6F42C1"> type</span><span style="color:#24292E">=</span><span style="color:#032F62">"radio"</span><span style="color:#6F42C1"> id</span><span style="color:#24292E">=</span><span style="color:#032F62">"m"</span><span style="color:#6F42C1"> name</span><span style="color:#24292E">=</span><span style="color:#032F62">"size"</span><span style="color:#6F42C1"> value</span><span style="color:#24292E">=</span><span style="color:#032F62">"m"</span><span style="color:#6F42C1"> checked</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">label</span><span style="color:#6F42C1"> for</span><span style="color:#24292E">=</span><span style="color:#032F62">"m"</span><span style="color:#24292E">>M — 350 мл&#x3C;/</span><span style="color:#22863A">label</span><span style="color:#24292E">></span></span></code></pre></figure>
+<p>Подпись — для человека, <code>value</code> — для сервера. <code>checked</code> — выбрано сразу</p>
+</div><aside class="notes"><p><b>value и checked</b> — 3 мин</p><p><strong>На слайде:</strong> radio с value и checked.</p>
+<p><strong>Рассказать:</strong> на сервер уходит value, а не текст подписи. Поэтому value — латиницей и коротко.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="подсказки-datalist">Подсказки: datalist</h2>
+<figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">input</span><span style="color:#6F42C1"> id</span><span style="color:#24292E">=</span><span style="color:#032F62">"drink"</span><span style="color:#6F42C1"> name</span><span style="color:#24292E">=</span><span style="color:#032F62">"drink"</span><span style="color:#6F42C1"> list</span><span style="color:#24292E">=</span><span style="color:#032F62">"drinks"</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">datalist</span><span style="color:#6F42C1"> id</span><span style="color:#24292E">=</span><span style="color:#032F62">"drinks"</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">option</span><span style="color:#6F42C1"> value</span><span style="color:#24292E">=</span><span style="color:#032F62">"Эспрессо"</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">option</span><span style="color:#6F42C1"> value</span><span style="color:#24292E">=</span><span style="color:#032F62">"Капучино"</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;/</span><span style="color:#22863A">datalist</span><span style="color:#24292E">></span></span></code></pre></figure>
+<p>Предлагает варианты, но можно написать свой</p>
+</div><aside class="notes"><p><b>Подсказки: datalist</b> — 3 мин</p><p><strong>На слайде:</strong> поле с datalist.</p>
+<p><strong>Показать вживую:</strong> песочница «Подсказки datalist»: начать печатать «Ка», потом ввести свой напиток.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="отправка-файлов">Отправка файлов</h2>
+<figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">form</span><span style="color:#6F42C1"> action</span><span style="color:#24292E">=</span><span style="color:#032F62">"/upload"</span><span style="color:#6F42C1"> method</span><span style="color:#24292E">=</span><span style="color:#032F62">"post"</span></span>
+<span class="line"><span style="color:#6F42C1">      enctype</span><span style="color:#24292E">=</span><span style="color:#032F62">"multipart/form-data"</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">input</span><span style="color:#6F42C1"> name</span><span style="color:#24292E">=</span><span style="color:#032F62">"photo"</span><span style="color:#6F42C1"> type</span><span style="color:#24292E">=</span><span style="color:#032F62">"file"</span></span>
+<span class="line"><span style="color:#6F42C1">         accept</span><span style="color:#24292E">=</span><span style="color:#032F62">"image/*"</span><span style="color:#6F42C1"> multiple</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;/</span><span style="color:#22863A">form</span><span style="color:#24292E">></span></span></code></pre></figure>
+<p>Без <code>enctype</code> уйдёт только имя файла</p>
+</div><aside class="notes"><p><b>Отправка файлов</b> — 2 мин</p><p><strong>На слайде:</strong> форма с type=«file».</p>
+<p><strong>Рассказать:</strong> accept ограничивает типы файлов, multiple разрешает несколько. Без enctype файл не уйдёт.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="кнопки">Кнопки</h2>
 <figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">button</span><span style="color:#6F42C1"> type</span><span style="color:#24292E">=</span><span style="color:#032F62">"submit"</span><span style="color:#24292E">>Отправить&#x3C;/</span><span style="color:#22863A">button</span><span style="color:#24292E">></span></span>
 <span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">button</span><span style="color:#6F42C1"> type</span><span style="color:#24292E">=</span><span style="color:#032F62">"reset"</span><span style="color:#24292E">>Очистить&#x3C;/</span><span style="color:#22863A">button</span><span style="color:#24292E">></span></span>
 <span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">button</span><span style="color:#6F42C1"> type</span><span style="color:#24292E">=</span><span style="color:#032F62">"button"</span><span style="color:#24292E">>Показать пароль&#x3C;/</span><span style="color:#22863A">button</span><span style="color:#24292E">></span></span></code></pre></figure>
-<p>Кнопка — только <code>button</code>, не <code>div</code></p>
-</div><aside class="notes"><p><b>Кнопки</b> — 4 мин</p><p><strong>На слайде:</strong> три типа кнопок.</p>
+<p>Без <code>type</code> кнопка в форме отправляет её</p>
+</div><aside class="notes"><p><b>Кнопки</b> — 3 мин</p><p><strong>На слайде:</strong> три типа кнопок.</p>
 <p><strong>Рассказать:</strong> без type кнопка отправляет форму — отсюда случайные перезагрузки страницы. Biome напоминает.</p>
+</aside></section>
+<section class="statement "><div class="slide-body"><p>Действие — только <code>button</code>, переход — только <code>a</code>. Кнопку из <code>div</code> не видит ни Tab, ни VoiceOver</p>
+</div><aside class="notes"><p><b>Действие — button, переход — a</b> — 2 мин</p><p><strong>На слайде:</strong> тезис.</p>
+<p><strong>Рассказать:</strong> выглядеть они могут одинаково — стили сделаем в CSS. Но смысл разный, и клавиатура с VoiceOver это знают.</p>
+</aside></section>
+<section class="part " data-background-color="#fbefff"><div class="slide-body"><p class="part-n">Часть 3</p><h2 id="проверка-и-группы">Проверка и группы</h2>
+<p>Браузер проверит поля сам — без JavaScript</p>
+</div><aside class="notes"><p><b>Часть 3. Проверка и группы</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель третьей части.</p>
+<p><strong>Рассказать:</strong> браузер умеет проверять поля сам.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="проверка-без-javascript">Проверка без JavaScript</h2>
 <figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">input</span><span style="color:#6F42C1"> name</span><span style="color:#24292E">=</span><span style="color:#032F62">"name"</span><span style="color:#6F42C1"> required</span><span style="color:#6F42C1"> minlength</span><span style="color:#24292E">=</span><span style="color:#032F62">"2"</span><span style="color:#24292E">></span></span>
 <span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">input</span><span style="color:#6F42C1"> name</span><span style="color:#24292E">=</span><span style="color:#032F62">"email"</span><span style="color:#6F42C1"> type</span><span style="color:#24292E">=</span><span style="color:#032F62">"email"</span><span style="color:#6F42C1"> required</span><span style="color:#24292E">></span></span>
-<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">input</span><span style="color:#6F42C1"> name</span><span style="color:#24292E">=</span><span style="color:#032F62">"guests"</span><span style="color:#6F42C1"> type</span><span style="color:#24292E">=</span><span style="color:#032F62">"number"</span><span style="color:#6F42C1"> min</span><span style="color:#24292E">=</span><span style="color:#032F62">"1"</span><span style="color:#6F42C1"> max</span><span style="color:#24292E">=</span><span style="color:#032F62">"10"</span><span style="color:#24292E">></span></span></code></pre></figure>
-<p>Для удобства человека. Защита — на сервере</p>
-</div><aside class="notes"><p><b>Проверка без JavaScript</b> — 7 мин</p><p><strong>На слайде:</strong> атрибуты required, minlength, type=email, min и max.</p>
+<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">input</span><span style="color:#6F42C1"> name</span><span style="color:#24292E">=</span><span style="color:#032F62">"guests"</span><span style="color:#6F42C1"> type</span><span style="color:#24292E">=</span><span style="color:#032F62">"number"</span><span style="color:#6F42C1"> min</span><span style="color:#24292E">=</span><span style="color:#032F62">"1"</span><span style="color:#6F42C1"> max</span><span style="color:#24292E">=</span><span style="color:#032F62">"10"</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">input</span><span style="color:#6F42C1"> name</span><span style="color:#24292E">=</span><span style="color:#032F62">"zip"</span><span style="color:#6F42C1"> pattern</span><span style="color:#24292E">=</span><span style="color:#032F62">"[0-9]{6}"</span></span>
+<span class="line"><span style="color:#6F42C1">       title</span><span style="color:#24292E">=</span><span style="color:#032F62">"Индекс — 6 цифр"</span><span style="color:#24292E">></span></span></code></pre></figure>
+</div><aside class="notes"><p><b>Проверка без JavaScript</b> — 5 мин</p><p><strong>На слайде:</strong> required, minlength, type=email, min, max, pattern.</p>
 <p><strong>Показать вживую:</strong> песочница «Встроенная валидация»: отправить пустую, с одной буквой в имени, с неправильной почтой.</p>
-<p><strong>Рассказать:</strong> проверку обходят через DevTools — помните урок 1. Защита — на сервере.</p>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="ещё-полезные-атрибуты">Ещё полезные атрибуты</h2>
+<ul>
+<li><strong>autocomplete</strong> браузер подставит имя, телефон, почту</li>
+<li><strong>step</strong> шаг числа: <code>0.5</code></li>
+<li><strong>disabled</strong> нельзя изменить, не отправляется</li>
+<li><strong>readonly</strong> нельзя изменить, но отправляется</li>
+</ul>
+</div><aside class="notes"><p><b>Ещё полезные атрибуты</b> — 3 мин</p><p><strong>На слайде:</strong> autocomplete, step, disabled, readonly.</p>
+<p><strong>Показать вживую:</strong> добавить <code>autocomplete=&quot;email&quot;</code> — Chrome предлагает сохранённую почту.</p>
+</aside></section>
+<section class="statement "><div class="slide-body"><p>Проверка в браузере — для удобства человека. Защита — на сервере: клиенту нельзя доверять</p>
+</div><aside class="notes"><p><b>Защита — на сервере</b> — 2 мин</p><p><strong>На слайде:</strong> тезис.</p>
+<p><strong>Рассказать:</strong> проверку обходят через DevTools — помните урок 1. Встроенная проверка — для удобства.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="группы-полей">Группы полей</h2>
 <figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">fieldset</span><span style="color:#24292E">></span></span>
@@ -135,25 +200,38 @@
 <span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">input</span><span style="color:#6F42C1"> type</span><span style="color:#24292E">=</span><span style="color:#032F62">"radio"</span><span style="color:#6F42C1"> id</span><span style="color:#24292E">=</span><span style="color:#032F62">"c-phone"</span><span style="color:#6F42C1"> name</span><span style="color:#24292E">=</span><span style="color:#032F62">"contact"</span><span style="color:#24292E">></span></span>
 <span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">label</span><span style="color:#6F42C1"> for</span><span style="color:#24292E">=</span><span style="color:#032F62">"c-phone"</span><span style="color:#24292E">>Телефон&#x3C;/</span><span style="color:#22863A">label</span><span style="color:#24292E">></span></span>
 <span class="line"><span style="color:#24292E">&#x3C;/</span><span style="color:#22863A">fieldset</span><span style="color:#24292E">></span></span></code></pre></figure>
-</div><aside class="notes"><p><b>Группы полей</b> — 3 мин</p><p><strong>На слайде:</strong> fieldset и legend.</p>
+<p>VoiceOver прочитает вопрос вместе с вариантом</p>
+</div><aside class="notes"><p><b>Группы полей</b> — 2 мин</p><p><strong>На слайде:</strong> fieldset и legend.</p>
 <p><strong>Рассказать:</strong> VoiceOver прочитает вопрос вместе с вариантом ответа.</p>
 </aside></section>
-<section><div class="slide-body"><h2 id="таблицы">Таблицы</h2>
-<figure class="diagram"><div class="dg dg-tree-wrap"><div class="dg-tree"><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">table/</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">caption</span><span class="dg-tree-note">название таблицы</span></span></li><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">thead/</span><span class="dg-tree-note">шапка</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">tr/</span><span class="dg-tree-note">строка</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">th</span><span class="dg-tree-note">ячейка-заголовок</span></span></li></ul></li></ul></li><li><span class="dg-tree-row mark"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">tbody/</span><span class="dg-tree-note">данные</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">tr/</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">td</span><span class="dg-tree-note">обычная ячейка</span></span></li></ul></li></ul></li></ul></li></ul></div></div><figcaption class="dg-caption">Устройство таблицы</figcaption></figure></div><aside class="notes"><p><b>Таблицы</b> — 4 мин</p><p><strong>На слайде:</strong> дерево table → thead/tbody → tr → th/td.</p>
+<section><div class="slide-body"><h2 id="готовая-форма">Готовая форма</h2>
+<div class="cols"><div class="col"><p>Имя, телефон, дата, гости, зал, комментарий, согласие.</p>
+<p>Без единой строки CSS — но уже удобная и доступная. Красоту добавим в следующем уроке</p>
+</div><div class="col"><figure class="shot"><img src="../lessons/05-html-forms/img/task-booking.webp" alt="" loading="lazy"></figure></div></div></div><aside class="notes"><p><b>Готовая форма</b> — 2 мин</p><p><strong>На слайде:</strong> форма бронирования без стилей.</p>
+<p><strong>Рассказать:</strong> это задание 1 домашки. Некрасиво, но уже работает с клавиатуры и понятно VoiceOver. Красоту добавим в уроке 6.</p>
+</aside></section>
+<section class="part " data-background-color="#fff8c5"><div class="slide-body"><p class="part-n">Часть 4</p><h2 id="таблицы-и-доступность">Таблицы и доступность</h2>
+<p>Данные в строках и столбцах. Сайт для всех</p>
+</div><aside class="notes"><p><b>Часть 4. Таблицы и доступность</b> — 1 мин</p><p><strong>На слайде:</strong> разделитель четвёртой части.</p>
+<p><strong>Рассказать:</strong> таблицы для данных и проверка страницы для всех пользователей.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="устройство-таблицы">Устройство таблицы</h2>
+<figure class="diagram"><div class="dg dg-tree-wrap"><div class="dg-tree"><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">table/</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">caption</span><span class="dg-tree-note">название таблицы</span></span></li><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">thead/</span><span class="dg-tree-note">шапка</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">tr/</span><span class="dg-tree-note">строка</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">th</span><span class="dg-tree-note">ячейка-заголовок</span></span></li></ul></li></ul></li><li><span class="dg-tree-row mark"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">tbody/</span><span class="dg-tree-note">данные</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file-directory-fill octicon dg-tree-dir" aria-hidden="true" data-component="Octicon"><path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path></svg><span class="dg-tree-name">tr/</span></span><ul><li><span class="dg-tree-row"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-file octicon dg-tree-file" aria-hidden="true" data-component="Octicon"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg><span class="dg-tree-name">td</span><span class="dg-tree-note">обычная ячейка</span></span></li></ul></li></ul></li></ul></li></ul></div></div><figcaption class="dg-caption">Устройство таблицы</figcaption></figure></div><aside class="notes"><p><b>Устройство таблицы</b> — 3 мин</p><p><strong>На слайде:</strong> дерево table → thead/tbody → tr → th/td.</p>
 <p><strong>Рассказать:</strong> th — заголовок, td — данные. caption — название таблицы.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="таблица-цен">Таблица цен</h2>
-<figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">table</span><span style="color:#24292E">></span></span>
-<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">caption</span><span style="color:#24292E">>Цены на кофе&#x3C;/</span><span style="color:#22863A">caption</span><span style="color:#24292E">></span></span>
-<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">thead</span><span style="color:#24292E">>&#x3C;</span><span style="color:#22863A">tr</span><span style="color:#24292E">>&#x3C;</span><span style="color:#22863A">th</span><span style="color:#24292E">>Напиток&#x3C;/</span><span style="color:#22863A">th</span><span style="color:#24292E">>&#x3C;</span><span style="color:#22863A">th</span><span style="color:#24292E">>S&#x3C;/</span><span style="color:#22863A">th</span><span style="color:#24292E">>&#x3C;</span><span style="color:#22863A">th</span><span style="color:#24292E">>M&#x3C;/</span><span style="color:#22863A">th</span><span style="color:#24292E">>&#x3C;/</span><span style="color:#22863A">tr</span><span style="color:#24292E">>&#x3C;/</span><span style="color:#22863A">thead</span><span style="color:#24292E">></span></span>
-<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">tbody</span><span style="color:#24292E">></span></span>
-<span class="line"><span style="color:#24292E">    &#x3C;</span><span style="color:#22863A">tr</span><span style="color:#24292E">>&#x3C;</span><span style="color:#22863A">th</span><span style="color:#24292E">>Капучино&#x3C;/</span><span style="color:#22863A">th</span><span style="color:#24292E">>&#x3C;</span><span style="color:#22863A">td</span><span style="color:#24292E">>200 ₽&#x3C;/</span><span style="color:#22863A">td</span><span style="color:#24292E">>&#x3C;</span><span style="color:#22863A">td</span><span style="color:#24292E">>220 ₽&#x3C;/</span><span style="color:#22863A">td</span><span style="color:#24292E">>&#x3C;/</span><span style="color:#22863A">tr</span><span style="color:#24292E">></span></span>
-<span class="line"><span style="color:#24292E">  &#x3C;/</span><span style="color:#22863A">tbody</span><span style="color:#24292E">></span></span>
-<span class="line"><span style="color:#24292E">&#x3C;/</span><span style="color:#22863A">table</span><span style="color:#24292E">></span></span></code></pre></figure>
-<p>Только для данных, не для раскладки страницы</p>
-</div><aside class="notes"><p><b>Таблица цен</b> — 6 мин</p><p><strong>На слайде:</strong> код таблицы цен.</p>
-<p><strong>Показать вживую:</strong> ученик пишет таблицу через Emmet: <code>table&gt;thead&gt;tr&gt;th*3</code> и дальше вручную.</p>
-<p><strong>Рассказать:</strong> таблицами не раскладывают страницу — для этого есть Grid.</p>
+<figure class="shot"><img src="../lessons/05-html-forms/img/forms-table.webp" alt="" loading="lazy"></figure></div><aside class="notes"><p><b>Таблица цен</b> — 2 мин</p><p><strong>На слайде:</strong> таблица с объединёнными ячейками.</p>
+<p><strong>Показать вживую:</strong> ученик пишет таблицу через Emmet: <code>table&gt;thead&gt;tr&gt;th*4</code> и дальше вручную.</p>
+</aside></section>
+<section><div class="slide-body"><h2 id="объединение-ячеек">Объединение ячеек</h2>
+<figure class="code" data-lang="html"><figcaption><span>HTML</span></figcaption><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">tr</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">th</span><span style="color:#6F42C1"> rowspan</span><span style="color:#24292E">=</span><span style="color:#032F62">"2"</span><span style="color:#24292E">>Напиток&#x3C;/</span><span style="color:#22863A">th</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">  &#x3C;</span><span style="color:#22863A">th</span><span style="color:#6F42C1"> colspan</span><span style="color:#24292E">=</span><span style="color:#032F62">"3"</span><span style="color:#24292E">>Объём&#x3C;/</span><span style="color:#22863A">th</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;/</span><span style="color:#22863A">tr</span><span style="color:#24292E">></span></span>
+<span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">tr</span><span style="color:#24292E">>&#x3C;</span><span style="color:#22863A">th</span><span style="color:#24292E">>S&#x3C;/</span><span style="color:#22863A">th</span><span style="color:#24292E">>&#x3C;</span><span style="color:#22863A">th</span><span style="color:#24292E">>M&#x3C;/</span><span style="color:#22863A">th</span><span style="color:#24292E">>&#x3C;</span><span style="color:#22863A">th</span><span style="color:#24292E">>L&#x3C;/</span><span style="color:#22863A">th</span><span style="color:#24292E">>&#x3C;/</span><span style="color:#22863A">tr</span><span style="color:#24292E">></span></span></code></pre></figure>
+<p>Таблица — только для данных, не для раскладки</p>
+</div><aside class="notes"><p><b>Объединение ячеек</b> — 2 мин</p><p><strong>На слайде:</strong> rowspan и colspan.</p>
+<p><strong>Рассказать:</strong> считайте ячейки: в каждой строке должно выйти одинаковое число столбцов. Таблицами не раскладывают страницу — для этого есть Grid.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="доступность-кто-и-что">Доступность: кто и что</h2>
 <figure class="diagram"><div class="dg dg-rows-wrap"><div class="dg-rows"><div class="dg-row">
@@ -165,34 +243,42 @@
 </div><div class="dg-row">
 <div class="dg-row-label"><b>Плохо видит</b></div>
 <div class="dg-row-body"><div class="dg-flow"><div class="dg-node k-muted"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-zoom-in octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M3.75 7.5a.75.75 0 0 1 .75-.75h2.25V4.5a.75.75 0 0 1 1.5 0v2.25h2.25a.75.75 0 0 1 0 1.5H8.25v2.25a.75.75 0 0 1-1.5 0V8.25H4.5a.75.75 0 0 1-.75-.75Z"></path><path d="M7.5 0a7.5 7.5 0 0 1 5.807 12.247l2.473 2.473a.749.749 0 1 1-1.06 1.06l-2.473-2.473A7.5 7.5 0 1 1 7.5 0Zm-6 7.5a6 6 0 1 0 12 0 6 6 0 0 0-12 0Z"></path></svg><span class="dg-name">Увеличение</span></div><div class="dg-text">⌘+ до 200%</div></div><div class="dg-arrow bare"><div class="dg-link right"><span class="dg-line"></span></div></div><div class="dg-node k-accent"><div class="dg-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-check octicon dg-icon" aria-hidden="true" data-component="Octicon"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg><span class="dg-name">Нужно:</span></div><div class="dg-text">контраст текста, ничего не ломается при увеличении</div></div></div></div>
-</div></div></div><figcaption class="dg-caption">Кто пользуется сайтом не мышью и что ему нужно</figcaption></figure></div><aside class="notes"><p><b>Доступность: кто и что</b> — 7 мин</p><p><strong>На слайде:</strong> три группы пользователей и что им нужно.</p>
+</div></div></div><figcaption class="dg-caption">Кто пользуется сайтом не мышью и что ему нужно</figcaption></figure></div><aside class="notes"><p><b>Доступность: кто и что</b> — 4 мин</p><p><strong>На слайде:</strong> три группы пользователей и что им нужно.</p>
 <p><strong>Показать вживую:</strong> включить VoiceOver (⌘F5) на форме ученика: как читаются подписанные и неподписанные поля. Выключить.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="фокус">Фокус</h2>
-<figure class="shot"><img src="../lessons/05-html-forms/img/focus-ring.webp" alt="Рамку фокуса никогда не убираем" loading="lazy"><figcaption>Рамку фокуса никогда не убираем</figcaption></figure></div><aside class="notes"><p><b>Фокус</b> — 3 мин</p><p><strong>На слайде:</strong> поле в фокусе с рамкой.</p>
+<figure class="shot"><img src="../lessons/05-html-forms/img/focus-ring.webp" alt="Рамку фокуса никогда не убираем" loading="lazy"><figcaption>Рамку фокуса никогда не убираем</figcaption></figure></div><aside class="notes"><p><b>Фокус</b> — 2 мин</p><p><strong>На слайде:</strong> поле в фокусе с рамкой.</p>
 <p><strong>Показать вживую:</strong> ученик проходит свою форму клавишей Tab и отправляет её, не трогая мышь.</p>
 </aside></section>
-<section><div class="slide-body"><h2 id="проверка-за-пять-минут">Проверка за пять минут</h2>
-<ol>
-<li>Пройти страницу клавишей Tab</li>
-<li>Послушать в VoiceOver: ⌘F5</li>
-<li>Увеличить до 200%: ⌘+</li>
-<li>Biome: ноль ошибок a11y</li>
-</ol>
-</div><aside class="notes"><p><b>Проверка за пять минут</b> — 5 мин</p><p><strong>На слайде:</strong> четыре шага проверки.</p>
+<section class="cards "><div class="slide-body"><h2 id="проверка-за-пять-минут">Проверка за пять минут</h2>
+<ul>
+<li><strong>Tab</strong> дойти до каждого поля и кнопки</li>
+<li><strong>VoiceOver</strong> ⌘F5: слышны ли подписи</li>
+<li><strong>⌘+</strong> до 200% — ничего не наезжает</li>
+<li><strong>Biome</strong> ноль ошибок a11y</li>
+</ul>
+</div><aside class="notes"><p><b>Проверка за пять минут</b> — 2 мин</p><p><strong>На слайде:</strong> Tab, VoiceOver, увеличение, Biome.</p>
 <p><strong>Рассказать:</strong> эти четыре шага — обязательная самопроверка перед сдачей любой вёрстки, начиная с этого урока.</p>
-<p><strong>Спросить:</strong> «Кнопку сделали из div. Какой из четырёх шагов это найдёт?» Ответ: Tab и VoiceOver.</p>
 </aside></section>
-<section><div class="slide-body"><h2 id="воркшоп-форма-записи-в-кофейню">Воркшоп: форма записи в кофейню</h2>
-<ol>
-<li>Поля с подписями: <code>label</code> + <code>input</code></li>
-<li>Правильные типы: email, tel, date, number</li>
-<li>Обязательные поля и проверка браузером</li>
-<li>Выбор, комментарий, согласие</li>
-<li>Отправка: куда уходят данные</li>
-<li>Проверка клавиатурой, в DevTools и VoiceOver</li>
-</ol>
-</div><aside class="notes"><p><b>Воркшоп: форма записи в кофейню</b> — 20 мин</p><p><strong>На слайде:</strong> шесть шагов формы: от поля с подписью до проверки доступности.</p>
+<section class="cards "><div class="slide-body"><h2 id="частые-ошибки">Частые ошибки</h2>
+<ul>
+<li><strong>Поле без подписи</strong> VoiceOver скажет «поле для текста»</li>
+<li><strong>Разные name у radio</strong> можно выбрать все сразу</li>
+<li><strong>Кнопка из div</strong> не работает с клавиатуры</li>
+<li><strong>Таблица для раскладки</strong> колонки делают на Grid</li>
+</ul>
+</div><aside class="notes"><p><b>Частые ошибки</b> — 2 мин</p><p><strong>На слайде:</strong> четыре карточки с ошибками.</p>
+<p><strong>Рассказать:</strong> все четыре ловит проверка за пять минут, если её не пропускать.</p>
+<p><strong>Спросить:</strong> «Кнопку сделали из div. Какой из четырёх шагов проверки это найдёт?» Ответ: Tab и VoiceOver.</p>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="воркшоп-форма-записи-в-кофейню">Воркшоп: форма записи в кофейню</h2>
+<ul>
+<li><strong>Поля</strong> подписи и правильные типы</li>
+<li><strong>Проверка</strong> обязательные поля без JavaScript</li>
+<li><strong>Выбор</strong> список, комментарий, согласие</li>
+<li><strong>Доступность</strong> Tab, DevTools, VoiceOver</li>
+</ul>
+</div><aside class="notes"><p><b>Воркшоп: форма записи в кофейню</b> — 20 мин</p><p><strong>На слайде:</strong> четыре карточки: поля, проверка, выбор, доступность.</p>
 <p><strong>Подготовить заранее:</strong> папка <code>workshop-html</code> с прошлого урока открыта в VS Code, Go Live включён. Создайте файл <code>booking.html</code> с каркасом (<kbd>!</kbd> → <kbd>Tab</kbd>, <code>lang=&quot;ru&quot;</code>).</p>
 <p><strong>Показать вживую:</strong></p>
 <ol>

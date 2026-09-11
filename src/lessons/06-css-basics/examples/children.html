@@ -1,0 +1,17 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Позиции в списке</title><link rel="stylesheet" href="demo.css">
+<style>
+  .wrap { grid-template-columns: repeat(3, 230px); }
+  ul { margin: 0; padding: 0; list-style: none; border: 1px solid #d1d9e0; border-radius: 8px; overflow: hidden; }
+  li { padding: 9px 14px; border-top: 1px solid #d1d9e0; }
+  li:first-child { border-top: 0; }
+  .first li:first-child { background: #ddf4ff; font-weight: 700; }
+  .first li:last-child { background: #fff8c5; font-weight: 700; }
+  .zebra li:nth-child(even) { background: #f6f8fa; }
+  .three li:nth-child(3n) { background: #dafbe1; font-weight: 700; }
+</style></head><body>
+<div class="wrap">
+  <div class="cell"><p class="label">:first-child и :last-child</p><ul class="first"><li>Эспрессо</li><li>Капучино</li><li>Латте</li><li>Раф</li><li>Какао</li></ul></div>
+  <div class="cell"><p class="label">:nth-child(even) — «зебра»</p><ul class="zebra"><li>Эспрессо</li><li>Капучино</li><li>Латте</li><li>Раф</li><li>Какао</li></ul></div>
+  <div class="cell"><p class="label">:nth-child(3n) — каждый третий</p><ul class="three"><li>Эспрессо</li><li>Капучино</li><li>Латте</li><li>Раф</li><li>Какао</li><li>Матча</li></ul></div>
+</div>
+</body></html>

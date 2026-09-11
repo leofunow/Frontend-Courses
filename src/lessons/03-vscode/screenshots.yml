@@ -1,13 +1,16 @@
-# Интерфейс VS Code: снимаем vscode.dev — веб-версию того же редактора.
+# Интерфейс VS Code: снимаем vscode.dev — веб-версию того же редактора, в светлой теме Light Modern.
 # Обновить: npm run screenshots -- vscode-
 - file: vscode-welcome.webp
   url: https://vscode.dev/
+  vscodeTheme: Default Light Modern
+  vscodeWelcome: true
   marks:
     - {text: "Open Folder", exact: true, closest: "a, .monaco-button", label: 1, side: right}
   clip: {x: 0, y: 26, width: 1280, height: 520}
 
 - file: vscode-ui.webp
   url: https://vscode.dev/
+  vscodeTheme: Default Light Modern
   steps:
     - press: Meta+KeyN
     - wait: 800
@@ -30,6 +33,7 @@
 
 - file: vscode-emmet.webp
   url: https://vscode.dev/
+  vscodeTheme: Default Light Modern
   steps:
     - press: Meta+KeyN
     - wait: 800
@@ -47,6 +51,7 @@
 
 - file: vscode-palette.webp
   url: https://vscode.dev/
+  vscodeTheme: Default Light Modern
   hide: [".part.banner"]
   steps:
     - press: Meta+KeyN
@@ -67,6 +72,7 @@
 
 - file: vscode-extensions.webp
   url: https://vscode.dev/
+  vscodeTheme: Default Light Modern
   steps:
     - press: Meta+Shift+KeyX
     - wait: 900
@@ -80,6 +86,7 @@
 
 - file: vscode-settings.webp
   url: https://vscode.dev/
+  vscodeTheme: Default Light Modern
   steps:
     - press: Meta+Comma
     - wait: 1500
@@ -91,6 +98,7 @@
 
 - file: vscode-biome.webp
   url: https://vscode.dev/
+  vscodeTheme: Default Light Modern
   steps:
     - press: Meta+Shift+KeyX
     - wait: 900

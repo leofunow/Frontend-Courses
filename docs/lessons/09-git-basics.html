@@ -151,7 +151,37 @@
 <li><strong>Кружок</strong> отмечает коммит, на котором вы сейчас. Метка ветки — где её последний коммит.</li>
 </ul>
 <p>Смотрите в Git Graph перед каждым <code>push</code> и после каждого слияния: так видно, что история именно такая, как вы думаете.</p>
-<h2 id="github-копия-проекта-в-интернете">GitHub: копия проекта в интернете</h2>
+<h2 id="отменить-изменения">Отменить изменения</h2>
+<p>Смысл истории — возможность вернуться. Способ зависит от того, успели ли вы закоммитить.</p>
+<table>
+<thead>
+<tr>
+<th>Что случилось</th>
+<th>Что сделать</th>
+<th>В Терминале</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Испортили файл, коммита ещё не было</td>
+<td>Source Control → у файла стрелка Discard Changes</td>
+<td><code>git restore index.html</code></td>
+</tr>
+<tr>
+<td>Добавили в индекс лишнее</td>
+<td>у файла в Staged Changes — минус</td>
+<td><code>git restore --staged index.html</code></td>
+</tr>
+<tr>
+<td>Закоммитили ошибку</td>
+<td>Git Graph → правый щелчок по коммиту → Revert</td>
+<td><code>git revert 659c192</code></td>
+</tr>
+</tbody>
+</table>
+<figure class="shot" style="--shot-w:560px"><a href="09-git-basics/img/git-graph-revert.webp" target="_blank" title="Открыть в полном размере"><img src="09-git-basics/img/git-graph-revert.webp" alt="Revert создаёт новый коммит, который отменяет выбранный. Остальная история остаётся" loading="lazy"></a><figcaption>Revert создаёт новый коммит, который отменяет выбранный. Остальная история остаётся</figcaption></figure><p>Revert безопасен: он ничего не удаляет из истории, только добавляет. Поэтому им можно отменять даже то, что уже на GitHub.</p>
+<div class="markdown-alert markdown-alert-caution"><p class="markdown-alert-title"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-stop octicon mr-2" aria-hidden="true" data-component="Octicon"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Reset вместо Revert</p><p>В том же меню есть Reset — он двигает ветку назад и выбрасывает коммиты. Если они уже на GitHub, у вас и у ментора истории разойдутся. На курсе пользуемся только Revert.</p>
+</div><h2 id="github-копия-проекта-в-интернете">GitHub: копия проекта в интернете</h2>
 <p>Git работает на вашем Mac. <span class="term" role="button" tabindex="0" data-term="github">GitHub</span> хранит копию репозитория в интернете: её видит ментор, с неё публикуется сайт, она не пропадёт, если сломается ноутбук.</p>
 <ol>
 <li>Зарегистрируйтесь на github.com: Sign up, почта из <code>git config</code>, имя пользователя латиницей — оно будет в адресе ваших сайтов.</li>
@@ -298,7 +328,7 @@
 <div class="done-bar"><div><b>Дочитали урок?</b><span>Отметка сохранится в этом браузере и появится на карте курса.</span></div><button type="button" class="btn btn-primary done-btn" data-done="09-git-basics"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-check octicon" aria-hidden="true" data-component="Octicon"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></svg><span>Отметить урок пройденным</span></button></div>
 <nav class="pager" aria-label="Соседние уроки"><a class="pager-link prev" href="08-responsive.html"><span class="pager-dir"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-arrow-left octicon" aria-hidden="true" data-component="Octicon"><path d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06Z"></path></svg><span>Назад</span></span><span class="pager-t">Урок 8. Адаптивная вёрстка</span></a><a class="pager-link next" href="../projects/p1.html"><span class="pager-dir"><span>Дальше</span><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-arrow-right octicon" aria-hidden="true" data-component="Octicon"><path d="M8.22 2.97a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l2.97-2.97H3.75a.75.75 0 0 1 0-1.5h7.44L8.22 4.03a.75.75 0 0 1 0-1.06Z"></path></svg></span><span class="pager-t">Проект. Адаптивный лендинг</span></a></nav>
 </article></main>
-<aside class="toc" aria-label="В этом уроке"><h2 class="toc-title">В этом уроке</h2><ul><li><a href="#зачем-нужен-git">Зачем нужен Git</a></li><li><a href="#словарь-git">Словарь Git</a></li><li><a href="#настроить-git-один-раз">Настроить Git один раз</a></li><li><a href="#первый-коммит">Первый коммит</a></li><li><a href="#как-писать-сообщение-коммита">Как писать сообщение коммита</a></li><li><a href="#что-не-нужно-хранить-gitignore">Что не нужно хранить: .gitignore</a></li><li><a href="#git-в-vs-code">Git в VS Code</a></li><li><a href="#git-graph-история-картинкой">Git Graph: история картинкой</a></li><li><a href="#github-копия-проекта-в-интернете">GitHub: копия проекта в интернете</a></li><li><a href="#отправить-проект-на-github">Отправить проект на GitHub</a></li><li><a href="#сайт-на-github-pages">Сайт на GitHub Pages</a></li><li><a href="#сдача-домашки-через-pull-request">Сдача домашки через pull request</a></li><li><a href="#частые-ошибки">Частые ошибки</a></li><li><a href="#шпаргалка">Шпаргалка</a></li><li><a href="#квиз">Квиз</a></li><li><a href="#задания">Задания</a></li><li><a href="#читать-дальше">Читать дальше</a></li></ul></aside>
+<aside class="toc" aria-label="В этом уроке"><h2 class="toc-title">В этом уроке</h2><ul><li><a href="#зачем-нужен-git">Зачем нужен Git</a></li><li><a href="#словарь-git">Словарь Git</a></li><li><a href="#настроить-git-один-раз">Настроить Git один раз</a></li><li><a href="#первый-коммит">Первый коммит</a></li><li><a href="#как-писать-сообщение-коммита">Как писать сообщение коммита</a></li><li><a href="#что-не-нужно-хранить-gitignore">Что не нужно хранить: .gitignore</a></li><li><a href="#git-в-vs-code">Git в VS Code</a></li><li><a href="#git-graph-история-картинкой">Git Graph: история картинкой</a></li><li><a href="#отменить-изменения">Отменить изменения</a></li><li><a href="#github-копия-проекта-в-интернете">GitHub: копия проекта в интернете</a></li><li><a href="#отправить-проект-на-github">Отправить проект на GitHub</a></li><li><a href="#сайт-на-github-pages">Сайт на GitHub Pages</a></li><li><a href="#сдача-домашки-через-pull-request">Сдача домашки через pull request</a></li><li><a href="#частые-ошибки">Частые ошибки</a></li><li><a href="#шпаргалка">Шпаргалка</a></li><li><a href="#квиз">Квиз</a></li><li><a href="#задания">Задания</a></li><li><a href="#читать-дальше">Читать дальше</a></li></ul></aside>
 </div>
 <div class="search-overlay" hidden role="dialog" aria-modal="true" aria-label="Поиск по курсу"><div class="search-box">
 <div class="search-input"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-search octicon" aria-hidden="true" data-component="Octicon"><path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z"></path></svg><input type="search" placeholder="Например: flexbox, fetch, props" aria-label="Что найти"></div>

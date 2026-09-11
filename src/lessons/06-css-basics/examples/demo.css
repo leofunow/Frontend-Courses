@@ -1,0 +1,6 @@
+/* Общие стили наглядных примеров урока */
+* { box-sizing: border-box; }
+body { margin: 0; padding: 20px; font: 15px/1.4 -apple-system, "Segoe UI", sans-serif; color: #1f2328; background: #fff; }
+.wrap { display: grid; gap: 20px; }
+.label { margin: 0 0 8px; font: 600 13px/1.4 ui-monospace, Menlo, monospace; color: #59636e; }
+.cell { min-width: 0; }

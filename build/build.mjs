@@ -526,7 +526,7 @@ function buildSlides(l, script, fm = {}) {
 </head>
 <body class="slides-page${deck.theme ? ` deck-${esc(deck.theme)}` : ''}">
 <div class="reveal"><div class="slides">
-<section class="title-slide${deck.cover ? ' has-cover' : ''}"><div class="slide-body"><p class="kicker">${esc(modTitle(l.module))}. Урок ${l.n}</p><h1>${esc(l.title)}</h1><p class="sub">${esc(l.subtitle)}</p><p class="course">${icon('mortar-board')}${esc(syllabus.title)}</p></div>${cover}${notesFor(0)}</section>
+<section class="title-slide${deck.cover ? ' has-cover' : ''}" data-n="${String(l.n).padStart(2, '0')}"><div class="slide-body"><p class="kicker">${esc(modTitle(l.module))}. Урок ${l.n}</p><h1>${esc(l.title)}</h1><p class="sub">${esc(l.subtitle)}</p><p class="course">${icon('mortar-board')}${esc(syllabus.title)}</p></div>${cover}${notesFor(0)}</section>
 ${slides.join('\n')}
 </div></div>
 <a class="back" href="../${lessonUrl(l)}" title="Вернуться к тексту урока (Esc)">${icon('arrow-left')}Текст урока <kbd>Esc</kbd></a>

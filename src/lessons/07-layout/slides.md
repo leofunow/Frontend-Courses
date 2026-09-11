@@ -1,6 +1,15 @@
 <!-- class: statement -->
 Две раскладки на все случаи: Flexbox — одна линия, Grid — сетка
 
+Плюс position — для того, что лежит поверх
+
+---
+
+<!-- class: part -->
+## Поток и Flexbox
+
+Элементы в ряд и по центру
+
 ---
 
 ## Поток документа
@@ -70,14 +79,29 @@
 
 ---
 
+<!-- class: cards -->
 ## Промежутки и размеры
 
-| Свойство | Что делает |
-|---|---|
-| `gap: 16px` | промежутки между элементами |
-| `flex-wrap: wrap` | перенос на новую строку |
-| `flex: 1` | занять свободное место |
-| `margin-left: auto` | отодвинуть вправо |
+- **gap: 16px** промежутки между элементами
+- **flex-wrap: wrap** перенос на новую строку
+- **flex: 1** занять свободное место
+- **margin-left: auto** отодвинуть вправо
+
+---
+
+## Один элемент ряда
+
+:::shot img/layout-order.webp
+:::
+
+`order` — место в ряду, `align-self` — своё выравнивание
+
+---
+
+<!-- class: part -->
+## Grid
+
+Строки и колонки сразу
 
 ---
 
@@ -85,6 +109,15 @@
 
 :::shot img/layout-grid.webp
 :::
+
+---
+
+<!-- class: numbers -->
+## Единица fr
+
+- **1fr** одна доля свободного места
+- **1fr 2fr** вторая колонка вдвое шире
+- **3 × 1fr** три равные колонки: `repeat(3, 1fr)`
 
 ---
 
@@ -102,18 +135,28 @@
 
 ---
 
+## Карточка на две колонки
+
+:::shot img/layout-span.webp
+:::
+
+`grid-column: span 2` · `grid-row: span 2`
+
+---
+
 ## Макет страницы
 
+:::cols
+:::shot img/layout-areas.webp
+:::
++++
 ```css
-.page {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  grid-template-areas:
-    "header header"
-    "aside  main"
-    "footer footer";
-}
+grid-template-areas:
+  "header header"
+  "aside  main"
+  "footer footer";
 ```
+:::
 
 ---
 
@@ -128,22 +171,119 @@
 
 ---
 
-## Частые ошибки
+<!-- class: part -->
+## Позиционирование
 
-- `display: flex` не у того элемента
-- Путают justify и align
-- Промежутки через margin вместо gap
+Что лежит поверх остальных
 
 ---
 
+## Пять значений position
+
+| Значение | Когда |
+|---|---|
+| `static` | по умолчанию, обычный поток |
+| `relative` | точка отсчёта для `absolute` |
+| `absolute` | значок в углу карточки |
+| `fixed` | кнопка «Наверх», чат |
+| `sticky` | шапка, которая прилипает |
+
+---
+
+## relative, absolute, z-index
+
+:::shot img/layout-position.webp
+:::
+
+---
+
+## Значок в углу
+
+```css
+.card  { position: relative; }
+.badge { position: absolute; top: 8px; right: 8px; }
+```
+
+Без `relative` значок улетит в угол страницы
+
+---
+
+## Шапка, которая прилипает
+
+```css
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+}
+```
+
+---
+
+<!-- class: part -->
+## Движение
+
+Плавность и анимация
+
+---
+
+## transform
+
+:::shot img/layout-transform.webp
+:::
+
+Двигает элемент, не сдвигая соседей
+
+---
+
+## transition
+
+```css
+.card { transition: transform 0.2s, box-shadow 0.2s; }
+.card:hover { transform: translateY(-6px); }
+```
+
+В обычном состоянии — анимация туда и обратно
+
+---
+
+## @keyframes
+
+```css
+@keyframes pulse {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+.btn-order { animation: pulse 1s infinite alternate; }
+```
+
+---
+
+<!-- class: statement -->
+Анимация — для одной-двух вещей на странице
+
+И `prefers-reduced-motion` для тех, кто её выключил
+
+---
+
+<!-- class: cards -->
+## Частые ошибки
+
+- **flex не тому** родителю, а не детям
+- **justify и align** вдоль и поперёк оси
+- **margin вместо gap** лишние отступы у краёв
+- **Всё на absolute** наезжает на другом экране
+
+---
+
+<!-- class: cards -->
 ## Воркшоп: шапка, каталог и макет
 
-1. Шапка на Flexbox и значок `flex` в DevTools
-2. Редактор Flexbox: подобрать выравнивание мышью
-3. Каталог на Grid и линии сетки
-4. Колонок столько, сколько влезет
-5. Макет страницы из областей
-6. Flexbox внутри Grid-карточки
+- **Шапка** Flexbox и значок flex в DevTools
+- **Каталог** Grid, span и auto-fill
+- **Макет** grid-template-areas
+- **Поверх** значок, sticky и плавный hover
 
 ---
 

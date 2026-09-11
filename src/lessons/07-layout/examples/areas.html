@@ -1,0 +1,11 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Макет</title><link rel="stylesheet" href="demo.css">
+<style>
+  .page { display: grid; grid-template-columns: 180px 1fr; grid-template-areas: "header header" "aside main" "footer footer"; gap: 10px; width: 640px; height: 280px; }
+  .page > * { display: grid; place-items: center; border-radius: 8px; font: 600 15px ui-monospace, Menlo, monospace; }
+  .h { grid-area: header; background: #ddf4ff; border: 1.5px solid #0969da; }
+  .a { grid-area: aside; background: #fbefff; border: 1.5px solid #8250df; }
+  .m { grid-area: main; background: #dafbe1; border: 1.5px solid #1a7f37; }
+  .f { grid-area: footer; background: #fff8c5; border: 1.5px solid #9a6700; }
+</style></head><body>
+<div class="page"><div class="h">header</div><div class="a">aside</div><div class="m">main</div><div class="f">footer</div></div>
+</body></html>

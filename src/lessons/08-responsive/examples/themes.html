@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Темы</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 20px; font: 15px/1.45 -apple-system, "Segoe UI", sans-serif; background: #fff; }
+  .wrap { display: grid; grid-template-columns: repeat(2, 340px); gap: 24px; }
+  .label { margin: 0 0 6px; font: 600 13px/1.4 ui-monospace, Menlo, monospace; color: #59636e; }
+  .theme { --bg: #fffaf3; --surface: #fff; --text: #1f2328; --muted: #59636e; --accent: #bc4c00; --line: #ead7c2; }
+  .theme.dark { --bg: #1f2328; --surface: #2d333b; --text: #f6f8fa; --muted: #9198a1; --accent: #ffa657; --line: #444c56; }
+  .site { padding: 16px; background: var(--bg); color: var(--text); border-radius: 12px; border: 1px solid #d1d9e0; }
+  .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+  .logo { font-weight: 700; color: var(--accent); }
+  .btn { padding: 6px 12px; border-radius: 8px; background: var(--accent); color: var(--bg); font-weight: 600; font-size: 13px; }
+  .card { padding: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+  .card h3 { margin: 0 0 4px; font-size: 16px; }
+  .card p { margin: 0; color: var(--muted); font-size: 14px; }
+  .price { margin-top: 8px; font-weight: 700; color: var(--accent); }
+</style></head>
+<body>
+  <div class="wrap">
+    <div><p class="label">:root — светлая</p>
+      <div class="site theme"><div class="head"><span class="logo">Зерно</span><span class="btn">Заказать</span></div>
+      <div class="card"><h3>Капучино</h3><p>С мягкой пеной и корицей</p><div class="price">220 ₽</div></div></div></div>
+    <div><p class="label">[data-theme="dark"] — тёмная</p>
+      <div class="site theme dark"><div class="head"><span class="logo">Зерно</span><span class="btn">Заказать</span></div>
+      <div class="card"><h3>Капучино</h3><p>С мягкой пеной и корицей</p><div class="price">220 ₽</div></div></div></div>
+  </div>
+</body></html>

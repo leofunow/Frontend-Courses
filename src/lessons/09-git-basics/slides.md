@@ -120,6 +120,20 @@ node_modules/
 
 ---
 
+<!-- class: photo contain -->
+## Отменить изменения
+
+- **Испортили файл** — Discard Changes
+- **Лишнее в индексе** — минус у файла
+- **Плохой коммит** — Revert в Git Graph
+
+Revert не стирает историю, а добавляет отмену
+
+:::shot img/git-graph-revert.webp
+:::
+
+---
+
 <!-- class: part -->
 ## GitHub
 
