@@ -180,6 +180,57 @@
 </div><div class="col"><figure class="shot"><a href="../lessons/08-responsive/img/resp-fixed.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/08-responsive/img/resp-fixed.webp" alt="" loading="lazy"></a></figure></div></div></div><aside class="notes"><p><b>Частые ошибки</b> — 4 мин</p><p><strong>На слайде:</strong> четыре ошибки и промо-блок, вылезший за экран.</p>
 <p><strong>Рассказать:</strong> про палец — кнопки не меньше 44 на 44px. Про <code>:hover</code> — на телефоне его нет.</p>
 </aside></section>
+<section><div class="slide-body"><h2 id="воркшоп-адаптируем-свою-страницу">Воркшоп: адаптируем свою страницу</h2>
+<ol>
+<li>Смотрим страницу на телефоне в DevTools</li>
+<li>Находим, что вылезает за экран</li>
+<li>Сначала телефон: одна колонка</li>
+<li>Медиазапросы и полоски брейкпоинтов</li>
+<li>Резиновые картинки и заголовки</li>
+<li>Проверка на настоящем телефоне</li>
+</ol>
+</div><aside class="notes"><p><b>Воркшоп: адаптируем свою страницу</b> — 20 мин</p><p><strong>На слайде:</strong> шесть шагов: от проверки в режиме устройств до настоящего телефона.</p>
+<p><strong>Подготовить заранее:</strong> <code>catalog.html</code> с прошлого урока. Добавьте в него блок <code>div.promo</code> с <code>width: 600px</code> и картинку без <code>max-width</code> — будет что чинить. Телефон в той же Wi-Fi, что и Mac.</p>
+<p><strong>Показать вживую:</strong></p>
+<ol>
+<li><strong>Режим устройств.</strong> Откройте страницу через Go Live → <kbd>⌥</kbd>+<kbd>⌘</kbd>+<kbd>I</kbd> → <kbd>⇧</kbd>+<kbd>⌘</kbd>+<kbd>M</kbd>.
+<ul>
+<li>Сверху Dimensions → iPhone SE. Потом Responsive и тяните правый край страницы — ширина видна в поле.</li>
+<li>⋮ справа на панели устройства → Show media queries — появятся цветные полоски, пока пустые.</li>
+</ul>
+</li>
+<li><strong>Что вылезает.</strong> На ширине 375 внизу появилась горизонтальная прокрутка.
+<ul>
+<li>Кнопка со стрелкой (<kbd>⇧</kbd>+<kbd>⌘</kbd>+<kbd>C</kbd>) → наводите на блоки: у <code>.promo</code> ширина 600 — вот он.</li>
+<li>В Styles поменяйте <code>width</code> на <code>max-width</code> — прокрутка пропала. Перенесите в файл.</li>
+</ul>
+</li>
+<li><strong>Сначала телефон.</strong> У <code>.catalog</code> оставьте без медиазапроса <code>grid-template-columns: 1fr;</code> — одна колонка.</li>
+<li><strong>Медиазапросы.</strong> В конце файла:
+<ul>
+<li><code>@media (min-width: 640px) { .catalog { grid-template-columns: repeat(2, 1fr); } }</code></li>
+<li><code>@media (min-width: 1024px) { .catalog { grid-template-columns: repeat(3, 1fr); } }</code></li>
+<li><kbd>⌘</kbd>+<kbd>S</kbd> → в режиме устройств появились полоски 640 и 1024. Щёлкните по полоске — ширина встанет ровно на брейкпоинт.</li>
+<li>В Styles правила внутри медиазапроса подписаны <code>@media (min-width: 640px)</code> — видно, что сработало.</li>
+</ul>
+</li>
+<li><strong>Резиновые размеры.</strong>
+<ul>
+<li><code>img { max-width: 100%; height: auto; display: block; }</code> — картинка перестала вылезать.</li>
+<li><code>h1 { font-size: clamp(1.75rem, 5vw, 3rem); }</code> — тяните ширину: заголовок плавно меняется и упирается в границы.</li>
+<li>Удалите в <code>head</code> строку <code>meta name=&quot;viewport&quot;</code> → <kbd>⌘</kbd>+<kbd>R</kbd> в режиме iPhone: страница мелкая, медиазапросы не работают. Верните.</li>
+</ul>
+</li>
+<li><strong>Настоящий телефон</strong> — по желанию.
+<ul>
+<li>VS Code → <kbd>⌘</kbd>+<kbd>,</kbd> → в поиске <code>liveServer host</code> → поставьте <code>0.0.0.0</code>. Остановите и снова нажмите Go Live.</li>
+<li>macOS спросит «Разрешить входящие подключения?» → Разрешить.</li>
+<li>Узнайте адрес Mac: Системные настройки → Wi-Fi → Подробнее → IP-адрес, например <code>192.168.1.5</code>. На телефоне откройте <code>http://192.168.1.5:5500/catalog.html</code>.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Рассказать:</strong> режим устройств — быстрая проверка, но финальная — на настоящем телефоне: там другой шрифт, палец вместо мыши и нет <code>:hover</code>.</p>
+</aside></section>
 <section><div class="slide-body"><h2 id="домашнее-задание">Домашнее задание</h2>
 <ol>
 <li>Адаптивный каталог: 1, 2, 3 колонки</li>

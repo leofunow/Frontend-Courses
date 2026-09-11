@@ -100,6 +100,33 @@
 
 **Показать вживую:** значок flex или grid в DevTools → Elements: сетка подсвечивается на странице.
 
+## Воркшоп: шапка, каталог и макет (20 мин)
+
+**На слайде:** шесть шагов: шапка, каталог, макет, всё с подсветкой в DevTools.
+
+**Подготовить заранее:** `workshop-html` с прошлых уроков, Go Live, DevTools закреплён снизу (⋮ → Dock side → вторая иконка) — так раскладку лучше видно. Создайте `catalog.html` с каркасом и `css/catalog.css`.
+
+**Показать вживую:**
+1. **Шапка.** В `catalog.html`: `header.header>strong{Зерно}+nav.nav>a*3` → <kbd>Tab</kbd>.
+   - В CSS: `.header { display: flex; }` — логотип и меню встали в ряд.
+   - DevTools → Elements: рядом с `<header>` значок `flex`. Щёлкните — на странице пунктир вокруг элементов ряда.
+2. **Редактор Flexbox.** В панели Styles рядом с `display: flex` маленькая иконка с сеткой. Щёлкните.
+   - Появились кнопки `justify-content` и `align-items`. Перещёлкайте их — страница меняется сразу.
+   - Выберите `space-between` и `center`, перенесите в файл. У `.nav` добавьте `display: flex; gap: 16px;`.
+3. **Каталог.** Ниже: `main>section.catalog>article.card*6>h2{Кофе $}+p>lorem5` → <kbd>Tab</kbd> — шесть карточек с текстом-рыбой.
+   - `.catalog { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }`.
+   - Значок `grid` рядом с `<section>` в Elements → на странице линии сетки с номерами.
+   - Справа в DevTools вкладка Layout: галочки у сеток, Show line numbers — номера линий.
+4. **Сколько влезет.** Замените колонки на `repeat(auto-fill, minmax(200px, 1fr))`.
+   - Тяните границу между страницей и DevTools вверх-вниз или сужайте окно — колонок становится 4, 3, 2, 1.
+5. **Макет.** Оберните всё в `div.page`, добавьте `aside` с тремя ссылками.
+   - `.page { display: grid; grid-template-columns: 200px 1fr; grid-template-areas: "header header" "aside main"; gap: 16px; }` и `grid-area` каждой части.
+   - Layout → Grid overlays → Show area names: на странице подписаны области `header`, `aside`, `main`.
+   - Поменяйте в схеме `aside` и `main` местами — колонки поменялись, HTML тот же.
+6. **Flex в карточке.** Внутри карточки название и цена в одну строку: `.card-top { display: flex; justify-content: space-between; align-items: baseline; }`.
+
+**Рассказать:** правило из урока — одна линия Flexbox, сетка Grid. Значки `flex` и `grid` в Elements — первое, куда смотреть, когда раскладка ведёт себя странно.
+
 ## Домашнее задание (3 мин)
 
 **На слайде:** четыре задания.

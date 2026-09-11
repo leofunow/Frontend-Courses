@@ -183,7 +183,10 @@ await test('ZIP: CRC32 совпадает с эталонным значение
 await test('Сценарий: комментарии сохраняются, промпт указывает на исходники', async (browser) => {
   const page = await open(browser, SCRIPT);
   const card = '.script-card[data-slide="4"]'; // «Три части любого веб-приложения»
+  // поле комментария скрыто, пока его не открыли: проверяем то, что видно, а не только атрибут
+  expect(await page.$eval(`${card} .review-text`, (t) => getComputedStyle(t).display) === 'none', 'поле комментария видно до нажатия кнопки');
   await page.click(`${card} .review-toggle`);
+  expect(await page.$eval(`${card} .review-text`, (t) => getComputedStyle(t).display) !== 'none', 'поле комментария не открылось');
   await page.type(`${card} .review-text`, 'Добавить пример с банком');
   await page.type('#review-general', 'Темп хороший');
   await sleep(500);

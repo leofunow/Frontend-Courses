@@ -183,6 +183,61 @@
 <p><strong>Рассказать:</strong> эти четыре шага — обязательная самопроверка перед сдачей любой вёрстки, начиная с этого урока.</p>
 <p><strong>Спросить:</strong> «Кнопку сделали из div. Какой из четырёх шагов это найдёт?» Ответ: Tab и VoiceOver.</p>
 </aside></section>
+<section><div class="slide-body"><h2 id="воркшоп-форма-записи-в-кофейню">Воркшоп: форма записи в кофейню</h2>
+<ol>
+<li>Поля с подписями: <code>label</code> + <code>input</code></li>
+<li>Правильные типы: email, tel, date, number</li>
+<li>Обязательные поля и проверка браузером</li>
+<li>Выбор, комментарий, согласие</li>
+<li>Отправка: куда уходят данные</li>
+<li>Проверка клавиатурой, в DevTools и VoiceOver</li>
+</ol>
+</div><aside class="notes"><p><b>Воркшоп: форма записи в кофейню</b> — 20 мин</p><p><strong>На слайде:</strong> шесть шагов формы: от поля с подписью до проверки доступности.</p>
+<p><strong>Подготовить заранее:</strong> папка <code>workshop-html</code> с прошлого урока открыта в VS Code, Go Live включён. Создайте файл <code>booking.html</code> с каркасом (<kbd>!</kbd> → <kbd>Tab</kbd>, <code>lang=&quot;ru&quot;</code>).</p>
+<p><strong>Показать вживую:</strong></p>
+<ol>
+<li><strong>Поле и подпись.</strong> В <code>body</code> наберите <code>form&gt;label[for=name]{Имя}+input#name[name=name]</code> → <kbd>Tab</kbd>.
+<ul>
+<li>В браузере щёлкните по слову «Имя» — курсор встал в поле. Это и есть связь <code>for</code> и <code>id</code>.</li>
+<li>Сотрите <code>for</code> → щелчок по подписи ничего не делает. Верните.</li>
+</ul>
+</li>
+<li><strong>Типы полей.</strong> Скопируйте пару строк (<kbd>⇧</kbd>+<kbd>⌥</kbd>+<kbd>↓</kbd>) и поменяйте:
+<ul>
+<li><code>type=&quot;email&quot;</code> для почты, <code>type=&quot;tel&quot;</code> для телефона, <code>type=&quot;date&quot;</code> для даты — в Chrome появился календарь.</li>
+<li><code>type=&quot;number&quot; min=&quot;1&quot; max=&quot;10&quot;</code> для гостей — стрелки и ограничение.</li>
+</ul>
+</li>
+<li><strong>Обязательные поля.</strong> Добавьте <code>required</code> к имени, телефону и дате. Добавьте кнопку <code>button[type=submit]{Записаться}</code> → <kbd>Tab</kbd>.
+<ul>
+<li>Нажмите «Записаться» с пустой формой — Chrome показал подсказку «Заполните это поле».</li>
+<li>В email напишите <code>mary</code> → «Записаться»: браузер просит <code>@</code>. Всё это без единой строки JavaScript.</li>
+</ul>
+</li>
+<li><strong>Выбор и комментарий.</strong>
+<ul>
+<li><code>label[for=hall]{Зал}+select#hall[name=hall]&gt;option*3</code> → <kbd>Tab</kbd>: «Основной», «Веранда», «У окна».</li>
+<li><code>label[for=comment]{Комментарий}+textarea#comment[name=comment]</code> → <kbd>Tab</kbd>.</li>
+<li>Галочка: <code>label&gt;input[type=checkbox name=agree required]+{Согласен с правилами}</code> → <kbd>Tab</kbd>.</li>
+<li>Оберните поля гостей и зала в <code>fieldset</code> с <code>legend{Детали брони}</code> — рамка с подписью.</li>
+</ul>
+</li>
+<li><strong>Отправка.</strong> Заполните форму и нажмите «Записаться».
+<ul>
+<li>Посмотрите в адресную строку: <code>booking.html?name=Мария&amp;hall=…</code>. Это параметры адреса из урока 1 — так форма передаёт данные методом GET.</li>
+<li>Скажите: настоящую отправку на сервер сделаем в модуле про JavaScript и Express.</li>
+</ul>
+</li>
+<li><strong>Проверка доступности.</strong>
+<ul>
+<li>Щёлкните в адресную строку и нажимайте <kbd>Tab</kbd>: фокус идёт по полям по порядку, видна рамка. <kbd>Пробел</kbd> ставит галочку, <kbd>Enter</kbd> отправляет.</li>
+<li>Правый щелчок по полю → «Просмотреть код». В правой части DevTools нажмите » → Accessibility: в строке Name — текст подписи. Уберите <code>for</code> у подписи — Name стал пустым.</li>
+<li><kbd>⌘</kbd>+<kbd>F5</kbd> — включился VoiceOver. <kbd>Tab</kbd> по полям: он читает подписи. Ещё раз <kbd>⌘</kbd>+<kbd>F5</kbd> — выключить.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Рассказать:</strong> форма без подписей для VoiceOver — это поля «редактируемый текст» без названия. Подпись нужна не для красоты.</p>
+</aside></section>
 <section><div class="slide-body"><h2 id="домашнее-задание">Домашнее задание</h2>
 <ol>
 <li>Форма записи в кофейню</li>

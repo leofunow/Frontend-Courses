@@ -331,7 +331,7 @@
 </tr>
 </tbody>
 </table>
-</div><aside class="notes"><p><b>Кто есть кто в команде</b> — 3 мин</p><p><strong>На слайде:</strong> таблица «роль → результат работы».</p>
+</div><aside class="notes"><p><b>Кто есть кто в команде</b> — 2 мин</p><p><strong>На слайде:</strong> таблица «роль → результат работы».</p>
 <p><strong>Рассказать:</strong> путь фичи: менеджер → аналитик → дизайнер → фронт и бэк → QA → DevOps.</p>
 <p><strong>Спросить:</strong> «Кто первым узнает, что кнопка «Купить» не работает на iPhone?» В хорошей команде — QA, в плохой — пользователь.</p>
 </aside></section>
@@ -373,7 +373,7 @@
 <p><strong>Рассказать:</strong> DevTools — как заглянуть в коробку: видно, из чего сделан любой сайт.</p>
 </aside></section>
 <section><div class="slide-body"><h2 id="elements-и-network">Elements и Network</h2>
-<div class="cols"><div class="col"><figure class="shot"><a href="../lessons/01-intro/img/intro-elements.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/intro-elements.webp" alt="Elements: код и стили" loading="lazy"></a><figcaption>Elements: код и стили</figcaption></figure></div><div class="col"><figure class="shot"><a href="../lessons/01-intro/img/intro-network.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/intro-network.webp" alt="Network: запросы" loading="lazy"></a><figcaption>Network: запросы</figcaption></figure></div></div></div><aside class="notes"><p><b>Elements и Network</b> — 6 мин</p><p><strong>На слайде:</strong> скриншоты двух вкладок.</p>
+<div class="cols"><div class="col"><figure class="shot"><a href="../lessons/01-intro/img/intro-elements.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/intro-elements.webp" alt="Elements: код и стили" loading="lazy"></a><figcaption>Elements: код и стили</figcaption></figure></div><div class="col"><figure class="shot"><a href="../lessons/01-intro/img/intro-network.webp" target="_blank" title="Открыть в полном размере"><img src="../lessons/01-intro/img/intro-network.webp" alt="Network: запросы" loading="lazy"></a><figcaption>Network: запросы</figcaption></figure></div></div></div><aside class="notes"><p><b>Elements и Network</b> — 3 мин</p><p><strong>На слайде:</strong> скриншоты двух вкладок.</p>
 <p><strong>Показать вживую:</strong></p>
 <ol>
 <li>Новостной сайт → Elements → изменить заголовок → ⌘R: всё вернулось. Почему?</li>
@@ -463,6 +463,60 @@
 </ul>
 </div><aside class="notes"><p><b>AI — репетитор, а не решатель</b> — 2 мин</p><p><strong>На слайде:</strong> три карточки: можно, нельзя, правило.</p>
 <p><strong>Рассказать:</strong> сгенерированное решение — зачёт без навыка, на собеседовании вскроется. Каждую строку сданного кода ученик объясняет ментору.</p>
+</aside></section>
+<section class="cards "><div class="slide-body"><h2 id="воркшоп-разбираем-один-сайт">Воркшоп: разбираем один сайт</h2>
+<ul>
+<li><strong>Адрес</strong> части URL прямо в адресной строке</li>
+<li><strong>Network</strong> запросы, статусы и JSON</li>
+<li><strong>Elements</strong> правим страницу у себя</li>
+<li><strong>Схема</strong> рисуем архитектуру в Excalidraw</li>
+</ul>
+</div><aside class="notes"><p><b>Воркшоп: разбираем один сайт</b> — 12 мин</p><p><strong>На слайде:</strong> четыре шага воркшопа: адрес, Network, Elements, схема.</p>
+<p><strong>Подготовить заранее:</strong> Chrome с двумя вкладками: hh.ru и excalidraw.com. DevTools закреплён справа: ⋮ в правом верхнем углу DevTools → Dock side → третья иконка. Вторая вкладка с текстом урока, задание 1.</p>
+<p><strong>Показать вживую:</strong></p>
+<ol>
+<li><strong>Адрес.</strong> На hh.ru введите в поиск «frontend» → Enter.
+<ul>
+<li>Щёлкните по адресной строке — появится <code>https://</code>.</li>
+<li>Назовите части вслух: протокол, домен <code>hh.ru</code>, путь <code>/search/vacancy</code>, параметры после <code>?</code> — найдите среди них <code>text=frontend</code>.</li>
+<li>Допишите в конец адреса <code>&amp;page=1</code> → Enter: открылась вторая страница выдачи. Страница та же, поменялся параметр.</li>
+</ul>
+</li>
+<li><strong>Network.</strong> <kbd>⌥</kbd>+<kbd>⌘</kbd>+<kbd>I</kbd> → вкладка Network. Если таблица пустая — <kbd>⌘</kbd>+<kbd>R</kbd>.
+<ul>
+<li>Внизу панели прочитайте «N requests» — столько файлов понадобилось странице.</li>
+<li>Щёлкните по первой строке, это документ. Справа вкладка Headers: Request URL, Request Method <code>GET</code>, Status Code <code>200</code>.</li>
+<li>Вкладка Response рядом — тот самый HTML, который прислал сервер.</li>
+</ul>
+</li>
+<li><strong>Запросы к API.</strong> В строке фильтров нажмите Fetch/XHR, затем кнопку 🚫 слева вверху — таблица очистится.
+<ul>
+<li>На сайте переключите страницу выдачи или поставьте фильтр «Удалённая работа» — появятся новые строки.</li>
+<li>Щёлкните по строке с данными → вкладка Preview. Раскрывайте треугольники, пока не найдёте название вакансии.</li>
+<li>Найдите ту же вакансию на странице. Скажите: «Бэкенд прислал данные, карточку нарисовал фронтенд».</li>
+</ul>
+</li>
+<li><strong>Elements.</strong> Нажмите кнопку со стрелкой в левом верхнем углу DevTools (<kbd>⇧</kbd>+<kbd>⌘</kbd>+<kbd>C</kbd>) → наведите на заголовок вакансии → щёлкните.
+<ul>
+<li>В Elements подсветилась строка с этим текстом. Двойной щелчок по тексту → напишите «Я учу фронтенд» → Enter.</li>
+<li><kbd>⌘</kbd>+<kbd>R</kbd> — всё вернулось. Спросите ученика, почему.</li>
+</ul>
+</li>
+<li><strong>Схема.</strong> Вкладка excalidraw.com.
+<ul>
+<li>Клавиша <kbd>R</kbd> → прямоугольник «Браузер». Так же — «Сервер hh.ru» и «База вакансий».</li>
+<li>Клавиша <kbd>A</kbd> → стрелки между ними. Двойной щелчок по стрелке → подпись «GET /search/vacancy».</li>
+<li>Меню ☰ → Export image → PNG — так ученик сдаст задание 5.</li>
+</ul>
+</li>
+<li><strong>Ответ в уроке.</strong> Вкладка с уроком, задание 1.
+<ul>
+<li><kbd>⌃</kbd>+<kbd>⇧</kbd>+<kbd>⌘</kbd>+<kbd>4</kbd> → выделите область скриншота → щёлкните в поле скриншота → <kbd>⌘</kbd>+<kbd>V</kbd>.</li>
+<li><kbd>⌘</kbd>+<kbd>R</kbd> — скриншот на месте. Покажите внизу урока кнопку «Сформировать отчёт».</li>
+</ul>
+</li>
+</ol>
+<p><strong>Рассказать:</strong> ученик повторит те же шаги в заданиях на другом сайте. Главное — не запоминать кнопки, а понимать, где искать: адрес, запросы, код страницы.</p>
 </aside></section>
 <section class="photo "><div class="slide-body"><h2 id="домашнее-задание">Домашнее задание</h2>
 <ol>

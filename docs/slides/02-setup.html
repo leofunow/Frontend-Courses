@@ -293,6 +293,63 @@
 <li><code>sudo</code> не используем: если просят — сначала вопрос ментору.</li>
 </ul>
 </aside></section>
+<section><div class="slide-body"><h2 id="воркшоп-проект-из-терминала">Воркшоп: проект из Терминала</h2>
+<p>Собираем папку сайта, не трогая мышь</p>
+<ol>
+<li>Открыть Терминал и найти себя: <code>pwd</code></li>
+<li>Создать папки и файлы: <code>mkdir</code>, <code>touch</code></li>
+<li>Открыть папку в VS Code: <code>code .</code></li>
+<li>Открыть страницу в браузере: <code>open</code></li>
+<li>Копировать, переименовать, удалить: <code>cp</code>, <code>mv</code>, <code>rm</code></li>
+<li>Ошибиться нарочно и прочитать ошибку</li>
+</ol>
+</div><aside class="notes"><p><b>Воркшоп: проект из Терминала</b> — 14 мин</p><p><strong>На слайде:</strong> шесть шагов: от открытия Терминала до удаления файла.</p>
+<p><strong>Подготовить заранее:</strong> закройте все окна Терминала. Откройте Finder с папкой <code>~/dev</code> — будем сравнивать Finder и Терминал. Увеличьте шрифт Терминала для экрана: <kbd>⌘</kbd>+<kbd>+</kbd> два-три раза.</p>
+<p><strong>Показать вживую:</strong></p>
+<ol>
+<li><strong>Открыть Терминал.</strong> <kbd>⌘</kbd>+<kbd>Пробел</kbd> → наберите «Терминал» → Enter.
+<ul>
+<li>Покажите приглашение <code>mary@MacBook-Air ~ %</code>: имя, компьютер, текущая папка <code>~</code>.</li>
+<li>Наберите <code>pwd</code> → Enter: <code>/Users/mary</code>. Это та же домашняя папка, что в Finder слева под домиком.</li>
+</ul>
+</li>
+<li><strong>Перейти и создать.</strong> Наберите <code>cd de</code> и нажмите <kbd>Tab</kbd> — Терминал дописал <code>dev/</code>. Enter.
+<ul>
+<li><code>mkdir -p workshop/css</code> → Enter. Посмотрите в Finder — появилась папка <code>workshop</code>, внутри <code>css</code>.</li>
+<li><code>cd workshop</code> → <code>touch index.html css/style.css</code> → <code>ls -R</code>: видно оба файла.</li>
+<li><code>open .</code> — откроется Finder прямо в этой папке. Вернитесь в Терминал: <kbd>⌘</kbd>+<kbd>Tab</kbd>.</li>
+</ul>
+</li>
+<li><strong>В редактор.</strong> <code>code .</code> → Enter. Откроется VS Code с папкой <code>workshop</code>.
+<ul>
+<li>Если «command not found: code» — в VS Code <kbd>⇧</kbd>+<kbd>⌘</kbd>+<kbd>P</kbd> → <code>Shell Command: Install 'code' command in PATH</code>, потом новое окно Терминала.</li>
+<li>В <code>index.html</code> напишите <code>&lt;h1&gt;Мастерская&lt;/h1&gt;</code> → <kbd>⌘</kbd>+<kbd>S</kbd>.</li>
+</ul>
+</li>
+<li><strong>В браузер.</strong> В Терминале: <code>open -a &quot;Google Chrome&quot; index.html</code>.
+<ul>
+<li>В адресной строке виден <code>file:///Users/mary/dev/workshop/index.html</code> — абсолютный путь к файлу.</li>
+<li>Просто <code>open index.html</code> откроет браузер по умолчанию — на Mac это часто Safari.</li>
+</ul>
+</li>
+<li><strong>Файлы без Finder.</strong>
+<ul>
+<li><code>cp index.html about.html</code> → <code>ls</code>: файлов два.</li>
+<li><code>mv about.html contacts.html</code> → <code>ls</code>: переименовался.</li>
+<li><code>rm contacts.html</code> → <code>ls</code>: пропал. Подчеркните: <code>rm</code> удаляет насовсем, мимо Корзины.</li>
+</ul>
+</li>
+<li><strong>Ошибиться нарочно.</strong>
+<ul>
+<li><code>nmp -v</code> → <code>command not found: nmp</code>. Нажмите <kbd>↑</kbd> — вернулась прошлая команда, исправьте на <code>npm -v</code>.</li>
+<li><code>cd nowhere</code> → <code>no such file or directory</code>. Читаем ошибку по словам: чего нет и где.</li>
+<li><code>ping ya.ru</code> работает бесконечно → <kbd>⌃</kbd>+<kbd>C</kbd> останавливает. <kbd>⌘</kbd>+<kbd>K</kbd> очищает экран.</li>
+</ul>
+</li>
+<li><strong>Проверка установки.</strong> <code>node -v &amp;&amp; npm -v &amp;&amp; git --version &amp;&amp; code --version</code> — четыре версии, как в первом задании.</li>
+</ol>
+<p><strong>Рассказать:</strong> Терминал — это тот же Finder, только словами. Каждую команду можно проверить глазами в Finder, пока не привыкнете.</p>
+</aside></section>
 <section><div class="slide-body"><h2 id="домашнее-задание">Домашнее задание</h2>
 <ol>
 <li>Установить всё и прислать скриншот версий</li>

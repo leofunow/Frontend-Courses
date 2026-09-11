@@ -188,6 +188,54 @@
 </div><aside class="notes"><p><b>Частые ошибки</b> — 2 мин</p><p><strong>На слайде:</strong> три ошибки.</p>
 <p><strong>Показать вживую:</strong> значок flex или grid в DevTools → Elements: сетка подсвечивается на странице.</p>
 </aside></section>
+<section><div class="slide-body"><h2 id="воркшоп-шапка-каталог-и-макет">Воркшоп: шапка, каталог и макет</h2>
+<ol>
+<li>Шапка на Flexbox и значок <code>flex</code> в DevTools</li>
+<li>Редактор Flexbox: подобрать выравнивание мышью</li>
+<li>Каталог на Grid и линии сетки</li>
+<li>Колонок столько, сколько влезет</li>
+<li>Макет страницы из областей</li>
+<li>Flexbox внутри Grid-карточки</li>
+</ol>
+</div><aside class="notes"><p><b>Воркшоп: шапка, каталог и макет</b> — 20 мин</p><p><strong>На слайде:</strong> шесть шагов: шапка, каталог, макет, всё с подсветкой в DevTools.</p>
+<p><strong>Подготовить заранее:</strong> <code>workshop-html</code> с прошлых уроков, Go Live, DevTools закреплён снизу (⋮ → Dock side → вторая иконка) — так раскладку лучше видно. Создайте <code>catalog.html</code> с каркасом и <code>css/catalog.css</code>.</p>
+<p><strong>Показать вживую:</strong></p>
+<ol>
+<li><strong>Шапка.</strong> В <code>catalog.html</code>: <code>header.header&gt;strong{Зерно}+nav.nav&gt;a*3</code> → <kbd>Tab</kbd>.
+<ul>
+<li>В CSS: <code>.header { display: flex; }</code> — логотип и меню встали в ряд.</li>
+<li>DevTools → Elements: рядом с <code>&lt;header&gt;</code> значок <code>flex</code>. Щёлкните — на странице пунктир вокруг элементов ряда.</li>
+</ul>
+</li>
+<li><strong>Редактор Flexbox.</strong> В панели Styles рядом с <code>display: flex</code> маленькая иконка с сеткой. Щёлкните.
+<ul>
+<li>Появились кнопки <code>justify-content</code> и <code>align-items</code>. Перещёлкайте их — страница меняется сразу.</li>
+<li>Выберите <code>space-between</code> и <code>center</code>, перенесите в файл. У <code>.nav</code> добавьте <code>display: flex; gap: 16px;</code>.</li>
+</ul>
+</li>
+<li><strong>Каталог.</strong> Ниже: <code>main&gt;section.catalog&gt;article.card*6&gt;h2{Кофе $}+p&gt;lorem5</code> → <kbd>Tab</kbd> — шесть карточек с текстом-рыбой.
+<ul>
+<li><code>.catalog { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }</code>.</li>
+<li>Значок <code>grid</code> рядом с <code>&lt;section&gt;</code> в Elements → на странице линии сетки с номерами.</li>
+<li>Справа в DevTools вкладка Layout: галочки у сеток, Show line numbers — номера линий.</li>
+</ul>
+</li>
+<li><strong>Сколько влезет.</strong> Замените колонки на <code>repeat(auto-fill, minmax(200px, 1fr))</code>.
+<ul>
+<li>Тяните границу между страницей и DevTools вверх-вниз или сужайте окно — колонок становится 4, 3, 2, 1.</li>
+</ul>
+</li>
+<li><strong>Макет.</strong> Оберните всё в <code>div.page</code>, добавьте <code>aside</code> с тремя ссылками.
+<ul>
+<li><code>.page { display: grid; grid-template-columns: 200px 1fr; grid-template-areas: &quot;header header&quot; &quot;aside main&quot;; gap: 16px; }</code> и <code>grid-area</code> каждой части.</li>
+<li>Layout → Grid overlays → Show area names: на странице подписаны области <code>header</code>, <code>aside</code>, <code>main</code>.</li>
+<li>Поменяйте в схеме <code>aside</code> и <code>main</code> местами — колонки поменялись, HTML тот же.</li>
+</ul>
+</li>
+<li><strong>Flex в карточке.</strong> Внутри карточки название и цена в одну строку: <code>.card-top { display: flex; justify-content: space-between; align-items: baseline; }</code>.</li>
+</ol>
+<p><strong>Рассказать:</strong> правило из урока — одна линия Flexbox, сетка Grid. Значки <code>flex</code> и <code>grid</code> в Elements — первое, куда смотреть, когда раскладка ведёт себя странно.</p>
+</aside></section>
 <section><div class="slide-body"><h2 id="домашнее-задание">Домашнее задание</h2>
 <ol>
 <li>Шапка сайта</li>

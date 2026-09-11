@@ -191,6 +191,68 @@
 </div><aside class="notes"><p><b>Частые ошибки</b> — 2 мин</p><p><strong>На слайде:</strong> три типичные проблемы.</p>
 <p><strong>Рассказать:</strong> если Biome молчит — проверяем расширение, <code>npm install</code> и какая папка открыта.</p>
 </aside></section>
+<section><div class="slide-body"><h2 id="воркшоп-мини-проект-в-vs-code">Воркшоп: мини-проект в VS Code</h2>
+<p>Страница с нуля — только клавиатурой и Emmet</p>
+<ol>
+<li>Открыть папку проекта</li>
+<li>Файлы в проводнике</li>
+<li>Каркас и разметка через Emmet</li>
+<li>Мультикурсор и перемещение строк</li>
+<li>Ошибки Biome и быстрое исправление</li>
+<li>Live Server и встроенный терминал</li>
+</ol>
+</div><aside class="notes"><p><b>Воркшоп: мини-проект в VS Code</b> — 18 мин</p><p><strong>На слайде:</strong> шесть шагов мини-проекта.</p>
+<p><strong>Подготовить заранее:</strong> закройте все окна VS Code. Увеличьте масштаб для экрана: <kbd>⌘</kbd>+<kbd>=</kbd> два раза. Держите открытой папку <code>~/dev/homework</code> — понадобится на шаге 6.</p>
+<p><strong>Показать вживую:</strong></p>
+<ol>
+<li><strong>Открыть папку.</strong> Меню File → Open Folder (<kbd>⌘</kbd>+<kbd>O</kbd>) → <code>dev</code> → кнопка New Folder внизу окна → <code>workshop-vscode</code> → Open.
+<ul>
+<li>На вопрос «Do you trust the authors» → Yes, I trust the authors.</li>
+<li>Покажите четыре зоны: панель действий слева, проводник, редактор, строка состояния.</li>
+</ul>
+</li>
+<li><strong>Файлы.</strong> Наведите мышь на название папки в проводнике — справа появятся иконки.
+<ul>
+<li>Иконка New File → <code>index.html</code> → Enter.</li>
+<li>Иконка New Folder → <code>css</code>. Правый щелчок по <code>css</code> → New File → <code>style.css</code>.</li>
+</ul>
+</li>
+<li><strong>Emmet.</strong> В <code>index.html</code> наберите <code>!</code> → <kbd>Tab</kbd> — готов каркас. Поменяйте <code>lang=&quot;en&quot;</code> на <code>lang=&quot;ru&quot;</code>: двойной щелчок по <code>en</code>, напечатать <code>ru</code>.
+<ul>
+<li>Внутри <code>body</code>: <code>header&gt;nav&gt;a*3</code> → <kbd>Tab</kbd>.</li>
+<li>Ниже: <code>main&gt;h1{Кофейня}+ul&gt;li.dish*4</code> → <kbd>Tab</kbd>.</li>
+</ul>
+</li>
+<li><strong>Горячие клавиши.</strong>
+<ul>
+<li>Выделите мышью <code>href=&quot;&quot;</code> у первой ссылки → <kbd>⌘</kbd>+<kbd>D</kbd> ещё дважды — выделены все три. Напечатайте <code>href=&quot;#&quot;</code> — поменялись все ссылки сразу. <kbd>Esc</kbd> — снова один курсор.</li>
+<li>Курсор на строке <code>&lt;h1&gt;</code> → <kbd>⌥</kbd>+<kbd>↑</kbd> — строка поднялась. <kbd>⇧</kbd>+<kbd>⌥</kbd>+<kbd>↓</kbd> — копия строки ниже.</li>
+<li><kbd>⌘</kbd>+<kbd>/</kbd> — закомментировать строку, ещё раз — вернуть.</li>
+<li><kbd>⌘</kbd>+<kbd>P</kbd> → наберите <code>sty</code> → Enter: открылся <code>style.css</code> без мыши.</li>
+</ul>
+</li>
+<li><strong>Biome.</strong> Вернитесь в <code>index.html</code> и добавьте <code>&lt;img src=&quot;logo.png&quot;&gt;</code>.
+<ul>
+<li>Появится волнистая линия. Наведите — сообщение про <code>alt</code>.</li>
+<li><kbd>⇧</kbd>+<kbd>⌘</kbd>+<kbd>M</kbd> — панель Problems со всеми ошибками. Щелчок по строке переносит к ошибке.</li>
+<li>Допишите <code>alt=&quot;Логотип&quot;</code> — ошибка пропала.</li>
+<li>Сломайте отступы и нажмите <kbd>⌘</kbd>+<kbd>S</kbd> — Biome выровнял код при сохранении.</li>
+</ul>
+</li>
+<li><strong>Live Server.</strong> Справа внизу в строке состояния — Go Live. Щелчок → Chrome откроет <code>http://127.0.0.1:5500</code>.
+<ul>
+<li>Поставьте окна рядом, поменяйте текст <code>h1</code> → <kbd>⌘</kbd>+<kbd>S</kbd> — страница обновилась сама.</li>
+</ul>
+</li>
+<li><strong>Терминал внутри.</strong> <kbd>⌃</kbd>+<kbd><code>&lt;/kbd&gt; — снизу открылся терминал уже в папке проекта. </code>ls` — видны наши файлы.
+<ul>
+<li>File → Open Recent → <code>homework</code>. В терминале <code>npx biome check 03-vscode</code> — так ученик проверяет домашку.</li>
+</ul>
+</li>
+<li><strong>Настройки.</strong> <kbd>⌘</kbd>+<kbd>,</kbd> → в поиске <code>font size</code> → поменяйте на 16. Иконка с листком справа вверху — те же настройки в <code>settings.json</code>.</li>
+</ol>
+<p><strong>Рассказать:</strong> за 15 минут — страница без единого щелчка по меню. Ученику не нужно запоминать всё сразу: достаточно Emmet, <kbd>⌘</kbd>+<kbd>P</kbd>, <kbd>⌘</kbd>+<kbd>D</kbd> и Go Live.</p>
+</aside></section>
 <section><div class="slide-body"><h2 id="домашнее-задание">Домашнее задание</h2>
 <ol>
 <li>Настроить VS Code и папку homework</li>

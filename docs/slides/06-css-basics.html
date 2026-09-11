@@ -207,6 +207,61 @@
 </div><aside class="notes"><p><b>Частые ошибки</b> — 2 мин</p><p><strong>На слайде:</strong> четыре ошибки.</p>
 <p><strong>Рассказать:</strong> если стиль «не работает» — открываем DevTools, а не пишем <code>!important</code>.</p>
 </aside></section>
+<section><div class="slide-body"><h2 id="воркшоп-оформляем-страницу-кофейни">Воркшоп: оформляем страницу кофейни</h2>
+<ol>
+<li>Подключить <code>style.css</code> и проверить, что работает</li>
+<li>Текст: шрифт, межстрочный интервал, ширина</li>
+<li>Карточка с классом, отступами и рамкой</li>
+<li>Правим вживую в DevTools → Styles</li>
+<li>Кто победил в каскаде и почему</li>
+<li>Переносим найденное обратно в файл</li>
+</ol>
+</div><aside class="notes"><p><b>Воркшоп: оформляем страницу кофейни</b> — 20 мин</p><p><strong>На слайде:</strong> шесть шагов: от подключения стилей до переноса правок из DevTools в файл.</p>
+<p><strong>Подготовить заранее:</strong> папка <code>workshop-html</code> открыта в VS Code, Go Live включён, <code>index.html</code> в браузере. Окна VS Code и Chrome стоят рядом.</p>
+<p><strong>Показать вживую:</strong></p>
+<ol>
+<li><strong>Подключить.</strong> В проводнике New Folder → <code>css</code> → New File → <code>style.css</code>.
+<ul>
+<li>В <code>head</code> страницы наберите <code>link:css</code> → <kbd>Tab</kbd>, поправьте путь на <code>css/style.css</code>.</li>
+<li>В <code>style.css</code>: <code>body { background: pink; }</code> → <kbd>⌘</kbd>+<kbd>S</kbd>. Розовый фон — файл подключён. Удалите эту строку.</li>
+</ul>
+</li>
+<li><strong>Текст.</strong>
+<ul>
+<li><code>body { font-family: -apple-system, &quot;Segoe UI&quot;, sans-serif; line-height: 1.5; color: #1f2328; }</code>.</li>
+<li><code>main { max-width: 720px; margin: 0 auto; padding: 0 16px; }</code> — текст по центру и не шире 60–70 символов.</li>
+<li>Сузьте окно браузера — поля <code>padding</code> не дают тексту прилипнуть к краю.</li>
+</ul>
+</li>
+<li><strong>Карточка.</strong> В HTML оберните список напитков в <code>section.card</code> (выделить строки → <kbd>⇧</kbd>+<kbd>⌘</kbd>+<kbd>P</kbd> → Emmet: Wrap with Abbreviation → <code>section.card</code>).
+<ul>
+<li>В CSS: <code>.card { padding: 24px; border: 1px solid #d1d9e0; border-radius: 12px; }</code>.</li>
+<li><code>.card h2 { margin-top: 0; }</code> — селектор потомка.</li>
+</ul>
+</li>
+<li><strong>DevTools → Styles.</strong> Правый щелчок по карточке → «Просмотреть код».
+<ul>
+<li>Справа панель Styles: все правила этой карточки. Щёлкните по <code>24px</code> → стрелки <kbd>↑</kbd> <kbd>↓</kbd> меняют на 1, с <kbd>⇧</kbd> — на 10.</li>
+<li>Щёлкните по цветному квадратику у <code>#d1d9e0</code> — палитра. Пипеткой возьмите цвет с кнопки или логотипа.</li>
+<li>Снимите галочку у свойства — оно выключилось. Поставьте обратно.</li>
+<li>Щёлкните по пустому месту внутри правила <code>.card</code> — добавьте <code>background: #fffaf3</code>.</li>
+</ul>
+</li>
+<li><strong>Каскад.</strong> В CSS добавьте <code>section { border-color: red; }</code> — рамка не покраснела.
+<ul>
+<li>В Styles правило <code>section</code> зачёркнуто: у <code>.card</code> вес больше. Поменяйте на <code>section.card</code> ниже по файлу — теперь красная.</li>
+<li>Вкладка Computed: схема блочной модели. Наведите на слои — они подсвечиваются на странице.</li>
+<li>Добавьте <code>.card { width: 300px; }</code> — в Computed ширина 350 с отступами и рамкой. Добавьте в начало файла <code>*, *::before, *::after { box-sizing: border-box; }</code> — стало 300.</li>
+</ul>
+</li>
+<li><strong>Обратно в файл.</strong> Правки в DevTools живут до обновления: <kbd>⌘</kbd>+<kbd>R</kbd> — фон карточки пропал.
+<ul>
+<li>Повторите правку, правый щелчок по свойству → Copy declaration → вставьте в <code>style.css</code> → <kbd>⌘</kbd>+<kbd>S</kbd>.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Рассказать:</strong> рабочий цикл фронтендера — подобрать значение в DevTools, перенести в файл. «Стиль не работает» — сначала смотрим в Styles, зачёркнут ли он и кем.</p>
+</aside></section>
 <section><div class="slide-body"><h2 id="домашнее-задание">Домашнее задание</h2>
 <ol>
 <li>Стили для рецепта</li>

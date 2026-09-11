@@ -475,5 +475,9 @@ figure.code figcaption { display: flex; align-items: center; justify-content: sp
 /* ===== Комментарии к слайдам в сценарии ===== */
 .review { padding: 0 16px 16px; }
 .review-text { margin-top: 8px; }
+.review-text[hidden] { display: none; }
 .script-card.has-review .review-toggle { color: var(--fgColor-accent); border-color: var(--borderColor-accent-emphasis); }
 .review-box { margin-top: 24px; }
+/* длинные адреса и команды в сценарии переносятся, а не распирают колонку */
+.script-view > * { min-width: 0; }
+.script-card .markdown-body code { overflow-wrap: anywhere; }

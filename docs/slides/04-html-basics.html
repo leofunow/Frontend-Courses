@@ -202,6 +202,59 @@
 </div><aside class="notes"><p><b>Как проверить разметку</b> — 3 мин</p><p><strong>На слайде:</strong> Biome, Elements, плашка.</p>
 <p><strong>Рассказать:</strong> плашка проверок — только часть оценки. Остальное смотрит ментор: смысл тегов и аккуратность.</p>
 </aside></section>
+<section><div class="slide-body"><h2 id="воркшоп-сайт-кофейни-из-двух-страниц">Воркшоп: сайт кофейни из двух страниц</h2>
+<ol>
+<li>Каркас, язык и заголовок вкладки</li>
+<li>Шапка, меню и основное содержимое — семантическими тегами</li>
+<li>Картинка из папки <code>img</code> с <code>alt</code></li>
+<li>Вторая страница и ссылки между ними</li>
+<li>Ломаем ссылку и находим ошибку</li>
+<li>Проверка: Biome и дерево в DevTools</li>
+</ol>
+</div><aside class="notes"><p><b>Воркшоп: сайт кофейни из двух страниц</b> — 20 мин</p><p><strong>На слайде:</strong> шесть шагов: от каркаса до проверки.</p>
+<p><strong>Подготовить заранее:</strong> любая фотография кофе в папке «Загрузки», например <code>coffee.jpg</code>. Закройте VS Code. Chrome с пустой вкладкой.</p>
+<p><strong>Показать вживую:</strong></p>
+<ol>
+<li><strong>Папка и каркас.</strong> VS Code → File → Open Folder → <code>dev</code> → New Folder → <code>workshop-html</code> → Open.
+<ul>
+<li>В проводнике New File → <code>index.html</code>. <kbd>!</kbd> → <kbd>Tab</kbd>.</li>
+<li><code>lang=&quot;ru&quot;</code>, в <code>&lt;title&gt;</code> — «Кофейня „Зерно“». Проговорите: title — текст на вкладке, не на странице.</li>
+</ul>
+</li>
+<li><strong>Семантика.</strong> Внутри <code>body</code> наберите <code>header&gt;nav&gt;a*3</code> → <kbd>Tab</kbd>, затем <code>main</code>, затем <code>footer</code>.
+<ul>
+<li>В ссылки впишите «Главная», «О нас», «Меню». <code>href</code> у первой — <code>index.html</code>, у второй — <code>about.html</code>.</li>
+<li>В <code>main</code>: <code>h1{Кофейня «Зерно»}+p</code> → <kbd>Tab</kbd>, одна фраза о кофейне.</li>
+<li>Ниже: <code>h2{Меню}+ul&gt;li*3</code> → <kbd>Tab</kbd>, три напитка.</li>
+</ul>
+</li>
+<li><strong>Картинка.</strong> В проводнике New Folder → <code>img</code>. Перетащите <code>coffee.jpg</code> из Finder прямо на папку <code>img</code> в проводнике VS Code.
+<ul>
+<li>В <code>main</code> наберите <code>img</code> → <kbd>Tab</kbd>. В <code>src=&quot;&quot;</code> начните печатать <code>img/</code> — VS Code подскажет файл, выберите.</li>
+<li>В <code>alt</code> — что на фото: «Чашка капучино на деревянном столе». Не «картинка» и не «фото».</li>
+</ul>
+</li>
+<li><strong>Вторая страница.</strong> Правый щелчок по <code>index.html</code> → Copy, правый щелчок по пустому месту проводника → Paste → переименуйте копию в <code>about.html</code> (<kbd>Enter</kbd> на файле).
+<ul>
+<li>В <code>about.html</code> поменяйте <code>h1</code> на «О нас», уберите меню напитков.</li>
+<li>Справа внизу Go Live → откроется главная. Щёлкните «О нас» → «Главная»: ссылки работают в обе стороны.</li>
+</ul>
+</li>
+<li><strong>Ломаем ссылку.</strong> В <code>index.html</code> поменяйте <code>about.html</code> на <code>abuot.html</code> → <kbd>⌘</kbd>+<kbd>S</kbd> → щёлкните ссылку в браузере: «Cannot GET /abuot.html».
+<ul>
+<li>Скажите: 404 из урока 1 — вот он. Верните правильное имя.</li>
+</ul>
+</li>
+<li><strong>Проверка.</strong>
+<ul>
+<li>Удалите у картинки <code>alt</code> → волнистая линия Biome → <kbd>⇧</kbd>+<kbd>⌘</kbd>+<kbd>M</kbd> — ошибка в Problems. Верните <code>alt</code>.</li>
+<li>В Chrome <kbd>⌥</kbd>+<kbd>⌘</kbd>+<kbd>I</kbd> → Elements: раскройте <code>body</code> — видно <code>header</code>, <code>main</code>, <code>footer</code>. Наведите на <code>main</code> — на странице подсветилась его область.</li>
+<li>Удалите в коде закрывающий <code>&lt;/li&gt;</code> у одного пункта и посмотрите в Elements: браузер достроил дерево сам — поэтому ошибки в HTML «незаметны», но Biome их видит.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Рассказать:</strong> это и есть задание 2 домашки, только про свою кофейню. Ученик делает то же самое по шагам, со своими текстами и картинками.</p>
+</aside></section>
 <section><div class="slide-body"><h2 id="домашнее-задание">Домашнее задание</h2>
 <ol>
 <li>Страница-рецепт</li>

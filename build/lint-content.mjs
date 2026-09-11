@@ -93,7 +93,8 @@ for (const slug of fs.readdirSync(LESSONS).sort()) {
   if (!fs.existsSync(slides)) err(rel, 'нет slides.md');
   else {
     sn = fs.readFileSync(slides, 'utf8').split(/^---\s*$/m).filter((s) => s.trim()).length + 1;
-    if (sn < 12 || sn > 36) err(path.relative(ROOT, slides), `слайдов ${sn}, нужно 12–36`);
+    if (sn < 12 || sn > 40) err(path.relative(ROOT, slides), `слайдов ${sn}, нужно 12–40`);
+    if (!/^## Воркшоп/m.test(fs.readFileSync(slides, 'utf8'))) err(path.relative(ROOT, slides), 'нет слайда «## Воркшоп…» — ментор показывает тему на своём примере');
   }
 
   // сценарий к слайдам: раздел на каждый слайд, у каждого длительность и что рассказать
@@ -110,6 +111,14 @@ for (const slug of fs.readdirSync(LESSONS).sort()) {
       if (!min) err(srel, `«${head}»: нет длительности «(N мин)»`); else total += Number(min[1]);
       if (!/\*\*На слайде:\*\*/.test(sec)) err(srel, `«${head}»: нет «**На слайде:**»`);
       if (!/\*\*(Рассказать|Показать вживую)/.test(sec)) err(srel, `«${head}»: нет «**Рассказать:**» или «**Показать вживую:**»`);
+    }
+    // воркшоп: ментор повторяет тему на своём примере — нужен план и пошаговые действия
+    const ws = secs.find((x) => /^Воркшоп/.test(x));
+    if (!ws) err(srel, 'нет раздела «## Воркшоп… (N мин)»');
+    else {
+      if (!/\*\*Подготовить заранее:\*\*/.test(ws)) err(srel, '«Воркшоп»: нет «**Подготовить заранее:**»');
+      if (!/\*\*Показать вживую:\*\*/.test(ws)) err(srel, '«Воркшоп»: нет «**Показать вживую:**» с шагами');
+      if ((ws.match(/^\d+\. /gm) || []).length < 4) err(srel, '«Воркшоп»: нужно не меньше четырёх пронумерованных шагов');
     }
     if (total < 70 || total > 100) warn(srel, `сценарий на ${total} мин, занятие рассчитано на 90`);
     console.log(`${slug}: сценарий — разделов ${secs.length}, ${total} мин`);
